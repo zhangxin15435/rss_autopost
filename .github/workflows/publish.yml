@@ -72,6 +72,30 @@ jobs:
     - name: 🎭 安装Playwright浏览器
       run: pnpm exec playwright install chromium --with-deps
     
+    - name: 🔍 验证环境配置
+      run: pnpm run validate-env
+      env:
+        # RSS Feed URL
+        RSS_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml
+        
+        # Medium发布方式选择 ('playwright' 或 'api')
+        MEDIUM_PUBLISH_METHOD: ${{ github.event.inputs.publish_method || secrets.MEDIUM_PUBLISH_METHOD || 'playwright' }}
+        
+        # Playwright方式 (推荐，稳定性高)
+        MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
+        MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
+        MEDIUM_HEADLESS: 'true'  # GitHub Actions中必须无头模式
+        MEDIUM_TIMEOUT: '60000'  # 60秒超时
+        MEDIUM_RETRIES: '3'      # 重试3次
+        
+        # API方式 (备用)
+        MEDIUM_INTEGRATION_TOKEN: ${{ secrets.MEDIUM_INTEGRATION_TOKEN }}
+        MEDIUM_SESSION_TOKEN: ${{ secrets.MEDIUM_SESSION_TOKEN }}
+        MEDIUM_USER_ID: ${{ secrets.MEDIUM_USER_ID }}
+        
+        # 环境标识
+        CI: 'true'
+    
     - name: 📊 检查系统状态
       run: pnpm start status
       

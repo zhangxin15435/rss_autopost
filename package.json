@@ -11,6 +11,7 @@
         "get-token": "node src/getMediumToken.js",
         "test-playwright": "node src/testPlaywrightPublisher.js",
         "extract-cookies": "node src/extractMediumCookies.js",
+        "validate-env": "node src/validateEnvironment.js",
         "install-browsers": "npx playwright install chromium",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

@@ -1,17 +1,19 @@
 # 📡 RSS到Medium自动发布系统
 
-一个现代化的、基于API的内容发布自动化工具，将CSV数据转换为RSS Feed，并自动发布到Medium平台。
+一个现代化的、全自动化的内容发布工具，将CSV数据转换为RSS Feed，并自动发布到Medium平台。支持浏览器自动化和API两种发布方式。
 
 ## ✨ 核心特性
 
-- 🚀 **纯API发布**：使用Medium官方Integration Token，无需浏览器自动化
+- 🎭 **Playwright自动化**：使用浏览器自动化，模拟真实用户操作，稳定性高
+- 🚀 **Medium API备用**：支持官方Integration Token，作为备用发布方式
 - 📊 **CSV数据源**：从CSV文件自动解析和处理文章内容
 - 🌐 **RSS生成**：自动生成符合标准的RSS 2.0和Atom Feed
 - 🔄 **智能发布**：去重检测，避免重复发布
 - 🎨 **Jekyll集成**：自动生成静态博客站点
 - ☁️ **GitHub Actions**：完全自动化的CI/CD流程
-- 🔐 **多重认证**：支持Integration Token和Session Token
+- 🔐 **多重认证**：支持邮箱密码、Integration Token和Session Token
 - 📱 **移动友好**：响应式设计，支持多种设备
+- 🔄 **自动重试**：发布失败时自动重试，提高成功率
 
 ## 🏗️ 系统架构
 
@@ -21,18 +23,21 @@ graph LR
     B --> C[Markdown生成]
     C --> D[RSS Feed]
     C --> E[Jekyll博客]
-    D --> F[Medium API]
-    E --> G[GitHub Pages]
-    F --> H[Medium文章]
-    G --> I[博客网站]
+    D --> F[Playwright自动化]
+    D --> G[Medium API]
+    E --> H[GitHub Pages]
+    F --> I[Medium文章]
+    G --> I
+    H --> J[博客网站]
 ```
 
-## 🎯 认证方式对比
+## 🎯 发布方式对比
 
-| 方式 | 持续时间 | 稳定性 | 推荐度 |
-|------|----------|--------|--------|
-| 🥇 **Integration Token** | 永久有效 | ⭐⭐⭐⭐⭐ | 最推荐 |
-| 🥈 **Session Cookie** | 2-6个月 | ⭐⭐⭐⭐ | 备用 |
+| 方式 | 认证方式 | 稳定性 | 维护难度 | 推荐度 |
+|------|----------|--------|----------|--------|
+| 🥇 **Playwright自动化** | 邮箱密码 | ⭐⭐⭐⭐⭐ | 低 | 最推荐 |
+| 🥈 **Medium API** | Integration Token | ⭐⭐⭐⭐ | 中 | 备用 |
+| 🥉 **Session Cookie** | 手动提取 | ⭐⭐⭐ | 高 | 不推荐 |
 
 ## 🚀 快速开始
 
@@ -46,9 +51,55 @@ cd medium_final
 # 安装依赖 (使用pnpm)
 pnpm install
 
+# 安装Playwright浏览器
+pnpm run install-browsers
+
 # 复制环境变量模板
 cp .env.example .env
 ```
+
+### 2️⃣ 配置认证信息
+
+#### 🎭 Playwright方式 (推荐)
+编辑 `.env` 文件，添加您的Medium账户信息：
+
+```env
+# Playwright自动化方式
+MEDIUM_PUBLISH_METHOD=playwright
+MEDIUM_EMAIL=你的Medium邮箱
+MEDIUM_PASSWORD=你的Medium密码
+MEDIUM_HEADLESS=false  # 本地开发时可设为false观察过程
+```
+
+#### 🚀 API方式 (备用)
+```env
+# API方式 
+MEDIUM_PUBLISH_METHOD=api
+MEDIUM_INTEGRATION_TOKEN=你的Integration_Token
+MEDIUM_USER_ID=你的用户ID
+```
+
+### 3️⃣ GitHub Actions配置
+
+#### 设置GitHub Secrets
+前往仓库 Settings → Secrets and variables → Actions，添加：
+
+```
+MEDIUM_EMAIL=你的Medium邮箱
+MEDIUM_PASSWORD=你的Medium密码
+```
+
+#### 自动触发条件
+- 📄 **CSV文件更新**: 当 `内容库_发布数据@zc_发布情况.csv` 有变化时
+- 💻 **代码更新**: 当 `src/` 目录有变化时
+- ⏰ **定时运行**: 每天凌晨2点自动检查
+
+#### 手动触发
+进入 Actions → 选择工作流 → Run workflow，可选择：
+- **full**: 完整流程 (生成博客 + 发布到Medium + 部署)
+- **blog**: 仅生成博客和RSS
+- **medium**: 仅发布到Medium
+- **status**: 仅检查系统状态
 
 ### 2️⃣ 获取Medium认证
 
@@ -95,12 +146,25 @@ MEDIUM_INTEGRATION_TOKEN=your_integration_token_here  # 推荐
 | 发布渠道 | 目标平台 | "Medium,Blog" |
 | 发布完成 | 完成标记 | "否" |
 
-### 5️⃣ 运行系统
+### 4️⃣ 本地测试
 
 ```bash
+# 验证环境配置
+pnpm run validate-env
+
 # 检查系统状态
 pnpm start status
 
+# 测试Playwright发布 (推荐)
+pnpm run test-playwright
+
+# 提取Medium cookies (备用)
+pnpm run extract-cookies
+```
+
+### 5️⃣ 运行系统
+
+```bash
 # 生成博客和RSS
 pnpm start blog
 
@@ -117,14 +181,20 @@ pnpm start full
 
 ```bash
 # 系统命令
-pnpm start status    # 检查系统状态和配置
-pnpm start blog      # 仅生成博客和RSS
-pnpm start medium    # 仅发布到Medium
-pnpm start full      # 完整发布流程
+pnpm start status         # 检查系统状态和配置
+pnpm start blog           # 仅生成博客和RSS
+pnpm start medium         # 仅发布到Medium
+pnpm start full           # 完整发布流程
+
+# 测试命令
+pnpm run validate-env     # 验证环境变量配置
+pnpm run test-playwright  # 测试Playwright自动化
+pnpm run extract-cookies  # 手动提取Medium cookies
 
 # 工具命令
-pnpm get-token      # 获取Medium token指南
-pnpm serve          # 本地预览博客 (http://localhost:8080)
+pnpm get-token           # 获取Medium API token指南
+pnpm serve               # 本地预览博客 (http://localhost:8080)
+pnpm run install-browsers # 安装Playwright浏览器
 ```
 
 ### 配置选项
@@ -140,10 +210,18 @@ RSS_URL=https://yourblog.github.io/feed.xml
 
 **Medium配置**
 ```env
-# 方法1: Integration Token (推荐)
-MEDIUM_INTEGRATION_TOKEN=your_token_here
+# 发布方式选择
+MEDIUM_PUBLISH_METHOD=playwright  # 'playwright' 或 'api'
 
-# 方法2: Session Token (备用)
+# Playwright方式 (推荐)
+MEDIUM_EMAIL=your@email.com
+MEDIUM_PASSWORD=your_password
+MEDIUM_HEADLESS=false  # 本地开发时可设为false
+MEDIUM_TIMEOUT=30000   # 超时时间(毫秒)
+MEDIUM_RETRIES=3       # 重试次数
+
+# API方式 (备用)
+MEDIUM_INTEGRATION_TOKEN=your_token_here
 MEDIUM_SESSION_TOKEN=your_session_id
 MEDIUM_USER_ID=your_user_id
 ```
