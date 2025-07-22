@@ -360,7 +360,13 @@ async function main() {
 }
 
 // 如果是直接运行此文件
-if (import.meta.url === `file://${process.argv[1]}`) {
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const currentFile = path.resolve(__filename);
+const scriptFile = path.resolve(process.argv[1]);
+
+if (currentFile === scriptFile) {
     main();
 }
 

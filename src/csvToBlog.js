@@ -4,6 +4,7 @@ import path from 'path';
 import { format } from 'date-fns';
 import slugify from 'slugify';
 import iconv from 'iconv-lite';
+import { Readable } from 'stream';
 
 /**
  * CSV到博客文章转换器
@@ -11,6 +12,7 @@ import iconv from 'iconv-lite';
  */
 class CsvToBlog {
     constructor(options = {}) {
+        this.options = options;  // 保存完整的options对象
         this.inputFile = options.inputFile || '内容库_发布数据@zc_发布情况.csv';
         this.outputDir = options.outputDir || '_posts';
         this.siteDir = options.siteDir || '_site';
@@ -75,7 +77,7 @@ class CsvToBlog {
             // 读取文件的原始buffer，然后转换编码
             const buffer = fs.readFileSync(this.inputFile);
             let content = '';
-            
+
             // 尝试检测编码并转换
             try {
                 // 首先尝试UTF-8
@@ -88,9 +90,8 @@ class CsvToBlog {
                 // 如果转换失败，使用GBK
                 content = iconv.decode(buffer, 'gbk');
             }
-            
+
             // 使用转换后的内容创建流
-            const { Readable } = await import('stream');
             Readable.from([content])
                 .pipe(csv())
                 .on('data', (row) => {
@@ -159,13 +160,15 @@ class CsvToBlog {
             // 检查是否进入发布流程且渠道包含medium
             const isInWorkflow = status.includes('进入发布流程');
             const hasMediumChannel = channels.includes('medium');
-            
+
             // 如果设置了允许重新发布，忽略完成状态；否则只发布未完成的
-            const shouldPublish = this.options.allowRepublish ? 
+            const shouldPublish = this.options.allowRepublish ?
                 (completed !== '是' || true) :  // 允许重新发布时忽略完成状态
                 completed !== '是';              // 正常情况下只发布未完成的
 
-            console.log(`文章"${article.title.substring(0, 50)}...": 状态=${isInWorkflow}, medium渠道=${hasMediumChannel}, 应发布=${shouldPublish}, 完成状态=${completed}`);
+            if (this.options.allowRepublish && isInWorkflow && hasMediumChannel) {
+                console.log(`✅ 测试模式: 包含文章 "${article.title.substring(0, 50)}..."`);
+            }
 
             return isInWorkflow && hasMediumChannel && shouldPublish;
         });

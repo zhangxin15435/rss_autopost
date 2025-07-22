@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[技术博客]]></title>
+        <description><![CDATA[Context Engineering and AI Development Blog]]></description>
+        <link>https://yourblog.github.io</link>
+        <image>
+            <url>https://yourblog.github.io/assets/logo.png</url>
+            <title>技术博客</title>
+            <link>https://yourblog.github.io</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Tue, 22 Jul 2025 07:29:40 GMT</lastBuildDate>
+        <atom:link href="https://yourblog.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[Blog Author]]></author>
+        <copyright><![CDATA[2025 Blog. All rights reserved.]]></copyright>
+        <language><![CDATA[zh-cn]]></language>
+        <managingEditor><![CDATA[editor@yourblog.com]]></managingEditor>
+        <webMaster><![CDATA[webmaster@yourblog.com]]></webMaster>
+        <ttl>60</ttl>
+        <category><![CDATA[Technology]]></category>
+        <category><![CDATA[AI]]></category>
+        <category><![CDATA[Development]]></category>
+        <item>
+            <title><![CDATA[Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building]]></title>
+            <description><![CDATA[When the Manus team playfully described their AI development journey as Stochast...]]></description>
+            <link>https://yourblog.github.io/2025/07/22/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</link>
+            <guid isPermaLink="false">https://yourblog.github.io/2025/07/22/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</guid>
+            <category><![CDATA[技术]]></category>
+            <category><![CDATA[AI]]></category>
+            <dc:creator><![CDATA[马侨仪]]></dc:creator>
+            <pubDate>Tue, 22 Jul 2025 07:29:40 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Context Engineering for AI Agents: Key Lessons from Manus]]></title>
+            <description><![CDATA[Context engineering is quickly emerging as one of the most critical disciplines ...]]></description>
+            <link>https://yourblog.github.io/2025/07/22/context-engineering-for-ai-agents-key-lessons-from-manus/</link>
+            <guid isPermaLink="false">https://yourblog.github.io/2025/07/22/context-engineering-for-ai-agents-key-lessons-from-manus/</guid>
+            <category><![CDATA[技术]]></category>
+            <category><![CDATA[AI]]></category>
+            <dc:creator><![CDATA[马侨仪]]></dc:creator>
+            <pubDate>Tue, 22 Jul 2025 07:29:40 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Two Approaches to Context Engineering: Manus vs. Context Space]]></title>
+            <description><![CDATA[Context engineering is quickly becoming a cornerstone of modern AI development, ...]]></description>
+            <link>https://yourblog.github.io/2025/07/22/two-approaches-to-context-engineering-manus-vs/</link>
+            <guid isPermaLink="false">https://yourblog.github.io/2025/07/22/two-approaches-to-context-engineering-manus-vs/</guid>
+            <category><![CDATA[技术]]></category>
+            <category><![CDATA[AI]]></category>
+            <dc:creator><![CDATA[马侨仪]]></dc:creator>
+            <pubDate>Tue, 22 Jul 2025 07:29:40 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
