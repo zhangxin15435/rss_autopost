@@ -108,3 +108,6 @@ config.json
 
 # Specstory debug files
 .specstory/ 
+
+# Cursor indexing ignore file
+.cursorindexingignore
