@@ -1,0 +1,44 @@
+{
+    "name": "rss-to-medium-publisher",
+    "version": "1.0.0",
+    "description": "从CSV数据生成RSS，并自动发布到Medium平台",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "node --watch src/index.js",
+        "build:blog": "node src/buildBlog.js",
+        "publish:medium": "node src/publishToMedium.js",
+        "serve": "npx http-server _site -p 8080",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "rss",
+        "medium",
+        "automation",
+        "csv",
+        "blog",
+        "publishing"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "csv-parser": "^3.0.0",
+        "fs-extra": "^11.2.0",
+        "gray-matter": "^4.0.3",
+        "markdown-it": "^14.0.0",
+        "rss": "^1.2.2",
+        "xml2js": "^0.6.2",
+        "node-fetch": "^3.3.2",
+        "dotenv": "^16.3.1",
+        "winston": "^3.11.0",
+        "date-fns": "^3.0.6",
+        "slugify": "^1.6.6"
+    },
+    "devDependencies": {
+        "http-server": "^14.1.1"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

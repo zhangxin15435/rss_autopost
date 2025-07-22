@@ -1,0 +1,165 @@
+name: 📡 RSS到Medium自动发布
+
+on:
+  # 当CSV文件有变化时触发
+  push:
+    paths:
+      - '内容库_发布数据@zc_发布情况.csv'
+      - 'src/**'
+    branches:
+      - main
+  
+  # 定时运行（每天检查一次）
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨2点运行
+  
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '运行模式'
+        required: true
+        default: 'blog'
+        type: choice
+        options:
+        - full
+        - blog
+        - medium
+        - status
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18]
+    
+    steps:
+    - name: 📥 检出代码
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: 🔧 设置Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: 📦 安装依赖
+      run: |
+        npm ci
+        npx playwright install chromium --with-deps
+    
+    - name: 📊 检查系统状态
+      run: npm start status
+      
+    - name: 📝 生成博客和RSS
+      run: npm start blog
+      continue-on-error: false
+    
+    - name: 🚀 构建Jekyll站点
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./
+        destination: ./_site
+    
+    - name: 📤 发布到Medium (仅在配置了登录信息时)
+      if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'medium' }}
+      run: npm start medium
+      env:
+        MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
+        MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
+      continue-on-error: true
+    
+    - name: 🔄 提交更改
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        if git diff --staged --quiet; then
+          echo "没有变化需要提交"
+        else
+          git commit -m "🤖 自动更新博客文章和RSS Feed"
+          git push
+        fi
+    
+    - name: 📋 上传构建产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: site-build
+        path: |
+          _site/
+          feed.xml
+          atom.xml
+          published_articles.json
+    
+    - name: 📊 生成报告
+      run: |
+        echo "## 📈 发布报告" >> $GITHUB_STEP_SUMMARY
+        echo "- 🏗️ 构建时间: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "- 📝 文章数量: $(find _posts -name "*.md" 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- 📡 RSS文件: $([ -f feed.xml ] && echo "✅" || echo "❌")" >> $GITHUB_STEP_SUMMARY
+        echo "- 🌐 站点: $([ -d _site ] && echo "✅" || echo "❌")" >> $GITHUB_STEP_SUMMARY
+
+  # 部署到GitHub Pages
+  deploy-pages:
+    needs: publish
+    runs-on: ubuntu-latest
+    
+    # 只在主分支运行
+    if: github.ref == 'refs/heads/main'
+    
+    # 授予GITHUB_TOKEN权限以部署到Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    # 只允许一个并发部署
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+    - name: 📥 下载构建产物
+      uses: actions/download-artifact@v4
+      with:
+        name: site-build
+        path: ./_site
+    
+    - name: 🔧 设置Pages
+      uses: actions/configure-pages@v4
+    
+    - name: 📤 上传到Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./_site
+    
+    - name: 🌐 部署到GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+  # 通知任务（可选）
+  notify:
+    needs: [publish, deploy-pages]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: 📢 发送通知
+      run: |
+        if [ "${{ needs.publish.result }}" == "success" ] && [ "${{ needs.deploy-pages.result }}" == "success" ]; then
+          echo "✅ 发布成功完成！"
+          echo "🌐 网站: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          echo "📡 RSS: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml"
+        else
+          echo "❌ 发布过程中出现问题"
+          echo "📝 发布结果: ${{ needs.publish.result }}"
+          echo "🌐 部署结果: ${{ needs.deploy-pages.result }}"
+        fi 
