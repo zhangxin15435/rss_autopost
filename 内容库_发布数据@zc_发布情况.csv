@@ -1,12 +1,12 @@
-ä¸»é¢˜,å‘å¸ƒ,æå‡ºäºº,å‘å¸ƒå†…å®¹,æ ¼å¼è½¬æ¢,markdownæ ¼å¼æ–‡æœ¬,æ ‡ç­¾,å›¾ç‰‡,æ¸ é“&è´¦å·,å‘å¸ƒå®Œæˆ
-Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building (æ­£å¼ç‰ˆ),è¿›å…¥å‘å¸ƒæµç¨‹,é©¬ä¾¨ä»ª,"When the Manus team playfully described their AI development journey as ""Stochastic Graduate Descent,"" it was more than just a clever pun on the familiar ""Stochastic Gradient Descent"" (SGD). They weren't just being self-deprecating, they were highlighting a fundamental problem in the industry: proper tools for context engineering simply don't exist yet.
-Their recent blog post offers a rare look into production-level context engineering. But between the lines, it reveals something equally important â€“ the enormous friction developers face when building context-aware AI systems. Every insight they shared, from KV-cache optimization to attention manipulation, represents hours of manual debugging, trial and error, and custom tooling.
+Ö÷Ìâ,·¢²¼,Ìá³öÈË,·¢²¼ÄÚÈİ,¸ñÊ½×ª»»,markdown¸ñÊ½ÎÄ±¾,±êÇ©,Í¼Æ¬,ÇşµÀ&ÕËºÅ,·¢²¼Íê³É
+Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building ,½øÈë·¢²¼Á÷³Ì,ÂíÇÈÒÇ,"When the Manus team playfully described their AI development journey as ""Stochastic Graduate Descent,"" it was more than just a clever pun on the familiar ""Stochastic Gradient Descent"" (SGD). They weren't just being self-deprecating, they were highlighting a fundamental problem in the industry: proper tools for context engineering simply don't exist yet.
+Their recent blog post offers a rare look into production-level context engineering. But between the lines, it reveals something equally important ¨C the enormous friction developers face when building context-aware AI systems. Every insight they shared, from KV-cache optimization to attention manipulation, represents hours of manual debugging, trial and error, and custom tooling.
 
 This got us thinking: what if context engineering had proper developer tools? What would they look like, and how would they change the way we build AI agents?
 
 The Current State: Flying Blind
 
-Today's context engineering workflow resembles web development from the 1990s â€“ lots of manual work, limited visibility, and debugging through print statements. Consider what Manus had to discover the hard way:
+Today's context engineering workflow resembles web development from the 1990s ¨C lots of manual work, limited visibility, and debugging through print statements. Consider what Manus had to discover the hard way:
 
 Performance Debugging Without Metrics
 Manus identified KV-cache hit rate as their most critical metric, but most developers have no visibility into cache performance. They're optimizing blind, discovering 10x cost differences only after running production workloads.
@@ -141,10 +141,10 @@ The lessons from Manus are clear: context engineering is too important to leave 
 This is exactly what we're building at Context Space. Our tool-first infrastructure isn't just about making integrations easier, it's more about creating the development experience that teams like Manus needed but had to build themselves.
 
 Every principle they discovered through their self-termed ""Stochastic Graduate Descent"" becomes a feature in our platform:
-KV-cache optimization â†’ real-time performance monitoring
-Tool explosion management â†’ intelligent tool discovery and management
-Memory architecture â†’ dynamic context building capabilities
-Error recovery â†’ systematic debugging and observability
+KV-cache optimization ¡ú real-time performance monitoring
+Tool explosion management ¡ú intelligent tool discovery and management
+Memory architecture ¡ú dynamic context building capabilities
+Error recovery ¡ú systematic debugging and observability
 The Developer Experience We Deserve
 
 Context engineering is becoming the foundation of all serious AI development. But it shouldn't require multiple framework rebuilds and years of trial and error to get right.
@@ -159,12 +159,12 @@ There's no question that Context Engineering is quickly becoming essential. The 
 
 Ready to experience context engineering with proper tooling?
 
-ğŸ‘‰ Try Context Space and see what context engineering looks like with the right tools
+?? Try Context Space and see what context engineering looks like with the right tools
 
-ğŸ‘‰ Explore our GitHub to understand our tool-first approach
+?? Explore our GitHub to understand our tool-first approach
 
-The ""Stochastic Gradient Descent"" era of context engineering is ending. The systematic, tool-supported era is beginning.",å¼€å§‹,,,,"medium,hashnode,DEV community",æ˜¯
-Context Engineering for AI Agents: Key Lessons from Manus (æ­£å¼ç‰ˆ),è¿›å…¥å‘å¸ƒæµç¨‹,é©¬ä¾¨ä»ª,"Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
+The ""Stochastic Gradient Descent"" era of context engineering is ending. The systematic, tool-supported era is beginning.",¿ªÊ¼,,,,"medium,hashnode,DEV community",ÊÇ
+Context Engineering for AI Agents: Key Lessons from Manus ,½øÈë·¢²¼Á÷³Ì,ÂíÇÈÒÇ,"Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
 The team at Manus AI recently published a post on their experiences building a real-world agent, offering significant insights gained from four complete framework rebuilds. These lessons provide a practical roadmap for anyone building production-level AI systems.
 The Primary Metric: KV-Cache Hit Rate
 While task success is a common goal, the Manus team emphasizes that the single most important metric for a production agent is its KV-cache hit rate. This is more than a simple performance optimization; it is a core architectural constraint that directly impacts economic viability.
@@ -180,7 +180,7 @@ The ""Tool Explosion"" Problem
 As an agent's capabilities expand, so does its collection of tools. However, a larger toolkit can paradoxically make the agent less effective. Manus identifies this as the ""tool explosion"" problem, where an expanded action space leads the model to select suboptimal or inefficient paths.
 Their solution is both elegant and effective: mask tool availability instead of removing tools from the context. By keeping tool definitions stable and using logit masking, they preserve cache coherence and gain fine-grained control over the agent's action space.
 Memory Architecture: The File System as External Context
-Even with large context windows, their limits become apparent in complex tasks. The Manus teamâ€™s solution is to treat the file system as the ultimate context: unlimited, persistent, and directly accessible by the agent. This allows for ""recoverable compression,"" where information like a webpage's content can be offloaded from the prompt as long as a URL or file path allows the agent to restore it when needed.
+Even with large context windows, their limits become apparent in complex tasks. The Manus team¡¯s solution is to treat the file system as the ultimate context: unlimited, persistent, and directly accessible by the agent. This allows for ""recoverable compression,"" where information like a webpage's content can be offloaded from the prompt as long as a URL or file path allows the agent to restore it when needed.
 Attention Management Through Recitation
 One of the most novel insights from Manus involves manipulating the model's attention through recitation. Their agents create and continuously update a todo.md file. The purpose is not just organization; it is a deliberate technique to guide the model. By reciting objectives at the end of the context, the agent pushes the global plan into the model's most recent attention span, reducing goal drift on long tasks.
 Error Handling as a Feature
@@ -204,8 +204,8 @@ The transition from AI demos to production-grade agents requires this kind of sy
 
 Further Reading:
 Original Manus blog post with detailed technical implementation
-The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become criticalâ€”it's whether you'll learn these lessons through experimentation or through others' experience.",å¼€å§‹,,,,"medium,hashnode,DEV community",æ˜¯
-Two Approaches to Context Engineering: Manus vs. Context Space (æ­£å¼ç‰ˆ),è¿›å…¥å‘å¸ƒæµç¨‹,é©¬ä¾¨ä»ª,"Context engineering is quickly becoming a cornerstone of modern AI development, driving new approaches across the industry. Recently, the team at Manus AI shared their hard-earned lessons from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
+The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become critical¡ªit's whether you'll learn these lessons through experimentation or through others' experience.",¿ªÊ¼,,,,"medium,hashnode,DEV community",ÊÇ
+Two Approaches to Context Engineering: Manus vs. Context Space ,½øÈë·¢²¼Á÷³Ì,ÂíÇÈÒÇ,"Context engineering is quickly becoming a cornerstone of modern AI development, driving new approaches across the industry. Recently, the team at Manus AI shared their hard-earned lessons from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
 
 Reading their post felt like looking in a mirror, and yet seeing a completely different reflection. Both Manus and Context Space are deeply invested in solving the context engineering puzzle, but we're approaching it from fundamentally different angles. This presents a fascinating case study in how the same core problem can spawn complementary solutions.
 
@@ -294,8 +294,8 @@ The context engineering revolution is just beginning. Let's build it together.
 
 Ready to explore context engineering for yourself?
 
-ğŸ‘‰ Check out Context Space on GitHub and see how we're building the infrastructure layer
+?? Check out Context Space on GitHub and see how we're building the infrastructure layer
 
-ğŸ‘‰ Read Manus's insights to understand the runtime optimization layer
+?? Read Manus's insights to understand the runtime optimization layer
 
-The future needs both approaches. Which layer will you build?",å¼€å§‹,,,,"medium,hashnode,DEV community",æ˜¯
+The future needs both approaches. Which layer will you build?",¿ªÊ¼,,,,"medium,hashnode,DEV community",ÊÇ
