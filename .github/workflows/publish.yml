@@ -59,9 +59,7 @@ jobs:
         cache: 'pnpm'
     
     - name: 📦 安装依赖
-      run: |
-        pnpm install --frozen-lockfile
-        pnpm exec playwright install chromium --with-deps
+      run: pnpm install --frozen-lockfile
     
     - name: 📊 检查系统状态
       run: pnpm start status
@@ -78,17 +76,15 @@ jobs:
         source: ./
         destination: ./_site
     
-    - name: 📤 发布到Medium (仅在配置了登录信息时)
+    - name: 📤 发布到Medium (仅在配置了认证信息时)
       if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'medium' }}
       run: pnpm start medium
       env:
-        # Medium API方式 (推荐)
+        # Medium官方Integration Token (推荐，永久有效)
+        MEDIUM_INTEGRATION_TOKEN: ${{ secrets.MEDIUM_INTEGRATION_TOKEN }}
+        # Medium Session Token (备用，需定期更新)
         MEDIUM_SESSION_TOKEN: ${{ secrets.MEDIUM_SESSION_TOKEN }}
-        MEDIUM_PUBLISH_METHOD: 'api'
-        # 浏览器方式 (备用)
-        MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
-        MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
-        HEADLESS: 'true'  # 强制使用无头模式
+        MEDIUM_USER_ID: ${{ secrets.MEDIUM_USER_ID }}
         CI: 'true'        # GitHub Actions环境标识
       continue-on-error: true
     

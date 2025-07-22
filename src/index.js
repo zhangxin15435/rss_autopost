@@ -5,7 +5,6 @@ import fs from 'fs-extra';
 import path from 'path';
 import CsvToBlog from './csvToBlog.js';
 import RSSGenerator from './rssGenerator.js';
-import MediumPublisher from './mediumPublisher.js';
 import MediumApiPublisher from './mediumApiPublisher.js';
 
 // 加载环境变量
@@ -21,35 +20,12 @@ class RSSToMediumSystem {
         this.csvToBlog = new CsvToBlog(this.config.blog);
         this.rssGenerator = new RSSGenerator(this.config.rss);
 
-        // 根据配置选择Medium发布方式
-        if (this.config.medium.publishMethod === 'api') {
-            this.mediumPublisher = new MediumApiPublisher(this.config.medium);
-            console.log('✅ 使用Medium API发布方式 (推荐)');
-        } else {
-            this.mediumPublisher = new MediumPublisher(this.config.medium);
-            console.log('⚠️  使用浏览器发布方式 (可能需要手动干预)');
-        }
+        // 使用Medium API发布方式 (唯一支持的方式)
+        this.mediumPublisher = new MediumApiPublisher(this.config.medium);
+        console.log('✅ 使用Medium API发布方式');
     }
 
-    /**
-     * 判断是否应该以无头模式运行浏览器
-     */
-    shouldRunHeadless() {
-        // 在以下情况下强制使用无头模式:
-        // 1. 生产环境
-        // 2. GitHub Actions环境 (CI=true)
-        // 3. Linux服务器环境且没有DISPLAY
-        // 4. 明确设置了HEADLESS=true
 
-        if (process.env.HEADLESS === 'true') return true;
-        if (process.env.HEADLESS === 'false') return false;
-        if (process.env.NODE_ENV === 'production') return true;
-        if (process.env.CI === 'true') return true;
-        if (process.platform === 'linux' && !process.env.DISPLAY) return true;
-
-        // 默认情况下，在开发环境使用有界面模式
-        return false;
-    }
 
     /**
      * 加载配置
@@ -79,13 +55,7 @@ class RSSToMediumSystem {
                 // 备用Session Token (需定期更新)
                 sessionToken: process.env.MEDIUM_SESSION_TOKEN,
                 userId: process.env.MEDIUM_USER_ID,
-                publishedFile: 'published_articles.json',
-                // 传统浏览器方式配置 (最后备用)
-                mediumEmail: process.env.MEDIUM_EMAIL,
-                mediumPassword: process.env.MEDIUM_PASSWORD,
-                headless: this.shouldRunHeadless(),
-                // 发布方式选择: 'api' 或 'browser'
-                publishMethod: process.env.MEDIUM_PUBLISH_METHOD || 'api'
+                publishedFile: 'published_articles.json'
             }
         };
 
@@ -234,7 +204,7 @@ class RSSToMediumSystem {
      * 检查是否应该发布到Medium
      */
     shouldPublishToMedium() {
-        return !!(this.config.medium.mediumEmail && this.config.medium.mediumPassword);
+        return !!(this.config.medium.integrationToken || this.config.medium.sessionToken);
     }
 
     /**
@@ -260,7 +230,15 @@ class RSSToMediumSystem {
                 posts: { count: postsCount, dir: this.config.blog.outputDir },
                 rss: { exists: rssExists, stats: rssStats },
                 medium: { configured: this.shouldPublishToMedium(), stats: mediumStats },
-                config: this.config
+                config: {
+                    blog: this.config.blog,
+                    rss: this.config.rss,
+                    medium: {
+                        hasIntegrationToken: !!this.config.medium.integrationToken,
+                        hasSessionToken: !!this.config.medium.sessionToken,
+                        publishedFile: this.config.medium.publishedFile
+                    }
+                }
             };
 
         } catch (error) {
@@ -289,7 +267,8 @@ class RSSToMediumSystem {
             medium: {
                 rssUrl: "https://yourusername.github.io/feed.xml",
                 publishedFile: "published_articles.json",
-                headless: true
+                integrationToken: "your_token_here",
+                sessionToken: "your_session_token_here"
             }
         };
 
@@ -308,9 +287,12 @@ BLOG_TITLE=我的技术博客
 BLOG_DESCRIPTION=分享技术见解和开发经验
 BLOG_AUTHOR=Your Name
 
-# Medium登录信息
-MEDIUM_EMAIL=your_email@example.com
-MEDIUM_PASSWORD=your_password
+# Medium API认证 (选择一种方式)
+# 方法1: Integration Token (推荐，永久有效)
+MEDIUM_INTEGRATION_TOKEN=your_integration_token_here
+# 方法2: Session Token (备用，需定期更新)
+MEDIUM_SESSION_TOKEN=your_session_token_here
+MEDIUM_USER_ID=your_user_id
 
 # 运行环境
 NODE_ENV=production
@@ -376,12 +358,13 @@ async function main() {
   help      显示此帮助信息
 
 环境变量:
-  MEDIUM_EMAIL     Medium登录邮箱
-  MEDIUM_PASSWORD  Medium登录密码  
-  SITE_URL         博客网站URL
-  RSS_URL          RSS Feed URL
-  BLOG_TITLE       博客标题
-  BLOG_AUTHOR      博客作者
+  MEDIUM_INTEGRATION_TOKEN  Medium Integration Token (推荐)
+  MEDIUM_SESSION_TOKEN      Medium Session Token (备用)
+  MEDIUM_USER_ID           Medium用户ID
+  SITE_URL                 博客网站URL
+  RSS_URL                  RSS Feed URL
+  BLOG_TITLE               博客标题
+  BLOG_AUTHOR              博客作者
 
 示例:
   npm start full      # 完整发布流程
