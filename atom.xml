@@ -3,7 +3,7 @@
   <title>技术博客</title>
   <link href="https://yourblog.github.io"/>
   <link href="https://yourblog.github.io/atom.xml" rel="self"/>
-  <updated>2025-07-22T11:52:56.000Z</updated>
+  <updated>2025-07-22T11:53:57.000Z</updated>
   <id>https://yourblog.github.io/</id>
   <author>
     <name>Blog Author</name>
@@ -13,7 +13,7 @@
   <entry>
     <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
     <link href="https://yourblog.github.io/2025/07/22/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
-    <updated>2025-07-22T11:52:56.000Z</updated>
+    <updated>2025-07-22T11:53:57.000Z</updated>
     <id>https://yourblog.github.io/2025/07/22/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
     <content type="html">
 When the Manus team playfully described their AI development journey as &quot;Stochastic Graduate Descent,&quot; it was more than just a clever pun on the familiar &quot;Stochastic Gradient Descent&quot; (SGD). They weren&#x27;t just being self-deprecating, they were highlighting a fundamental problem in the industry: proper tools for context engineering simply don&#x27;t exist yet.
@@ -188,7 +188,7 @@ The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending
   <entry>
     <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
     <link href="https://yourblog.github.io/2025/07/22/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
-    <updated>2025-07-22T11:52:56.000Z</updated>
+    <updated>2025-07-22T11:53:57.000Z</updated>
     <id>https://yourblog.github.io/2025/07/22/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
     <content type="html">
 Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
@@ -239,7 +239,7 @@ The field is young, the challenges are real, and the opportunities are enormous.
   <entry>
     <title>Two Approaches to Context Engineering: Manus vs. Context Space</title>
     <link href="https://yourblog.github.io/2025/07/22/two-approaches-to-context-engineering-manus-vs/"/>
-    <updated>2025-07-22T11:52:56.000Z</updated>
+    <updated>2025-07-22T11:53:57.000Z</updated>
     <id>https://yourblog.github.io/2025/07/22/two-approaches-to-context-engineering-manus-vs/</id>
     <content type="html">
 Context engineering is quickly becoming a cornerstone of modern AI development, driving new approaches across the industry. Recently, the team at Manus AI shared their hard-earned lessons from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
