@@ -6,6 +6,7 @@ import path from 'path';
 import CsvToBlog from './csvToBlog.js';
 import RSSGenerator from './rssGenerator.js';
 import MediumApiPublisher from './mediumApiPublisher.js';
+import MediumPlaywrightPublisher from './mediumPlaywrightPublisher.js';
 
 // 加载环境变量
 dotenv.config();
@@ -20,9 +21,18 @@ class RSSToMediumSystem {
         this.csvToBlog = new CsvToBlog(this.config.blog);
         this.rssGenerator = new RSSGenerator(this.config.rss);
 
-        // 使用Medium API发布方式 (唯一支持的方式)
+        // 根据配置选择Medium发布方式
+        const publishMethod = this.config.medium.publishMethod || 'playwright';
+
+        if (publishMethod === 'api') {
+            // 使用Medium API发布方式
         this.mediumPublisher = new MediumApiPublisher(this.config.medium);
         console.log('✅ 使用Medium API发布方式');
+        } else {
+            // 使用Playwright自动化发布方式 (默认)
+            this.mediumPublisher = new MediumPlaywrightPublisher(this.config.medium);
+            console.log('✅ 使用Playwright自动化发布方式');
+        }
     }
 
 
@@ -50,12 +60,20 @@ class RSSToMediumSystem {
             },
             medium: {
                 rssUrl: process.env.RSS_URL || 'http://localhost:8080/feed.xml',
-                // 优先使用Integration Token (永久有效，最推荐)
+                // 发布方式选择: 'playwright' (默认) 或 'api'
+                publishMethod: process.env.MEDIUM_PUBLISH_METHOD || 'playwright',
+                // Playwright方式的登录凭据
+                email: process.env.MEDIUM_EMAIL,
+                password: process.env.MEDIUM_PASSWORD,
+                // API方式的认证信息
                 integrationToken: process.env.MEDIUM_INTEGRATION_TOKEN,
-                // 备用Session Token (需定期更新)
                 sessionToken: process.env.MEDIUM_SESSION_TOKEN,
                 userId: process.env.MEDIUM_USER_ID,
-                publishedFile: 'published_articles.json'
+                // 通用配置
+                publishedFile: 'published_articles.json',
+                headless: process.env.MEDIUM_HEADLESS !== 'false', // 默认无头模式
+                timeout: parseInt(process.env.MEDIUM_TIMEOUT) || 30000,
+                retries: parseInt(process.env.MEDIUM_RETRIES) || 3
             }
         };
 
@@ -204,7 +222,15 @@ class RSSToMediumSystem {
      * 检查是否应该发布到Medium
      */
     shouldPublishToMedium() {
-        return !!(this.config.medium.integrationToken || this.config.medium.sessionToken);
+        const { publishMethod, integrationToken, sessionToken, email, password } = this.config.medium;
+
+        if (publishMethod === 'api') {
+            // API方式需要token
+            return !!(integrationToken || sessionToken);
+        } else {
+            // Playwright方式需要邮箱密码或session token
+            return !!(email && password) || !!sessionToken;
+        }
     }
 
     /**
@@ -287,10 +313,19 @@ BLOG_TITLE=我的技术博客
 BLOG_DESCRIPTION=分享技术见解和开发经验
 BLOG_AUTHOR=Your Name
 
-# Medium API认证 (选择一种方式)
-# 方法1: Integration Token (推荐，永久有效)
+# Medium发布配置
+# 发布方式选择: 'playwright' (默认) 或 'api'
+MEDIUM_PUBLISH_METHOD=playwright
+
+# Playwright自动化方式 (推荐)
+MEDIUM_EMAIL=your_email@example.com
+MEDIUM_PASSWORD=your_password
+MEDIUM_HEADLESS=true
+MEDIUM_TIMEOUT=30000
+MEDIUM_RETRIES=3
+
+# Medium API方式 (备用)
 MEDIUM_INTEGRATION_TOKEN=your_integration_token_here
-# 方法2: Session Token (备用，需定期更新)
 MEDIUM_SESSION_TOKEN=your_session_token_here
 MEDIUM_USER_ID=your_user_id
 
@@ -358,9 +393,15 @@ async function main() {
   help      显示此帮助信息
 
 环境变量:
-  MEDIUM_INTEGRATION_TOKEN  Medium Integration Token (推荐)
-  MEDIUM_SESSION_TOKEN      Medium Session Token (备用)
-  MEDIUM_USER_ID           Medium用户ID
+  MEDIUM_PUBLISH_METHOD    Medium发布方式: 'playwright' (默认) 或 'api'
+  MEDIUM_EMAIL             Medium邮箱 (Playwright方式)
+  MEDIUM_PASSWORD          Medium密码 (Playwright方式)
+  MEDIUM_INTEGRATION_TOKEN Medium Integration Token (API方式)
+  MEDIUM_SESSION_TOKEN     Medium Session Token (API/Playwright方式)
+  MEDIUM_USER_ID           Medium用户ID (API方式)
+  MEDIUM_HEADLESS          是否无头模式: true/false (默认true)
+  MEDIUM_TIMEOUT           操作超时时间毫秒 (默认30000)
+  MEDIUM_RETRIES           重试次数 (默认3)
   SITE_URL                 博客网站URL
   RSS_URL                  RSS Feed URL
   BLOG_TITLE               博客标题

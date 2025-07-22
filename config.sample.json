@@ -1,0 +1,20 @@
+{
+  "blog": {
+    "inputFile": "内容库_发布数据@zc_发布情况.csv",
+    "outputDir": "_posts",
+    "baseUrl": "https://yourusername.github.io"
+  },
+  "rss": {
+    "title": "我的技术博客",
+    "description": "分享技术见解和开发经验",
+    "author": "Your Name",
+    "feed_url": "https://yourusername.github.io/feed.xml",
+    "site_url": "https://yourusername.github.io"
+  },
+  "medium": {
+    "rssUrl": "https://yourusername.github.io/feed.xml",
+    "publishedFile": "published_articles.json",
+    "integrationToken": "your_token_here",
+    "sessionToken": "your_session_token_here"
+  }
+}

@@ -9,6 +9,9 @@
         "dev": "node --watch src/index.js",
         "serve": "npx http-server _site -p 8080",
         "get-token": "node src/getMediumToken.js",
+        "test-playwright": "node src/testPlaywrightPublisher.js",
+        "extract-cookies": "node src/extractMediumCookies.js",
+        "install-browsers": "npx playwright install chromium",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -30,6 +33,7 @@
         "iconv-lite": "^0.6.3",
         "markdown-it": "^14.0.0",
         "node-fetch": "^3.3.2",
+        "playwright": "^1.54.1",
         "rss": "^1.2.2",
         "slugify": "^1.6.6",
         "winston": "^3.11.0",

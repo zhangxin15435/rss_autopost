@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-07-22T12:03:00.116Z",
+  "authStatus": {
+    "sessionToken": false,
+    "integrationToken": false,
+    "userId": false,
+    "tests": []
+  },
+  "apiResults": [
+    {
+      "name": "官方 API - 用户信息",
+      "url": "https://api.medium.com/v1/me",
+      "method": "GET",
+      "headers": null,
+      "status": "skipped",
+      "reason": "缺少认证信息"
+    },
+    {
+      "name": "内部 API - 用户信息 (旧)",
+      "url": "https://medium.com/_/api/users/self",
+      "method": "GET",
+      "headers": null,
+      "status": "skipped",
+      "reason": "缺少认证信息"
+    },
+    {
+      "name": "内部 API - 用户信息 (新)",
+      "url": "https://medium.com/_/api/me",
+      "method": "GET",
+      "headers": null,
+      "status": "skipped",
+      "reason": "缺少认证信息"
+    },
+    {
+      "name": "GraphQL API",
+      "url": "https://medium.com/_/graphql",
+      "method": "POST",
+      "headers": null,
+      "body": "{\"query\":\"query {\\n                        viewer {\\n                            id\\n                            name\\n                            username\\n                        }\\n                    }\"}",
+      "status": "skipped",
+      "reason": "缺少认证信息"
+    }
+  ],
+  "analysis": {
+    "successful": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 4,
+    "recommendations": []
+  }
+}
