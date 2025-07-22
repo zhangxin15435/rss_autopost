@@ -74,14 +74,16 @@ class RSSToMediumSystem {
             },
             medium: {
                 rssUrl: process.env.RSS_URL || 'http://localhost:8080/feed.xml',
-                // 传统浏览器方式配置
-                mediumEmail: process.env.MEDIUM_EMAIL,
-                mediumPassword: process.env.MEDIUM_PASSWORD,
-                headless: this.shouldRunHeadless(),
-                // API方式配置
+                // 优先使用Integration Token (永久有效，最推荐)
+                integrationToken: process.env.MEDIUM_INTEGRATION_TOKEN,
+                // 备用Session Token (需定期更新)
                 sessionToken: process.env.MEDIUM_SESSION_TOKEN,
                 userId: process.env.MEDIUM_USER_ID,
                 publishedFile: 'published_articles.json',
+                // 传统浏览器方式配置 (最后备用)
+                mediumEmail: process.env.MEDIUM_EMAIL,
+                mediumPassword: process.env.MEDIUM_PASSWORD,
+                headless: this.shouldRunHeadless(),
                 // 发布方式选择: 'api' 或 'browser'
                 publishMethod: process.env.MEDIUM_PUBLISH_METHOD || 'api'
             }

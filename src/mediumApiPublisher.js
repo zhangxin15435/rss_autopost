@@ -4,22 +4,34 @@ import xml2js from 'xml2js';
 import { format } from 'date-fns';
 
 /**
- * Medium API发布器
- * 使用Medium内部API直接发布文章，避免浏览器自动化的复杂性
+ * Medium API发布器 - 增强版
+ * 支持官方Integration Token和Session Cookie两种认证方式
+ * Integration Token: 永久有效，更稳定
+ * Session Cookie: 临时有效，需定期更新
  */
 class MediumApiPublisher {
     constructor(options = {}) {
         this.rssUrl = options.rssUrl || 'http://localhost:8080/feed.xml';
+
+        // 支持两种认证方式
+        this.integrationToken = options.integrationToken || process.env.MEDIUM_INTEGRATION_TOKEN;
         this.sessionToken = options.sessionToken || process.env.MEDIUM_SESSION_TOKEN;
         this.userId = options.userId || process.env.MEDIUM_USER_ID;
         this.publishedFile = options.publishedFile || 'published_articles.json';
 
+        // 根据可用的token选择API方式
+        this.useOfficialApi = !!this.integrationToken;
         this.baseUrl = 'https://medium.com';
-        this.apiUrl = 'https://medium.com/_/api';
+        this.apiUrl = this.useOfficialApi ? 'https://api.medium.com/v1' : 'https://medium.com/_/api';
         this.publishedArticles = new Set();
 
-        // Medium API需要的标准请求头
-        this.defaultHeaders = {
+        // 根据认证方式设置请求头
+        this.defaultHeaders = this.useOfficialApi ? {
+            'Accept': 'application/json',
+            'Accept-Charset': 'utf-8',
+            'Content-Type': 'application/json',
+            'User-Agent': 'RSS-to-Medium-Publisher/1.0.0'
+        } : {
             'Accept': 'application/json',
             'Accept-Language': 'en-US,en;q=0.9',
             'Content-Type': 'application/json',
@@ -30,6 +42,15 @@ class MediumApiPublisher {
         };
 
         this.loadPublishedArticles();
+
+        // 打印使用的认证方式
+        if (this.useOfficialApi) {
+            console.log('🔑 使用官方Integration Token (永久有效)');
+        } else if (this.sessionToken) {
+            console.log('🍪 使用Session Cookie (需定期更新)');
+        } else {
+            console.log('❌ 未配置Medium认证信息');
+        }
     }
 
     /**
@@ -66,15 +87,20 @@ class MediumApiPublisher {
      * 获取认证信息
      */
     getAuthHeaders() {
-        if (!this.sessionToken) {
-            throw new Error('请设置MEDIUM_SESSION_TOKEN环境变量');
+        if (!this.sessionToken && !this.integrationToken) {
+            throw new Error('请设置MEDIUM_SESSION_TOKEN或MEDIUM_INTEGRATION_TOKEN环境变量');
         }
 
-        return {
-            ...this.defaultHeaders,
-            'Cookie': `sid=${this.sessionToken}`,
-            'Authorization': `Bearer ${this.sessionToken}`
-        };
+        const headers = { ...this.defaultHeaders };
+
+        if (this.sessionToken) {
+            headers['Cookie'] = `sid=${this.sessionToken}`;
+            headers['Authorization'] = `Bearer ${this.sessionToken}`;
+        } else if (this.integrationToken) {
+            headers['Authorization'] = `Bearer ${this.integrationToken}`;
+        }
+
+        return headers;
     }
 
     /**
@@ -248,17 +274,26 @@ class MediumApiPublisher {
             console.log('开始RSS到Medium API发布流程...');
 
             // 检查认证
-            if (!this.sessionToken) {
+            if (!this.sessionToken && !this.integrationToken) {
                 throw new Error(`
-🔐 需要Medium会话令牌:
+🔐 需要Medium认证信息:
 
-1. 登录 https://medium.com
-2. 打开开发者工具 (F12)
-3. 转到 Application/Storage → Cookies → https://medium.com
-4. 复制 'sid' cookie的值
-5. 设置环境变量: MEDIUM_SESSION_TOKEN=你的sid值
+1. 获取官方Integration Token:
+   - 登录 https://medium.com/me/settings/account
+   - 点击 "API Keys"
+   - 点击 "Create New Token"
+   - 复制生成的Token
+   - 设置环境变量: MEDIUM_INTEGRATION_TOKEN=你的Token值
+
+2. 获取Session Cookie (需定期更新):
+   - 登录 https://medium.com
+   - 打开开发者工具 (F12)
+   - 转到 Application/Storage → Cookies → https://medium.com
+   - 复制 'sid' cookie的值
+   - 设置环境变量: MEDIUM_SESSION_TOKEN=你的sid值
 
 或者在 .env 文件中添加:
+MEDIUM_INTEGRATION_TOKEN=你的Token值
 MEDIUM_SESSION_TOKEN=你的sid值
                 `);
             }
