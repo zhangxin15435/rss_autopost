@@ -13,11 +13,12 @@ function validateEnvironment() {
 
     // RSS URL检查
     const rssUrl = process.env.RSS_URL;
+    const isCI = process.env.CI;
     checks.push({
         name: 'RSS_URL',
         value: rssUrl,
-        status: rssUrl ? '✅' : '❌',
-        note: rssUrl || '未设置 - 将使用默认值'
+        status: rssUrl ? '✅' : (isCI ? '❌' : '⚠️'),
+        note: rssUrl || (isCI ? '未设置 - CI环境必需' : '未设置 - 将使用默认值')
     });
 
     // Medium发布方式检查
@@ -33,33 +34,33 @@ function validateEnvironment() {
     if (publishMethod === 'playwright') {
         const mediumEmail = process.env.MEDIUM_EMAIL;
         const mediumPassword = process.env.MEDIUM_PASSWORD;
+        const sessionToken = process.env.MEDIUM_SESSION_TOKEN;
 
         checks.push({
             name: 'MEDIUM_EMAIL',
             value: mediumEmail ? '***设置***' : undefined,
-            status: mediumEmail ? '✅' : '❌',
-            note: mediumEmail ? '已设置邮箱' : '未设置 - Playwright方式需要'
+            status: mediumEmail ? '✅' : (sessionToken ? '⚠️' : '❌'),
+            note: mediumEmail ? '已设置邮箱' : (sessionToken ? '未设置邮箱，但有Session Token备用' : '未设置 - Playwright方式需要邮箱或Session Token')
         });
 
         checks.push({
             name: 'MEDIUM_PASSWORD',
             value: mediumPassword ? '***设置***' : undefined,
-            status: mediumPassword ? '✅' : '❌',
-            note: mediumPassword ? '已设置密码' : '未设置 - Playwright方式需要'
+            status: mediumPassword ? '✅' : (sessionToken ? '⚠️' : '❌'),
+            note: mediumPassword ? '已设置密码' : (sessionToken ? '未设置密码，但有Session Token备用' : '未设置 - Playwright方式需要密码或Session Token')
         });
 
-        // Session Token作为备用
-        const sessionToken = process.env.MEDIUM_SESSION_TOKEN;
+        // Session Token作为备用或主要认证方式
         checks.push({
             name: 'MEDIUM_SESSION_TOKEN',
             value: sessionToken ? '***设置***' : undefined,
             status: sessionToken ? '✅' : '⚠️',
-            note: sessionToken ? '已设置 (备用认证)' : '未设置 - 可作为备用认证'
+            note: sessionToken ? '已设置 (可作为主要或备用认证)' : '未设置 - 可作为备用认证方式'
         });
     }
 
     // API方式检查
-    if (publishMethod === 'api') {
+    else if (publishMethod === 'api') {
         const integrationToken = process.env.MEDIUM_INTEGRATION_TOKEN;
         const sessionToken = process.env.MEDIUM_SESSION_TOKEN;
         const userId = process.env.MEDIUM_USER_ID;
@@ -147,9 +148,17 @@ function validateEnvironment() {
     if (publishMethod === 'playwright') {
         const canPublish = (process.env.MEDIUM_EMAIL && process.env.MEDIUM_PASSWORD) || process.env.MEDIUM_SESSION_TOKEN;
         console.log(`📤 Playwright发布: ${canPublish ? '✅ 可用' : '❌ 缺少认证信息'}`);
+        if (canPublish) {
+            const authMethod = process.env.MEDIUM_SESSION_TOKEN ? 'Session Token' : '邮箱密码';
+            console.log(`🔐 认证方式: ${authMethod}`);
+        }
     } else if (publishMethod === 'api') {
         const canPublish = process.env.MEDIUM_INTEGRATION_TOKEN || process.env.MEDIUM_SESSION_TOKEN;
         console.log(`📤 API发布: ${canPublish ? '✅ 可用' : '❌ 缺少认证信息'}`);
+        if (canPublish) {
+            const authMethod = process.env.MEDIUM_INTEGRATION_TOKEN ? 'Integration Token' : 'Session Token';
+            console.log(`🔐 认证方式: ${authMethod}`);
+        }
     }
 
     const rssAvailable = process.env.RSS_URL || 'localhost默认URL';
@@ -176,8 +185,9 @@ const scriptFile = path.resolve(process.argv[1] || '');
 if (currentFile === scriptFile || process.argv[1]?.endsWith('validateEnvironment.js')) {
     const result = validateEnvironment();
 
-    // 设置退出码
-    process.exit(result.errors > 0 ? 1 : 0);
+    // 设置退出码：只有在CI环境或者有严重错误时才返回错误码
+    const hasSerousErrors = result.errors > 0 && (process.env.CI || !result.canPublish);
+    process.exit(hasSerousErrors ? 1 : 0);
 }
 
 export { validateEnvironment }; 
