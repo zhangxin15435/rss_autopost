@@ -5,6 +5,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# NPM cache (本地缓存，不应提交)
+.npm-cache/
+.npm/
+
 # Environment variables
 .env
 .env.local
@@ -100,4 +104,7 @@ _site/
 *.backup
 
 # Config files (keep example)
-config.json 
+config.json
+
+# Specstory debug files
+.specstory/ 
