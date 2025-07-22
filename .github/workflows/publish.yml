@@ -28,10 +28,18 @@ on:
         default: 'blog'
         type: choice
         options:
-        - full
-        - blog
-        - medium
-        - status
+        - full     # 完整流程：生成博客 + Playwright发布到Medium + 部署
+        - blog     # 仅生成博客和RSS
+        - medium   # 仅使用Playwright发布到Medium
+        - status   # 仅检查状态
+      publish_method:
+        description: 'Medium发布方式'
+        required: false
+        default: 'playwright'
+        type: choice
+        options:
+        - playwright  # Playwright自动化 (推荐)
+        - api         # Medium API
 
 jobs:
   publish:
@@ -61,6 +69,9 @@ jobs:
     - name: 📦 安装依赖
       run: pnpm install --frozen-lockfile
     
+    - name: 🎭 安装Playwright浏览器
+      run: pnpm exec playwright install chromium --with-deps
+    
     - name: 📊 检查系统状态
       run: pnpm start status
       
@@ -76,16 +87,38 @@ jobs:
         source: ./
         destination: ./_site
     
+    - name: 🖥️ 设置虚拟显示器 (Playwright需要)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
+        export DISPLAY=:99
+        Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+    
     - name: 📤 发布到Medium (仅在配置了认证信息时)
       if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'medium' }}
       run: pnpm start medium
       env:
-        # Medium官方Integration Token (推荐，永久有效)
+        # RSS Feed URL
+        RSS_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml
+        
+        # Medium发布方式选择 ('playwright' 或 'api')
+        MEDIUM_PUBLISH_METHOD: ${{ github.event.inputs.publish_method || secrets.MEDIUM_PUBLISH_METHOD || 'playwright' }}
+        
+        # Playwright方式 (推荐，稳定性高)
+        MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
+        MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
+        MEDIUM_HEADLESS: 'true'  # GitHub Actions中必须无头模式
+        MEDIUM_TIMEOUT: '60000'  # 60秒超时
+        MEDIUM_RETRIES: '3'      # 重试3次
+        
+        # API方式 (备用)
         MEDIUM_INTEGRATION_TOKEN: ${{ secrets.MEDIUM_INTEGRATION_TOKEN }}
-        # Medium Session Token (备用，需定期更新)
         MEDIUM_SESSION_TOKEN: ${{ secrets.MEDIUM_SESSION_TOKEN }}
         MEDIUM_USER_ID: ${{ secrets.MEDIUM_USER_ID }}
-        CI: 'true'        # GitHub Actions环境标识
+        
+        # 环境标识
+        CI: 'true'
+        DISPLAY: ':99'  # 虚拟显示器
       continue-on-error: true
     
     - name: 🔄 提交更改
@@ -146,7 +179,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: site-build
-        path: ./_site
+        path: ./
     
     - name: 🔧 设置Pages
       uses: actions/configure-pages@v4
