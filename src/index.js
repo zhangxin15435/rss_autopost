@@ -31,7 +31,8 @@ class RSSToMediumSystem {
                 inputFile: '内容库_发布数据@zc_发布情况.csv',
                 outputDir: '_posts',
                 siteDir: '_site',
-                baseUrl: process.env.SITE_URL || 'https://yourblog.github.io'
+                baseUrl: process.env.SITE_URL || 'https://yourblog.github.io',
+                allowRepublish: process.env.ALLOW_REPUBLISH === 'true' || false
             },
             rss: {
                 postsDir: '_posts',

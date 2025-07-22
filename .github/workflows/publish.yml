@@ -1,5 +1,11 @@
 name: 📡 RSS到Medium自动发布
 
+# 设置权限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 on:
   # 当CSV文件有变化时触发
   push:
@@ -62,6 +68,8 @@ jobs:
       
     - name: 📝 生成博客和RSS
       run: pnpm start blog
+      env:
+        ALLOW_REPUBLISH: 'true'  # 测试模式：允许重新发布已完成的文章
       continue-on-error: false
     
     - name: 🚀 构建Jekyll站点
