@@ -9,7 +9,7 @@
             <link>https://yourblog.github.io</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 22 Jul 2025 09:07:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Jul 2025 09:40:10 GMT</lastBuildDate>
         <atom:link href="https://yourblog.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Blog Author]]></author>
         <copyright><![CDATA[2025 Blog. All rights reserved.]]></copyright>
@@ -28,7 +28,7 @@
             <category><![CDATA[技术]]></category>
             <category><![CDATA[AI]]></category>
             <dc:creator><![CDATA[马侨仪]]></dc:creator>
-            <pubDate>Tue, 22 Jul 2025 09:07:00 GMT</pubDate>
+            <pubDate>Tue, 22 Jul 2025 09:40:10 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Context Engineering for AI Agents: Key Lessons from Manus]]></title>
@@ -38,7 +38,7 @@
             <category><![CDATA[技术]]></category>
             <category><![CDATA[AI]]></category>
             <dc:creator><![CDATA[马侨仪]]></dc:creator>
-            <pubDate>Tue, 22 Jul 2025 09:07:00 GMT</pubDate>
+            <pubDate>Tue, 22 Jul 2025 09:40:10 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Two Approaches to Context Engineering: Manus vs. Context Space]]></title>
@@ -48,7 +48,7 @@
             <category><![CDATA[技术]]></category>
             <category><![CDATA[AI]]></category>
             <dc:creator><![CDATA[马侨仪]]></dc:creator>
-            <pubDate>Tue, 22 Jul 2025 09:07:00 GMT</pubDate>
+            <pubDate>Tue, 22 Jul 2025 09:40:10 GMT</pubDate>
         </item>
     </channel>
 </rss>
