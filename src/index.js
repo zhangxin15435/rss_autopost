@@ -6,6 +6,7 @@ import path from 'path';
 import CsvToBlog from './csvToBlog.js';
 import RSSGenerator from './rssGenerator.js';
 import MediumPublisher from './mediumPublisher.js';
+import MediumApiPublisher from './mediumApiPublisher.js';
 
 // 加载环境变量
 dotenv.config();
@@ -19,7 +20,15 @@ class RSSToMediumSystem {
         this.config = this.loadConfig();
         this.csvToBlog = new CsvToBlog(this.config.blog);
         this.rssGenerator = new RSSGenerator(this.config.rss);
-        this.mediumPublisher = new MediumPublisher(this.config.medium);
+
+        // 根据配置选择Medium发布方式
+        if (this.config.medium.publishMethod === 'api') {
+            this.mediumPublisher = new MediumApiPublisher(this.config.medium);
+            console.log('✅ 使用Medium API发布方式 (推荐)');
+        } else {
+            this.mediumPublisher = new MediumPublisher(this.config.medium);
+            console.log('⚠️  使用浏览器发布方式 (可能需要手动干预)');
+        }
     }
 
     /**
@@ -65,10 +74,16 @@ class RSSToMediumSystem {
             },
             medium: {
                 rssUrl: process.env.RSS_URL || 'http://localhost:8080/feed.xml',
+                // 传统浏览器方式配置
                 mediumEmail: process.env.MEDIUM_EMAIL,
                 mediumPassword: process.env.MEDIUM_PASSWORD,
+                headless: this.shouldRunHeadless(),
+                // API方式配置
+                sessionToken: process.env.MEDIUM_SESSION_TOKEN,
+                userId: process.env.MEDIUM_USER_ID,
                 publishedFile: 'published_articles.json',
-                headless: this.shouldRunHeadless()
+                // 发布方式选择: 'api' 或 'browser'
+                publishMethod: process.env.MEDIUM_PUBLISH_METHOD || 'api'
             }
         };
 

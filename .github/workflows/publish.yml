@@ -82,6 +82,10 @@ jobs:
       if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'medium' }}
       run: pnpm start medium
       env:
+        # Medium API方式 (推荐)
+        MEDIUM_SESSION_TOKEN: ${{ secrets.MEDIUM_SESSION_TOKEN }}
+        MEDIUM_PUBLISH_METHOD: 'api'
+        # 浏览器方式 (备用)
         MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
         MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
         HEADLESS: 'true'  # 强制使用无头模式
