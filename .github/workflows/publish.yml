@@ -84,6 +84,8 @@ jobs:
       env:
         MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
         MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
+        HEADLESS: 'true'  # 强制使用无头模式
+        CI: 'true'        # GitHub Actions环境标识
       continue-on-error: true
     
     - name: 🔄 提交更改

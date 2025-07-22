@@ -23,6 +23,26 @@ class RSSToMediumSystem {
     }
 
     /**
+     * 判断是否应该以无头模式运行浏览器
+     */
+    shouldRunHeadless() {
+        // 在以下情况下强制使用无头模式:
+        // 1. 生产环境
+        // 2. GitHub Actions环境 (CI=true)
+        // 3. Linux服务器环境且没有DISPLAY
+        // 4. 明确设置了HEADLESS=true
+
+        if (process.env.HEADLESS === 'true') return true;
+        if (process.env.HEADLESS === 'false') return false;
+        if (process.env.NODE_ENV === 'production') return true;
+        if (process.env.CI === 'true') return true;
+        if (process.platform === 'linux' && !process.env.DISPLAY) return true;
+
+        // 默认情况下，在开发环境使用有界面模式
+        return false;
+    }
+
+    /**
      * 加载配置
      */
     loadConfig() {
@@ -48,7 +68,7 @@ class RSSToMediumSystem {
                 mediumEmail: process.env.MEDIUM_EMAIL,
                 mediumPassword: process.env.MEDIUM_PASSWORD,
                 publishedFile: 'published_articles.json',
-                headless: process.env.NODE_ENV === 'production'
+                headless: this.shouldRunHeadless()
             }
         };
 
