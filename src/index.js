@@ -26,8 +26,8 @@ class RSSToMediumSystem {
 
         if (publishMethod === 'api') {
             // 使用Medium API发布方式
-        this.mediumPublisher = new MediumApiPublisher(this.config.medium);
-        console.log('✅ 使用Medium API发布方式');
+            this.mediumPublisher = new MediumApiPublisher(this.config.medium);
+            console.log('✅ 使用Medium API发布方式');
         } else {
             // 使用Playwright自动化发布方式 (默认)
             this.mediumPublisher = new MediumPlaywrightPublisher(this.config.medium);
@@ -46,7 +46,7 @@ class RSSToMediumSystem {
                 inputFile: '内容库_发布数据@zc_发布情况.csv',
                 outputDir: '_posts',
                 siteDir: '_site',
-                baseUrl: process.env.SITE_URL || 'https://yourblog.github.io',
+                baseUrl: process.env.SITE_URL || 'https://zhangxin15435.github.io/rss_autopost',
                 allowRepublish: process.env.ALLOW_REPUBLISH === 'true' || false
             },
             rss: {
@@ -54,12 +54,12 @@ class RSSToMediumSystem {
                 outputFile: 'feed.xml',
                 title: process.env.BLOG_TITLE || '技术博客',
                 description: process.env.BLOG_DESCRIPTION || 'Context Engineering and AI Development Blog',
-                feed_url: process.env.RSS_URL || 'https://yourblog.github.io/feed.xml',
-                site_url: process.env.SITE_URL || 'https://yourblog.github.io',
+                feed_url: process.env.RSS_URL || 'https://zhangxin15435.github.io/rss_autopost/feed.xml',
+                site_url: process.env.SITE_URL || 'https://zhangxin15435.github.io/rss_autopost',
                 author: process.env.BLOG_AUTHOR || 'Blog Author'
             },
             medium: {
-                rssUrl: process.env.RSS_URL || 'http://localhost:8080/feed.xml',
+                rssUrl: process.env.RSS_URL || 'https://zhangxin15435.github.io/rss_autopost/feed.xml',
                 // 发布方式选择: 'playwright' (默认) 或 'api'
                 publishMethod: process.env.MEDIUM_PUBLISH_METHOD || 'playwright',
                 // Playwright方式的登录凭据

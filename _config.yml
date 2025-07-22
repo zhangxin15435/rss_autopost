@@ -1,8 +1,8 @@
 # Jekyll 配置文件
 title: "技术博客"
 description: "Context Engineering and AI Development Blog"
-baseurl: "/rss_autopost"
-url: "https://zhangxin15435.github.io"
+baseurl: ""
+url: "https://zhangxin15435.github.io/rss_autopost"
 
 # 构建设置
 markdown: kramdown
