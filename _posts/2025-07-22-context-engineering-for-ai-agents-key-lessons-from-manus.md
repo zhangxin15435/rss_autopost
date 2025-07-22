@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Context Engineering for AI Agents: Key Lessons from Manus"
-date: 2025-07-22 08:06:05 +0000
+date: 2025-07-22 09:07:00 +0000
 author: "马侨仪"
 tags: ["技术", "AI"]
 categories: ["blog"]
