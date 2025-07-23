@@ -396,6 +396,47 @@ class MediumPlaywrightPublisher {
     }
 
     /**
+     * 发布单个文章到Medium
+     * @param {string} articleUrl - 文章的GitHub Pages URL
+     * @param {Object} articleInfo - 文章信息（标题、作者等）
+     */
+    async publishSingleArticle(articleUrl, articleInfo = {}) {
+        console.log('📝 开始单文章发布流程...');
+        console.log(`📄 文章URL: ${articleUrl}`);
+        console.log(`📝 文章标题: ${articleInfo.title || '未知标题'}`);
+
+        // 检查是否已发布
+        if (this.publishedArticles.has(articleUrl)) {
+            console.log('⏭️ 文章已发布，跳过');
+            return {
+                success: true,
+                skipped: true,
+                message: '文章已发布'
+            };
+        }
+
+        // 使用相同的导入逻辑，但替换URL
+        const originalRssUrl = this.config.rssUrl;
+        this.config.rssUrl = articleUrl;
+
+        try {
+            const result = await this.importFromRSS();
+
+            if (result.success && !result.skipped) {
+                // 标记为已发布
+                this.publishedArticles.add(articleUrl);
+                await this.savePublishedArticles();
+                console.log(`✅ 文章发布成功: ${articleInfo.title || articleUrl}`);
+            }
+
+            return result;
+        } finally {
+            // 恢复原始RSS URL
+            this.config.rssUrl = originalRssUrl;
+        }
+    }
+
+    /**
      * 访问Medium导入页面并执行导入
      */
     async importFromRSS() {
@@ -513,60 +554,60 @@ class MediumPlaywrightPublisher {
                     await urlInput.click();
                     await this.page.waitForTimeout(1500);
 
-                                        // 使用更稳定的JavaScript设置方法
+                    // 使用更稳定的JavaScript设置方法
                     const urlSet = await this.page.evaluate((url) => {
                         // 查找编辑器元素
-                        const editor = document.querySelector('#editor_7 p span') || 
-                                     document.querySelector('[id^="editor_"] p span') ||
-                                     document.querySelector('[contenteditable="true"]');
-                        
+                        const editor = document.querySelector('#editor_7 p span') ||
+                            document.querySelector('[id^="editor_"] p span') ||
+                            document.querySelector('[contenteditable="true"]');
+
                         if (editor) {
                             console.log('找到编辑器元素，开始设置URL');
-                            
+
                             // 清空现有内容
                             editor.textContent = '';
                             editor.innerHTML = '';
                             editor.innerText = '';
-                            
+
                             // 等待一下确保清空完成
                             setTimeout(() => {
                                 // 设置新内容
                                 editor.textContent = url;
                                 editor.innerText = url;
-                                
+
                                 // 创建文本节点并插入
                                 while (editor.firstChild) {
                                     editor.removeChild(editor.firstChild);
                                 }
                                 const textNode = document.createTextNode(url);
                                 editor.appendChild(textNode);
-                                
+
                                 // 触发事件
                                 ['focus', 'input', 'change', 'keydown', 'keyup', 'blur'].forEach(eventType => {
                                     const event = new Event(eventType, { bubbles: true, cancelable: true });
                                     editor.dispatchEvent(event);
                                 });
-                                
+
                                 console.log('URL设置完成:', editor.textContent);
                             }, 100);
-                            
+
                             return url;
                         }
                         return null;
                     }, this.config.rssUrl);
-                    
+
                     if (!urlSet) {
                         throw new Error('JavaScript URL设置失败');
                     }
-                    
+
                     // 等待JavaScript完成
                     await this.page.waitForTimeout(1000);
-                    
+
                     // 使用更精准的键盘输入作为备用
                     await this.page.keyboard.press('Control+A');
                     await this.page.waitForTimeout(500);
-                    
-                    // 逐字符慢速输入确保完整性
+
+                    // 逐字符慢速输入确保完整性  
                     await this.page.keyboard.type(this.config.rssUrl, { delay: 100 });
 
                     // 验证输入是否成功
@@ -579,7 +620,7 @@ class MediumPlaywrightPublisher {
                     });
 
                     if (inputValue.includes(this.config.rssUrl)) {
-                        console.log('✅ RSS URL输入成功');
+                        console.log('✅ 文章URL输入成功');
                         inputSuccess = true;
                     } else {
                         throw new Error(`输入验证失败，当前值: "${inputValue}"`);

@@ -219,6 +219,88 @@ class RSSToMediumSystem {
     }
 
     /**
+     * 发布单篇文章到Medium
+     */
+    async runSingleArticlePublishing() {
+        try {
+            if (!this.shouldPublishToMedium()) {
+                throw new Error('Medium登录信息未配置');
+            }
+
+            console.log('📝 开始单文章发布流程...\n');
+
+            // 获取下一篇待发布的文章
+            const article = await this.csvToBlog.getNextUnpublishedArticle();
+            if (!article) {
+                console.log('📭 没有待发布的文章');
+                return {
+                    success: true,
+                    message: '没有待发布的文章',
+                    published: 0
+                };
+            }
+
+            console.log(`📄 准备发布文章: ${article.title}`);
+
+            // 确保文章已生成
+            await this.csvToBlog.convertCsvToBlog();
+            await this.rssGenerator.generateRSS();
+
+            // 启动Medium发布器
+            await this.mediumPublisher.initBrowser();
+
+            // 尝试登录
+            let isLoggedIn = false;
+            const cookiesLoaded = await this.mediumPublisher.loadCookies();
+            if (cookiesLoaded) {
+                isLoggedIn = await this.mediumPublisher.checkLoginStatus();
+            }
+
+            if (!isLoggedIn && this.mediumPublisher.config.sessionToken) {
+                await this.mediumPublisher.setSessionToken();
+                isLoggedIn = await this.mediumPublisher.checkLoginStatus();
+            }
+
+            if (!isLoggedIn && this.mediumPublisher.config.email && this.mediumPublisher.config.password) {
+                await this.mediumPublisher.login();
+            }
+
+            // 发布单篇文章
+            const publishResult = await this.mediumPublisher.publishSingleArticle(article.url, article);
+
+            // 清理资源
+            await this.mediumPublisher.cleanup();
+
+            if (publishResult.success && !publishResult.skipped) {
+                // 更新CSV文件状态
+                await this.csvToBlog.updateArticleStatus(article.title, '已发布');
+                console.log(`✅ 文章发布成功: ${article.title}`);
+
+                return {
+                    success: true,
+                    published: 1,
+                    article: article.title,
+                    url: article.url
+                };
+            } else if (publishResult.skipped) {
+                console.log(`⏭️ 文章已发布，跳过: ${article.title}`);
+                return {
+                    success: true,
+                    published: 0,
+                    skipped: 1,
+                    message: '文章已发布'
+                };
+            } else {
+                throw new Error(publishResult.error || '发布失败');
+            }
+
+        } catch (error) {
+            console.error('❌ 单文章发布失败:', error.message);
+            return { success: false, error: error.message };
+        }
+    }
+
+    /**
      * 检查是否应该发布到Medium
      */
     shouldPublishToMedium() {
@@ -360,8 +442,13 @@ async function main() {
                 break;
 
             case 'medium':
-                console.log('📤 仅发布到Medium\n');
+                console.log('📤 仅发布到Medium (完整RSS导入)\n');
                 await system.runMediumPublishing();
+                break;
+
+            case 'single':
+                console.log('📝 发布单篇文章到Medium\n');
+                await system.runSingleArticlePublishing();
                 break;
 
             case 'status':
@@ -387,7 +474,8 @@ async function main() {
 命令:
   full      运行完整流程: CSV → Blog → RSS → Medium (默认)
   blog      仅生成博客和RSS
-  medium    仅发布到Medium
+  medium    仅发布到Medium (完整RSS导入)
+  single    发布单篇文章到Medium (推荐)
   status    检查系统状态
   config    生成示例配置文件
   help      显示此帮助信息
@@ -408,9 +496,10 @@ async function main() {
   BLOG_AUTHOR              博客作者
 
 示例:
-  npm start full      # 完整发布流程
-  npm start blog      # 只生成博客
+  npm start single    # 发布单篇文章 (推荐)
+  npm start blog      # 只生成博客  
   npm start status    # 检查状态
+  npm start full      # 完整发布流程
 `);
                 break;
         }
