@@ -327,7 +327,7 @@ Ready to experience context engineering with proper tooling?
 
 ?? Explore our GitHub to understand our tool-first approach
 
-The ""Stochastic Gradient Descent"" era of context engineering is ending. The systematic, tool-supported era is beginning.","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","否","building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we","Wed Jul 23 2025 10:57:06 GMT+0800 (中国标准时间)","[object Object]"
+The ""Stochastic Gradient Descent"" era of context engineering is ending. The systematic, tool-supported era is beginning.","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","已发布","building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we","Wed Jul 23 2025 03:20:00 GMT+0000 (Coordinated Universal Time)","[object Object]"
 "Context Engineering for AI Agents: Key Lessons from Manus","Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
 The team at Manus AI recently published a post on their experiences building a real-world agent, offering significant insights gained from four complete framework rebuilds. These lessons provide a practical roadmap for anyone building production-level AI systems.
 The Primary Metric: KV-Cache Hit Rate
@@ -368,7 +368,7 @@ The transition from AI demos to production-grade agents requires this kind of sy
 
 Further Reading:
 Original Manus blog post with detailed technical implementation
-The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become critical—it's whether you'll learn these lessons through experimentation or through others' experience.","马侨仪","","进入发布流程","medium,hashnode,DEV community","否","","Context Engineering for AI Agents: Key Lessons from Manus","Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
+The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become critical—it's whether you'll learn these lessons through experimentation or through others' experience.","马侨仪","","进入发布流程","medium,hashnode,DEV community","已发布","","Context Engineering for AI Agents: Key Lessons from Manus","Context engineering is quickly emerging as one of the most critical disciplines in AI development, yet it remains a field still in its experimental phase. Best practices are not yet codified, so a transparent look into a production system is invaluable.
 The team at Manus AI recently published a post on their experiences building a real-world agent, offering significant insights gained from four complete framework rebuilds. These lessons provide a practical roadmap for anyone building production-level AI systems.
 The Primary Metric: KV-Cache Hit Rate
 While task success is a common goal, the Manus team emphasizes that the single most important metric for a production agent is its KV-cache hit rate. This is more than a simple performance optimization; it is a core architectural constraint that directly impacts economic viability.
@@ -408,7 +408,7 @@ The transition from AI demos to production-grade agents requires this kind of sy
 
 Further Reading:
 Original Manus blog post with detailed technical implementation
-The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become critical—it's whether you'll learn these lessons through experimentation or through others' experience.","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","否","context-engineering-for-ai-agents-key-lessons-from-manus","Wed Jul 23 2025 10:57:06 GMT+0800 (中国标准时间)","[object Object]"
+The field is young, the challenges are real, and the opportunities are enormous. The question isn't whether context engineering will become critical—it's whether you'll learn these lessons through experimentation or through others' experience.","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","否","context-engineering-for-ai-agents-key-lessons-from-manus","Wed Jul 23 2025 03:20:00 GMT+0000 (Coordinated Universal Time)","[object Object]"
 "Two Approaches to Context Engineering: Manus vs. Context Space","Context engineering is quickly becoming a cornerstone of modern AI development, driving new approaches across the industry. Recently, the team at Manus AI shared their hard-earned lessons from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
 
 Reading their post felt like looking in a mirror, and yet seeing a completely different reflection. Both Manus and Context Space are deeply invested in solving the context engineering puzzle, but we're approaching it from fundamentally different angles. This presents a fascinating case study in how the same core problem can spawn complementary solutions.
@@ -595,4 +595,4 @@ Ready to explore context engineering for yourself?
 
 ?? Read Manus's insights to understand the runtime optimization layer
 
-The future needs both approaches. Which layer will you build?","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","否","two-approaches-to-context-engineering-manus-vs","Wed Jul 23 2025 10:57:06 GMT+0800 (中国标准时间)","[object Object]"
+The future needs both approaches. Which layer will you build?","马侨仪","技术,AI","进入发布流程","medium,hashnode,DEV community","否","two-approaches-to-context-engineering-manus-vs","Wed Jul 23 2025 03:20:00 GMT+0000 (Coordinated Universal Time)","[object Object]"
