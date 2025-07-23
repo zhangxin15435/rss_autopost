@@ -26,8 +26,8 @@ class RSSToMediumSystem {
 
         if (publishMethod === 'api') {
             // 使用Medium API发布方式
-        this.mediumPublisher = new MediumApiPublisher(this.config.medium);
-        console.log('✅ 使用Medium API发布方式');
+            this.mediumPublisher = new MediumApiPublisher(this.config.medium);
+            console.log('✅ 使用Medium API发布方式');
         } else {
             // 使用Playwright自动化发布方式 (默认)
             this.mediumPublisher = new MediumPlaywrightPublisher(this.config.medium);
@@ -43,7 +43,8 @@ class RSSToMediumSystem {
     loadConfig() {
         const defaultConfig = {
             blog: {
-                inputFile: '内容库_发布数据@zc_发布情况.csv',
+                articlesDir: process.env.ARTICLES_DIR || 'articles',
+                inputFile: process.env.CSV_FILE || path.join('articles', '内容库_发布数据@zc_发布情况 (2).csv'),
                 outputDir: '_posts',
                 siteDir: '_site',
                 baseUrl: process.env.SITE_URL || 'https://zhangxin15435.github.io/rss_autopost',
@@ -69,6 +70,10 @@ class RSSToMediumSystem {
                 integrationToken: process.env.MEDIUM_INTEGRATION_TOKEN,
                 sessionToken: process.env.MEDIUM_SESSION_TOKEN,
                 userId: process.env.MEDIUM_USER_ID,
+                // 文章管理配置
+                articlesDir: process.env.ARTICLES_DIR || 'articles',
+                csvFile: process.env.CSV_FILE || path.join('articles', '内容库_发布数据@zc_发布情况 (2).csv'),
+                deleteAfterPublish: process.env.DELETE_AFTER_PUBLISH === 'true' || false,
                 // 通用配置
                 publishedFile: 'published_articles.json',
                 headless: process.env.MEDIUM_HEADLESS !== 'false', // 默认无头模式

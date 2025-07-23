@@ -26,6 +26,7 @@ exclude:
   - package.json
   - README.md
   - src/
+  - articles/
 
 # 集合设置
 collections:

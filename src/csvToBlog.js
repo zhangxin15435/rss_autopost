@@ -7,18 +7,19 @@ import iconv from 'iconv-lite';
 import { Readable } from 'stream';
 
 /**
- * CSV到博客文章转换器
- * 将CSV数据转换为Jekyll格式的markdown文章
+ * CSV到博客文章转换器 - 支持 /articles 目录架构
+ * 从 /articles 目录读取 CSV 文件和对应的 Markdown 文件
  */
 class CsvToBlog {
     constructor(options = {}) {
         this.options = options;  // 保存完整的options对象
-        this.inputFile = options.inputFile || '内容库_发布数据@zc_发布情况.csv';
+        this.articlesDir = options.articlesDir || 'articles';  // 新的文章目录
+        this.inputFile = options.inputFile || path.join(this.articlesDir, 'articles.csv');  // 从 articles 目录读取
         this.outputDir = options.outputDir || '_posts';
         this.siteDir = options.siteDir || '_site';
         this.baseUrl = options.baseUrl || 'https://yourblog.github.io';
 
-        // 确保输出目录存在
+        // 确保必要的目录存在
         this.ensureDirectories();
     }
 
@@ -28,6 +29,7 @@ class CsvToBlog {
     async ensureDirectories() {
         await fs.ensureDir(this.outputDir);
         await fs.ensureDir(this.siteDir);
+        await fs.ensureDir(this.articlesDir);
         await fs.ensureDir('assets/images');
     }
 
@@ -37,6 +39,7 @@ class CsvToBlog {
     async convertCsvToBlog() {
         try {
             console.log('开始转换CSV到博客文章...');
+            console.log(`📂 从目录读取: ${this.articlesDir}`);
 
             const articles = await this.parseCSV();
             const publishableArticles = this.filterPublishableArticles(articles);
@@ -63,7 +66,7 @@ class CsvToBlog {
     }
 
     /**
-     * 解析CSV文件
+     * 解析CSV文件 - 支持新的文件架构
      */
     async parseCSV() {
         return new Promise((resolve, reject) => {
@@ -74,22 +77,10 @@ class CsvToBlog {
                 return;
             }
 
-            // 读取文件的原始buffer，然后转换编码
-            const buffer = fs.readFileSync(this.inputFile);
-            let content = '';
+            console.log(`📄 读取CSV文件: ${this.inputFile}`);
 
-            // 尝试检测编码并转换
-            try {
-                // 首先尝试UTF-8
-                content = buffer.toString('utf8');
-                if (content.includes('�')) {
-                    // 如果有乱码，尝试GBK
-                    content = iconv.decode(buffer, 'gbk');
-                }
-            } catch (error) {
-                // 如果转换失败，使用GBK
-                content = iconv.decode(buffer, 'gbk');
-            }
+            // 直接读取UTF-8编码的CSV文件
+            const content = fs.readFileSync(this.inputFile, 'utf8');
 
             // 使用转换后的内容创建流
             Readable.from([content])
@@ -105,49 +96,62 @@ class CsvToBlog {
                     resolve(articles);
                 })
                 .on('error', (error) => {
-                    reject(new Error(`CSV解析错误: ${error.message}`));
+                    console.error('CSV解析错误:', error.message);
+                    reject(error);
                 });
         });
     }
 
     /**
-     * 处理单篇文章数据
-     */
+ * 处理单条文章数据 - 支持从 Markdown 文件读取内容
+ */
     processArticleData(row) {
         try {
-            // 保留原始中文字段名，并添加英文别名以兼容现有代码
-            const title = this.cleanText(row['主题'] || '');
-            const content = this.cleanText(row['发布内容'] || '');
+            // 提取基本信息（适配实际的CSV字段名）
+            const title = this.cleanText(row['title'] || row['主题'] || '');
             const author = this.cleanText(row['提出人'] || '');
             const tags = this.parseTags(row['标签'] || '');
+            const mdFileName = this.cleanText(row['发布内容'] || '');  // 现在这个字段存储的是 md 文件名
 
-            // 验证必要字段
-            if (!title || !content) {
-                console.warn('跳过无效文章：缺少标题或内容');
+            if (!title.trim()) {
+                console.warn('⚠️ 跳过标题为空的行');
                 return null;
             }
 
-            // 保留原始中文字段名作为主要字段，添加英文别名
+            if (!mdFileName.trim()) {
+                console.warn(`⚠️ 文章"${title}"缺少Markdown文件名`);
+                return null;
+            }
+
+            // 读取 Markdown 文件内容
+            const content = this.readMarkdownFile(mdFileName, title);
+
+            if (!content) {
+                console.warn(`⚠️ 无法读取文章"${title}"的内容文件: ${mdFileName}`);
+                return null;
+            }
+
+            // 返回标准化的数据结构
             return {
-                // 中文字段名（主要）
+                // 兼容中文字段名
                 '主题': title,
-                '发布内容': content,
+                '发布内容': mdFileName,  // 存储文件名而不是内容
                 '提出人': author,
                 '标签': row['标签'] || '',
                 '发布': row['发布'] || '',
                 '渠道&账号': row['渠道&账号'] || '',
                 '发布完成': row['发布完成'] || '',
-                'markdown格式文本': row['markdown格式文本'] || '',
-                
-                // 英文别名（兼容）
+
+                // 兼容英文字段名
                 title,
-                content,
+                content,  // 从文件读取的实际内容
                 author,
                 tags,
                 status: row['发布'] || '',
                 channels: row['渠道&账号'] || '',
                 completed: row['发布完成'] || '',
-                
+                mdFileName,  // 新增：存储md文件名
+
                 // 其他字段
                 slug: this.generateSlug(title),
                 date: new Date(),
@@ -155,6 +159,30 @@ class CsvToBlog {
             };
         } catch (error) {
             console.error('处理文章数据时出错:', error.message);
+            return null;
+        }
+    }
+
+    /**
+     * 从 Markdown 文件读取内容
+     */
+    readMarkdownFile(mdFileName, articleTitle) {
+        try {
+            // 确保文件名有 .md 扩展名
+            const fileName = mdFileName.endsWith('.md') ? mdFileName : `${mdFileName}.md`;
+            const filePath = path.join(this.articlesDir, fileName);
+
+            if (!fs.existsSync(filePath)) {
+                console.error(`❌ Markdown文件不存在: ${filePath}`);
+                return null;
+            }
+
+            const content = fs.readFileSync(filePath, 'utf8');
+            console.log(`📖 读取文章内容: ${fileName} (${content.length} 字符)`);
+
+            return content;
+        } catch (error) {
+            console.error(`❌ 读取Markdown文件失败 "${mdFileName}":`, error.message);
             return null;
         }
     }
@@ -168,30 +196,120 @@ class CsvToBlog {
             const status = article.发布 || '';
             const channels = (article['渠道&账号'] || '').toLowerCase();
             const completed = article.发布完成 || '';
-            const subject = article.主题 || '';
+            const subject = article.title || article.主题 || '';  // 先尝试title，再尝试主题
+            const mdFileName = article.mdFileName || '';
 
             // 检查是否进入发布流程且渠道包含medium
             const isInWorkflow = status.includes('进入发布流程');
             const hasMediumChannel = channels.includes('medium');
             const hasValidSubject = subject.trim().length > 0;
+            const hasValidMdFile = mdFileName.trim().length > 0;
 
             // 如果设置了允许重新发布，忽略完成状态；否则只发布未完成的
             const shouldPublish = this.options.allowRepublish ?
                 (completed !== '已发布') :  // 允许重新发布时检查是否已发布
                 completed !== '已发布';     // 正常情况下只发布未发布的
 
-            if (this.options.allowRepublish && isInWorkflow && hasMediumChannel && hasValidSubject) {
+            if (this.options.allowRepublish && isInWorkflow && hasMediumChannel && hasValidSubject && hasValidMdFile) {
                 console.log(`✅ 测试模式: 包含文章 "${subject.substring(0, 50)}..."`);
             }
 
-            const result = isInWorkflow && hasMediumChannel && shouldPublish && hasValidSubject;
+            const result = isInWorkflow && hasMediumChannel && shouldPublish && hasValidSubject && hasValidMdFile;
 
             if (result) {
-                console.log(`📄 找到可发布文章: ${subject.substring(0, 50)}...`);
+                console.log(`📄 找到可发布文章: ${subject.substring(0, 50)}... (${mdFileName})`);
             }
 
             return result;
         });
+    }
+
+    /**
+     * 删除已发布的文章文件和CSV行
+     */
+    async deletePublishedArticle(articleTitle) {
+        try {
+            console.log(`🗑️ 开始删除已发布文章: ${articleTitle}`);
+
+            // 1. 读取当前CSV数据
+            const csvData = await this.parseCSV();
+
+            // 2. 找到要删除的文章
+            let deletedArticle = null;
+            const remainingData = csvData.filter(article => {
+                if (article.title === articleTitle || article.主题 === articleTitle) {
+                    deletedArticle = article;
+                    return false; // 不包含在剩余数据中
+                }
+                return true; // 保留其他文章
+            });
+
+            if (!deletedArticle) {
+                console.warn(`⚠️ 未找到要删除的文章: ${articleTitle}`);
+                return false;
+            }
+
+            // 3. 删除对应的 Markdown 文件
+            const mdFileName = deletedArticle.mdFileName;
+            if (mdFileName) {
+                const fileName = mdFileName.endsWith('.md') ? mdFileName : `${mdFileName}.md`;
+                const filePath = path.join(this.articlesDir, fileName);
+
+                if (fs.existsSync(filePath)) {
+                    await fs.remove(filePath);
+                    console.log(`✅ 已删除Markdown文件: ${fileName}`);
+                } else {
+                    console.warn(`⚠️ Markdown文件不存在: ${fileName}`);
+                }
+            }
+
+            // 4. 更新CSV文件（写入剩余数据）
+            await this.writeCSV(remainingData);
+            console.log(`✅ 已从CSV中删除文章记录: ${articleTitle}`);
+
+            return true;
+
+        } catch (error) {
+            console.error(`❌ 删除文章失败 "${articleTitle}":`, error.message);
+            return false;
+        }
+    }
+
+    /**
+     * 更新文章发布状态
+     */
+    async updateArticleStatus(articleTitle, status = '已发布') {
+        try {
+            console.log(`📝 更新文章发布状态: ${articleTitle} -> ${status}`);
+
+            // 读取当前CSV文件
+            const csvData = await this.parseCSV();
+
+            // 找到对应文章并更新状态
+            let updated = false;
+            for (const article of csvData) {
+                if (article.title === articleTitle || article.主题 === articleTitle) {
+                    article.发布完成 = status;
+                    article['发布完成'] = status; // 确保中文字段也更新
+                    updated = true;
+                    console.log(`✅ 文章状态已更新: ${articleTitle}`);
+                    break;
+                }
+            }
+
+            if (!updated) {
+                console.warn(`⚠️ 未找到匹配的文章: ${articleTitle}`);
+                return false;
+            }
+
+            // 写回CSV文件
+            await this.writeCSV(csvData);
+            return true;
+
+        } catch (error) {
+            console.error('❌ 更新文章状态失败:', error.message);
+            return false;
+        }
     }
 
     /**
@@ -317,6 +435,7 @@ exclude:
   - package.json
   - README.md
   - src/
+  - articles/
 
 # 集合设置
 collections:
@@ -351,7 +470,7 @@ title: "技术博客首页"
 
 {% for post in site.posts limit:10 %}
   <article>
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     <p>{{ post.excerpt }}</p>
     <p><small>发布时间: {{ post.date | date: "%Y年%m月%d日" }} | 作者: {{ post.author }}</small></p>
     <p>标签: {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
@@ -361,11 +480,101 @@ title: "技术博客首页"
 
 ## RSS订阅
 
-<a href="{{ site.url }}/feed.xml">订阅RSS</a>
+<a href="{{ '/feed.xml' | relative_url }}">订阅RSS</a>
 `;
 
         await fs.writeFile('index.md', indexContent, 'utf8');
         console.log('生成首页文件');
+    }
+
+    /**
+     * 获取下一篇待发布的文章
+     */
+    async getNextUnpublishedArticle() {
+        try {
+            const articles = await this.parseCSV();
+            const publishableArticles = this.filterPublishableArticles(articles);
+
+            // 调试：显示所有文章的状态信息
+            console.log(`📊 总共 ${articles.length} 篇文章，符合条件的 ${publishableArticles.length} 篇`);
+
+            for (let i = 0; i < Math.min(3, articles.length); i++) {
+                const article = articles[i];
+                console.log(`📋 文章 ${i + 1}:`);
+                console.log(`   标题: ${article.title || article.主题}`);
+                console.log(`   发布: ${article.发布}`);
+                console.log(`   渠道&账号: ${article['渠道&账号']}`);
+                console.log(`   发布完成: ${article.发布完成}`);
+            }
+
+            // 查找第一篇未发布的文章
+            for (const article of publishableArticles) {
+                // 检查发布完成状态，如果不是"已发布"就处理
+                if (!article.发布完成 || article.发布完成 !== '已发布') {
+                    const title = article.title || article.主题;
+                    const slug = this.generateSlug(title);
+                    const postDate = new Date(); // 使用当前日期
+                    const year = format(postDate, 'yyyy');
+                    const month = format(postDate, 'MM');
+                    const day = format(postDate, 'dd');
+                    const articleUrl = `${this.baseUrl}/${year}/${month}/${day}/${slug}/`;
+
+                    return {
+                        title: title,
+                        url: articleUrl,
+                        author: article.提出人,
+                        tags: this.parseTags(article.标签),
+                        rawData: article
+                    };
+                }
+            }
+
+            console.log('📭 没有待发布的文章');
+            return null;
+
+        } catch (error) {
+            console.error('❌ 获取待发布文章失败:', error.message);
+            return null;
+        }
+    }
+
+    /**
+     * 写入CSV文件
+     */
+    async writeCSV(data) {
+        try {
+            // 使用UTF-8编码写入CSV文件
+            const csvContent = this.arrayToCSV(data);
+            await fs.writeFile(this.inputFile, csvContent, 'utf8');
+            console.log(`✅ CSV文件已更新: ${this.inputFile}`);
+        } catch (error) {
+            console.error('❌ 写入CSV文件失败:', error.message);
+            throw error;
+        }
+    }
+
+    /**
+     * 数组转CSV格式
+     */
+    arrayToCSV(data) {
+        if (!data || data.length === 0) return '';
+
+        const headers = Object.keys(data[0]);
+        const csvRows = [];
+
+        // 添加标题行
+        csvRows.push(headers.map(header => `"${header}"`).join(','));
+
+        // 添加数据行
+        for (const row of data) {
+            const values = headers.map(header => {
+                const value = row[header] || '';
+                return `"${value.toString().replace(/"/g, '""')}"`;
+            });
+            csvRows.push(values.join(','));
+        }
+
+        return csvRows.join('\n');
     }
 
     /**
@@ -414,134 +623,6 @@ title: "技术博客首页"
 
         // 如果没有英文，使用拼音或者时间戳
         return `post-${Date.now()}`;
-    }
-
-    /**
-     * 更新CSV文件中文章的发布状态
-     * @param {string} articleTitle - 文章标题
-     * @param {string} status - 发布状态（'已发布'等）
-     */
-    async updateArticleStatus(articleTitle, status = '已发布') {
-        try {
-            console.log(`📝 更新文章发布状态: ${articleTitle} -> ${status}`);
-
-            // 读取当前CSV文件
-            const csvData = await this.parseCSV();
-
-            // 查找对应文章并更新状态
-            let updated = false;
-            for (const article of csvData) {
-                if (article.主题 === articleTitle || article.title === articleTitle) {
-                    article.发布完成 = status;
-                    updated = true;
-                    console.log(`✅ 已更新文章状态: ${articleTitle}`);
-                    break;
-                }
-            }
-
-            if (!updated) {
-                console.warn(`⚠️ 未找到匹配的文章: ${articleTitle}`);
-                return false;
-            }
-
-            // 写回CSV文件
-            await this.writeCSV(csvData);
-            return true;
-
-        } catch (error) {
-            console.error('❌ 更新文章状态失败:', error.message);
-            return false;
-        }
-    }
-
-    /**
-     * 获取下一篇待发布的文章
-     */
-    async getNextUnpublishedArticle() {
-        try {
-            const articles = await this.parseCSV();
-            const publishableArticles = this.filterPublishableArticles(articles);
-
-            // 调试：显示所有文章的状态信息
-            console.log(`📊 总共 ${articles.length} 篇文章，符合条件的 ${publishableArticles.length} 篇`);
-
-            for (let i = 0; i < Math.min(3, articles.length); i++) {
-                const article = articles[i];
-                console.log(`📋 文章 ${i + 1}:`);
-                console.log(`   主题: ${article.主题}`);
-                console.log(`   发布: ${article.发布}`);
-                console.log(`   渠道&账号: ${article['渠道&账号']}`);
-                console.log(`   发布完成: ${article.发布完成}`);
-            }
-
-            // 查找第一篇未发布的文章
-            for (const article of publishableArticles) {
-                // 检查发布完成状态，如果不是"已发布"就处理
-                if (!article.发布完成 || article.发布完成 !== '已发布') {
-                    const slug = this.generateSlug(article.主题);
-                    const postDate = new Date(); // 使用当前日期
-                    const year = format(postDate, 'yyyy');
-                    const month = format(postDate, 'MM');
-                    const day = format(postDate, 'dd');
-                    const articleUrl = `${this.baseUrl}/${year}/${month}/${day}/${slug}/`;
-
-                    return {
-                        title: article.主题,
-                        url: articleUrl,
-                        author: article.提出人,
-                        tags: this.parseTags(article.标签),
-                        rawData: article
-                    };
-                }
-            }
-
-            console.log('📭 没有待发布的文章');
-            return null;
-
-        } catch (error) {
-            console.error('❌ 获取待发布文章失败:', error.message);
-            return null;
-        }
-    }
-
-    /**
-     * 写入CSV文件
-     */
-    async writeCSV(data) {
-        try {
-            // 使用与读取相同的编码
-            const csvContent = this.arrayToCSV(data);
-            const buffer = iconv.encode(csvContent, 'gbk');
-            await fs.writeFile(this.inputFile, buffer);
-            console.log(`✅ CSV文件已更新: ${this.inputFile}`);
-        } catch (error) {
-            console.error('❌ 写入CSV文件失败:', error.message);
-            throw error;
-        }
-    }
-
-    /**
-     * 数组转CSV格式
-     */
-    arrayToCSV(data) {
-        if (!data || data.length === 0) return '';
-
-        const headers = Object.keys(data[0]);
-        const csvRows = [];
-
-        // 添加标题行
-        csvRows.push(headers.map(header => `"${header}"`).join(','));
-
-        // 添加数据行
-        for (const row of data) {
-            const values = headers.map(header => {
-                const value = row[header] || '';
-                return `"${value.toString().replace(/"/g, '""')}"`;
-            });
-            csvRows.push(values.join(','));
-        }
-
-        return csvRows.join('\n');
     }
 }
 

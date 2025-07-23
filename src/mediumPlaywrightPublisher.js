@@ -432,16 +432,26 @@ class MediumPlaywrightPublisher {
                 console.log(`✅ 文章发布成功: ${articleInfo.title || articleUrl}`);
             }
 
-            // 如果需要更新CSV状态，在这里处理
+            // 如果需要更新CSV状态或删除文件，在这里处理
             if (this.shouldUpdateCSV && this.currentArticleInfo && this.currentArticleInfo.title) {
                 try {
                     console.log('📝 更新CSV发布状态...');
                     const csvUpdater = require('./csvToBlog');
                     const csvManager = new csvUpdater({
-                        inputFile: this.config.csvFile || '内容库_发布数据@zc_发布情况.csv'
+                        inputFile: this.config.csvFile || path.join('articles', 'articles.csv'),
+                        articlesDir: this.config.articlesDir || 'articles'
                     });
-                    await csvManager.updateArticleStatus(this.currentArticleInfo.title, '已发布');
-                    console.log('✅ CSV状态更新成功');
+
+                    // 根据配置选择是删除文件还是仅更新状态
+                    if (this.config.deleteAfterPublish) {
+                        console.log('🗑️ 删除已发布的文章文件...');
+                        await csvManager.deletePublishedArticle(this.currentArticleInfo.title);
+                        console.log('✅ 文章文件和CSV记录已删除');
+                    } else {
+                        await csvManager.updateArticleStatus(this.currentArticleInfo.title, '已发布');
+                        console.log('✅ CSV状态更新成功');
+                    }
+
                     this.shouldUpdateCSV = false; // 重置标志
                 } catch (csvError) {
                     console.error('❌ CSV状态更新失败:', csvError.message);
