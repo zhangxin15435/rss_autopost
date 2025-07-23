@@ -3,7 +3,7 @@
   <title>技术博客</title>
   <link href="https://zhangxin15435.github.io/rss_autopost"/>
   <link href="https://zhangxin15435.github.io/rss_autopost/atom.xml" rel="self"/>
-  <updated>2025-07-23T06:23:13.000Z</updated>
+  <updated>2025-07-23T06:42:18.000Z</updated>
   <id>https://zhangxin15435.github.io/rss_autopost/</id>
   <author>
     <name>Blog Author</name>
@@ -11,9 +11,187 @@
   <generator>Node.js RSS Generator</generator>
 
   <entry>
+    <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
+    <updated>2025-07-23T06:42:18.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
+    <content type="html">
+---
+id: context-is-the-new-engine
+title: &quot;Beyond Integrations: How to Build the Future of AI with Context Engineering&quot;
+description: Context engineering is the key to building intelligent, scalable AI. The foundation starts with MCP and service-level integrations, allowing agents to access and manage relevant context reliably across interactions.
+publishedAt: 2025-07-09
+category: AI Tech
+author: Context Space Team
+featured: 1
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header01_1752144272539.jpg
+---
+
+# Beyond Integrations: How to Build the Future of AI with Context Engineering
+
+&gt; &quot;When in every industrial-strength LLM app, context engineering is the delicate art and science of filling the context window with just the right information for the next step. &quot; — Andrej Karpathy
+
+In the race to build smarter AI systems, the industry has focused heavily on prompt engineering. But as practitioners and organizations push LLMs into more complex workflows like customer support, autonomous agents, and copilots, one thing is becoming clear: **prompts aren&#x27;t enough**.
+
+The real unlock lies in a deeper architectural shift: **context engineering**.
+
+## What is Context Engineering?
+
+Context engineering is the emerging discipline of designing the infrastructure, processes, and protocols that give AI agents access to high-quality, relevant, and persistent context across time, data sources, and interactions.
+
+Whereas prompt engineering focuses on optimizing single inputs to LLMs, context engineering builds the information ecosystem around the model:
+
+| Aspect      | Prompt Engineering           | Context Engineering                               |
+| ----------- | ---------------------------- | ------------------------------------------------- |
+| Focus       | Crafting better instructions | Delivering the right data, at the right time      |
+| Scope       | One-shot prompts             | Persistent, multi-turn, memory-driven interaction |
+| Integration | Minimal                      | Deep integration across services and data streams |
+| Memory      | Stateless                    | Stateful, evolving memory and personalization     |
+| Scalability | Human-crafted                | Systematic and automated at scale                 |
+
+## Why Prompt Engineering Falls Short
+
+LLMs are certainly very powerful, but they constantly suffer from amnesia. Without memory, situational awareness, or external grounding, they:
+
+- Hallucinate facts
+- Lose track of user preferences
+- Repeat themselves
+- Fail in longer interactions
+
+These aren&#x27;t model failures, they’re **context failures**.
+
+As systems grow more complex, context becomes the bottleneck. Reliable AI agents need dynamic access to the *right* information, not just well-crafted prompts.
+
+## Our Belief: Context Engineering Starts with MCP + Integrations
+
+To operationalize context, we need a new foundation. At **Context Space**, we believe this starts with two pillars:
+
+### 1. **MCP (Model Context Protocol)** — The Universal Context Interface
+
+MCP provides a standardized way for AI agents to:
+
+- Read and write to memory
+- Query for relevant context
+- Fetch data from third-party sources
+- Structure and compress inputs for model compatibility
+Think of MCP as the equivalent of **HTTP for context**. In other words, a protocol that separates model logic from memory, perception, and integration.
+
+### 2. **Service Integrations** — The Context Graph in Action
+
+Context lives in tools: GitHub, Slack, Notion, Airtable, Figma, Zoom, Stripe, HubSpot, and beyond. Real-world AI agents can’t function without:
+
+- OAuth-secured access to data
+- Structured operations across services
+- Normalized representations of user activity
+
+That’s why **Context Space** ships with over 14+ service integrations out of the box, with clean APIs, secure authentication, and production-ready pipelines.
+
+## The Four Pillars of Context Engineering
+
+Context Space is built around the four core stages of context lifecycle:
+
+### 1. Write Context
+
+* Persistent memory
+* Knowledge graphs, scratchpads
+* Long-term storage across sessions
+
+### 2. Select Context
+
+* Semantic retrieval (RAG)
+* Relevance scoring
+* Metadata and user history filtering
+
+### 3. Compress Context
+
+* Token optimization
+* Summarization and pruning
+* Dynamic prioritization
+
+### 4. Isolate Context
+
+* Multi-agent separation
+* Tenant-aware memory boundaries
+* Secure sandboxing for safe experimentation
+
+## What We&#x27;ve Built So Far
+
+Building context-aware agents isn&#x27;t just a prompt problem — it&#x27;s a software architecture problem. That’s why Context Space includes:
+
+### ✅ 14+ Integrated Services
+
+* GitHub, Slack, Airtable, Zoom, HubSpot, Notion, Figma, Spotify, Stripe, and more
+* Secure OAuth 2.0 Flows
+* JWT-based auth + HashiCorp Vault for credential storage
+
+![Integrations](https://cdn-bucket.tos-cn-hongkong.volces.com/resources/pic01_1752144080614.png)
+
+### ✅ MCP-Ready Architecture
+
+* REST APIs and future MCP protocol endpoints
+* Agent-compatible abstractions for context I/O
+
+### ✅ Production Infrastructure
+
+* Docker + Kubernetes deployment
+* PostgreSQL, Redis, Vault
+* Monitoring with Prometheus, Grafana, Jaeger
+
+## Built for AI developers
+
+If you’ve ever:
+- Tried to build multi-turn memory from scratch
+- Hand-coded Slack or Notion context pipelines
+- Managed model prompts with YAML files
+- Struggled with hallucinations or brittle agents
+
+Then you already know the pain.
+
+Context Space abstracts this complexity into a modular, extensible system. You focus on agent behavior and we handle context orchestration.
+
+## What&#x27;s Next: Our Roadmap
+
+### Phase 1: Core Context Engine (Next 6 months)
+
+* ✅ 14+ Integrations
+* 🔄 Native MCP support
+* 🔄 Persistent context memory
+* 🔄 Intelligent data aggregation
+
+### Phase 2: Intelligent Context Management (6–12 months)
+
+* 🔄 Semantic retrieval
+* 🔄 Context scoring &amp; compression
+* 🔄 Real-time context updates
+
+### Phase 3: Agent Context Intelligence (12+ months)
+
+* 🔄 Predictive context loading
+* 🔄 Relationship-aware synthesis
+* 🔄 Context analytics &amp; visualization
+
+## Why Start With Context Space Today?
+
+* **Immediate Value**: Production-ready, plug-and-play integrations
+* **Security First**: JWT auth + Vault + scoped access
+* **Observability**: Metrics, logs, and tracing out of the box
+* **Developer-Friendly**: Clean API with docs and examples
+
+You don’t need to reinvent context infrastructure yourself. We’ve done the hard part for you.
+Join the movement to build better memory and better AI.
+
+👉 [GitHub Repo](https://github.com/context-space/context-space)
+
+&gt; *Context Space is licensed under AGPL v3 with planned transition to Apache 2.0. Contact us for commercial licensing options.*
+</content>
+    <summary>--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F...</summary>
+    <category term="AI Tech"/>
+  </entry>
+
+  <entry>
     <title>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-the-black-box-why-we-built-context-space-as-a-tool/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-the-black-box-why-we-built-context-space-as-a-tool/</id>
     <content type="html">
 ---
@@ -90,9 +268,208 @@ We&#x27;re just getting started. If you believe in a future where AI development
   </entry>
 
   <entry>
+    <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
+    <updated>2025-07-23T06:42:18.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
+    <content type="html">
+---
+id: building-tools
+title: &quot;Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building&quot;
+description: &quot;Context engineering is the new frontier, but the developer tools are still catching up. Drawing from Manus&#x27;s hard-won lessons and Context Space&#x27;s tool-first approach, we explore what the next generation of context engineering tools should look like.&quot;
+publishedAt: 2025-07-19
+category: Developer Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210342126_1752843822727.png
+---
+
+# Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building
+
+When the Manus team described their context engineering journey as &quot;Stochastic Gradient Descent&quot;—a process of &quot;architecture searching, prompt fiddling, and empirical guesswork&quot;—they weren&#x27;t just being self-deprecating. They were highlighting a fundamental problem: **the tools for context engineering don&#x27;t exist yet.**
+
+Their [recent blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) offers a rare glimpse into production context engineering, but between the lines, it reveals something equally important: the enormous friction developers face when building context-aware AI systems. Every insight they shared—from KV-cache optimization to attention manipulation—represents hours of manual debugging, trial and error, and custom tooling.
+
+This got us thinking: what if context engineering had proper developer tools? What would they look like, and how would they change the way we build AI agents?
+
+## The Current State: Flying Blind
+
+Today&#x27;s context engineering workflow resembles web development from the 1990s—lots of manual work, limited visibility, and debugging through print statements. Consider what Manus had to discover the hard way:
+
+### Performance Debugging Without Metrics
+Manus identified KV-cache hit rate as their most critical metric, but most developers have no visibility into cache performance. They&#x27;re optimizing blind, discovering 10x cost differences only after running production workloads.
+
+### Tool Management Through Trial and Error
+The &quot;tool explosion&quot; problem that Manus describes—where adding more tools makes agents less effective—is something every team discovers independently. There&#x27;s no systematic way to analyze tool usage patterns or optimize action spaces.
+
+### Context Architecture Through Intuition
+Manus&#x27;s insight about using file systems as external memory, or their attention manipulation through todo.md files, emerged from extensive experimentation. These patterns could be discoverable through proper tooling.
+
+### Error Analysis Via Log Diving
+Their principle of &quot;keeping the wrong stuff in&quot; for error recovery—while counterintuitive—becomes obvious when you have tools to analyze failure patterns and recovery success rates.
+
+## What Manus&#x27;s Experience Teaches Us About Tool Requirements
+
+Reading their lessons carefully, we can extract specific requirements for context engineering tools:
+
+### 1. Performance Visibility Tools
+**The Problem**: Developers can&#x27;t see KV-cache performance, token costs, or context efficiency.
+
+**What&#x27;s Needed**:
+- Real-time cache hit rate monitoring
+- Token cost breakdown by context segment
+- Context reuse pattern analysis
+- Performance impact visualization of context changes
+
+### 2. Tool Management Interfaces
+**The Problem**: No systematic way to manage large tool ecosystems or understand tool selection patterns.
+
+**What&#x27;s Needed**:
+- Tool usage analytics and optimization suggestions
+- Visual action space design and testing
+- Dynamic tool masking configuration interfaces
+- Tool conflict detection and resolution
+
+### 3. Context Architecture Designers
+**The Problem**: Context structure design happens through trial and error.
+
+**What&#x27;s Needed**:
+- Visual context flow designers
+- Compression strategy testing environments
+- Memory system simulation and optimization
+- Context pattern libraries and templates
+
+### 4. Debugging and Observability Platforms
+**The Problem**: Agent behavior is opaque and difficult to debug.
+
+**What&#x27;s Needed**:
+- Step-by-step agent execution visualization
+- Attention heatmaps and focus tracking
+- Error pattern analysis and recovery optimization
+- A/B testing frameworks for context variations
+
+## Enter Context Space: A Tool-First Response
+
+At Context Space, we&#x27;ve been building with these exact challenges in mind. Our tool-first philosophy isn&#x27;t just about making integrations easier—it&#x27;s about creating the developer experience that context engineering desperately needs.
+
+### Standardized, Observable Tools
+
+Where Manus had to manually implement tool masking and state management, Context Space provides **standardized tool interfaces** that include:
+
+- Built-in usage analytics and performance monitoring
+- Automatic tool conflict detection
+- Standardized error handling and recovery patterns
+- Tool recommendation based on context and task patterns
+
+### Dynamic Context Composition
+
+Manus&#x27;s file-system-as-memory approach inspired our **dynamic context building capabilities**:
+
+- Visual context flow designers that let you see how information flows
+- Automatic compression with recoverable strategies
+- Memory system templates for different use cases
+- Context efficiency optimization suggestions
+
+### Developer Experience First
+
+While Manus had to build their insights through &quot;four complete framework rebuilds,&quot; Context Space aims to make these patterns discoverable:
+
+- **IDE Integration**: Debug context flows directly in your development environment
+- **Real-time Monitoring**: See KV-cache performance, tool usage, and context efficiency live
+- **Pattern Libraries**: Reusable context engineering patterns based on proven approaches
+- **A/B Testing**: Compare context strategies with real metrics
+
+### The Tool Discovery Problem
+
+One of Context Space&#x27;s core innovations addresses something Manus hinted at: as tool ecosystems grow, discovery becomes critical. Our **tool discovery and recommendation engine** uses:
+
+- Context-aware tool suggestions based on current task patterns
+- Usage analytics to surface the most effective tool combinations
+- Automatic tool conflict resolution
+- Progressive disclosure to manage complexity
+
+## What This Looks Like in Practice
+
+Imagine rebuilding Manus&#x27;s agent with proper tooling:
+
+### Performance Optimization Made Visible
+Instead of discovering cache performance issues in production, developers see real-time KV-cache metrics with suggestions for improvement. Context changes show immediate performance impact.
+
+### Tool Management Made Systematic
+Rather than manually implementing tool masking, developers use visual interfaces to design action spaces, with automatic conflict detection and usage analytics guiding optimization.
+
+### Context Architecture Made Discoverable
+Instead of reinventing memory patterns, developers choose from proven templates (file-system memory, attention manipulation, error preservation) with clear documentation and usage examples.
+
+### Debugging Made Transparent
+Rather than guessing why an agent made a particular decision, developers see step-by-step execution flows, attention patterns, and decision trees with clear causality chains.
+
+## The Infrastructure Layer We&#x27;re Missing
+
+Manus&#x27;s experience reveals that context engineering needs what web development got in the 2000s: **a mature infrastructure layer** that handles the common patterns so developers can focus on their unique challenges.
+
+Context Space is building this layer:
+
+- **Unified Tool Interface**: One API for all external tools and services
+- **Context Management Engine**: Handles optimization, compression, and memory management
+- **Observability Platform**: Real-time insights into agent behavior and performance
+- **Developer Toolchain**: IDE integrations, debugging interfaces, and testing frameworks
+
+## The Future of Context Engineering Tools
+
+Looking ahead, we see context engineering tools evolving in several directions:
+
+### Visual Context Design
+Moving from text-based configuration to visual flow designers where developers can see and manipulate context structures directly.
+
+### Intelligent Optimization
+AI-powered suggestions for context optimization, tool selection, and performance improvements based on usage patterns.
+
+### Collaborative Development
+Tools that enable teams to share context patterns, collaborate on agent designs, and build on each other&#x27;s discoveries.
+
+### Production Monitoring
+Comprehensive observability for production AI agents, with automatic anomaly detection and optimization suggestions.
+
+## Building the Context Engineering Platform
+
+The lessons from Manus are clear: context engineering is too important to leave to trial and error. The field needs professional-grade tools that make best practices discoverable and optimization systematic.
+
+This is exactly what we&#x27;re building at Context Space. Our tool-first infrastructure isn&#x27;t just about making integrations easier—it&#x27;s about creating the development experience that teams like Manus needed but had to build themselves.
+
+Every principle they discovered through &quot;Stochastic Gradient Descent&quot; becomes a feature in our platform:
+- KV-cache optimization → real-time performance monitoring
+- Tool explosion management → intelligent tool discovery and management
+- Memory architecture → dynamic context building capabilities
+- Error recovery → systematic debugging and observability
+
+## The Developer Experience We Deserve
+
+Context engineering is becoming the foundation of all serious AI development. But it shouldn&#x27;t require multiple framework rebuilds and years of trial and error to get right.
+
+The future belongs to teams that can iterate quickly on context strategies, optimize performance systematically, and debug agent behavior transparently. This requires tools that make context engineering principles discoverable, optimization automatic, and debugging straightforward.
+
+We&#x27;re building that future at Context Space. Every challenge that Manus solved through manual experimentation, we&#x27;re turning into a tool that makes the next team faster.
+
+**The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll build these tools yourself or use a platform designed for this exact challenge.**
+
+---
+
+**Ready to experience context engineering with proper tooling?**
+
+👉 **[Try Context Space](https://context.space/integrations)** and see what context engineering looks like with the right tools
+
+👉 **[Explore our GitHub](https://github.com/context-space/context-space)** to understand our tool-first approach
+
+The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending. The systematic, tool-supported era is beginning.
+</content>
+    <summary>--- id: building-tools title: Building Developer Tools for Context Engineering: ...</summary>
+    <category term="Developer Tools"/>
+  </entry>
+
+  <entry>
     <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
     <content type="html">
 ---
@@ -245,7 +622,7 @@ The future of AI agents will be built by teams that understand these production 
   <entry>
     <title>Context Engineering: The Missing Foundation Every AI Developer Needs</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-the-missing-foundation-every-ai-developer-needs/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-the-missing-foundation-every-ai-developer-needs/</id>
     <content type="html">
 ---
@@ -507,7 +884,7 @@ Context Space provides robust third-party service integrations today, with advan
   <entry>
     <title>Forget prompt engineering. Context is the new compute</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/forget-prompt-engineering/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/forget-prompt-engineering/</id>
     <content type="html">
 ---
@@ -663,7 +1040,7 @@ I’d love to hear how you&#x27;re tackling this.
   <entry>
     <title>How Context Engineering Is Quietly Replacing Prompt Hacking</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/how-context-engineering-is-quietly-replacing-prompt-hacking/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/how-context-engineering-is-quietly-replacing-prompt-hacking/</id>
     <content type="html">
 ---
@@ -818,7 +1195,7 @@ They’ll be the ones who engineer the most intelligent environments.
   <entry>
     <title>Not Just Another Wrapper：The Engineering Behind Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/not-just-another-wrapper/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/not-just-another-wrapper/</id>
     <content type="html">
 ---
@@ -880,7 +1257,7 @@ This is our commitment to the developer community: to provide a foundation you c
   <entry>
     <title>RAG Isn’t Enough. Context Engineering is how real AI gets built</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/rag-isn/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/rag-isn/</id>
     <content type="html">
 ---
@@ -963,7 +1340,7 @@ The winners won’t be those who prompt better—they’ll be those who engineer
   <entry>
     <title>The Context Window Revolution Has Arrived: AI can finally remember everything</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</id>
     <content type="html">
 ---
@@ -1039,7 +1416,7 @@ The age of perfect memory has begun.
   <entry>
     <title>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</id>
     <content type="html">
 ---
@@ -1153,7 +1530,7 @@ And start with [Context Space](https://github.com/context-space/context-space).
   <entry>
     <title>The New Stack for AI Builders：Memory + Emotion + Context</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-new-stack-for-ai-builders/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-new-stack-for-ai-builders/</id>
     <content type="html">
 ---
@@ -1296,9 +1673,65 @@ The same will be true for context in the AI era.
   </entry>
 
   <entry>
+    <title>The problem with AI agents isn’t the model, it’s missing context (and we built the fix)</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/"/>
+    <updated>2025-07-23T06:42:18.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/</id>
+    <content type="html">
+---
+id: ai-agent-fix
+title: The problem with AI agents isn’t the model, it’s missing context (and we built the fix)
+description: AI agents&#x27; primary limitation isn&#x27;t the model, but the missing context. To solve this, Context Space was created as an open-source infrastructure that replaces configuration chaos with secure, seamless OAuth flows and provides agents with persistent, queryable memory.
+publishedAt: 2025-07-18
+category: AI Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210324746_1752843805377.png
+---
+
+# The problem with AI agents isn’t the model, it’s missing context (and we built the fix)
+
+When the concept of MCP (Model Context Protocol) first emerged, I felt a jolt of genuine excitement. This was it. This was the key that would let us unlock the true potential of LLMs, allowing them to interact with tools and the real world. I jumped in headfirst, my mind buzzing with ideas for truly intelligent agents.
+
+Then reality hit.
+
+My initial excitement quickly turned into a grinding frustration. The cycle became depressingly familiar:
+
+- Spend hours figuring out the right API calls for a tool.
+- Manually edit a sprawling, unforgiving config.yaml file.
+- Worry constantly about accidentally committing secret keys.
+- Finally get it to work, only to have the agent forget a crucial piece of information from the previous turn.
+
+I spent more time debugging YAML syntax and juggling API keys than I did thinking about the actual AI logic. The promise of intelligent agents was buried under a mountain of tedious, brittle, and insecure configuration.
+
+One evening, deep in this frustration, I asked myself: What’s the real problem here? It’s not the LLM. It’s not even the idea of MCP.
+
+**Turns out, the problem is context.**
+
+We’re building brains with amnesia and giving them tools with instructions written on sticky notes.
+
+I started talking to my dev friends and realized I wasn’t alone. We were all sharing the same war stories, the same disillusionment. During one of these chats, an idea sparked. What if we stopped complaining? What if we, a group of developers who felt this pain deeply, just built the thing we all wished existed?
+
+**That’s exactly what we did.**
+
+A few of us, driven by this shared vision, went into a self-imposed lockdown. For one intense month, we did nothing but code. We architected, debated, and built. We poured everything we had into it. 30,000 lines of code later, Context Space was born.
+
+It’s the infrastructure we dreamed of: a system that replaces config hell with secure OAuth flows and gives agents a persistent, queryable memory.
+A few weeks ago, as we were preparing to surface, a tweet from Andrej Karpathy appeared on our feeds: “context engineering &gt; prompt engineering.” It was a moment of incredible validation. It gave a name to the very thing we had been obsessing over.
+
+But we know our initial version, this first fruit of our labor, is far from the complete vision of true Context Engineering. The road is long. That is precisely why we are open-sourcing Context Space today.
+
+We are calling on everyone who has felt this frustration. Everyone who believes in a future of truly capable AI agents. Come join us. Let’s build the foundational infrastructure for the next era of AI.
+
+**🌟Star Context Space** on GitHub and join the movement: https://github.com/context-space/context-space
+</content>
+    <summary>--- id: ai-agent-fix title: The problem with AI agents isn’t the model, it’s mis...</summary>
+    <category term="AI Tools"/>
+  </entry>
+
+  <entry>
     <title>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-top/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-top/</id>
     <content type="html">
 ---
@@ -1404,7 +1837,7 @@ Projects like **[Context Space](https://github.com/context-space/context-space)*
   <entry>
     <title>Top 10 Context Engineering Tools Powering Next-Gen AI</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/top/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/top/</id>
     <content type="html">
 ---
@@ -1523,7 +1956,7 @@ Start with Context Space, connect a couple of tools, measure impact, and you’l
   <entry>
     <title>Two Approaches to Context Engineering: Manus vs Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/two-approaches-to-context-engineering-manus-vs-context-space/"/>
-    <updated>2025-07-23T06:23:13.000Z</updated>
+    <updated>2025-07-23T06:42:18.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/two-approaches-to-context-engineering-manus-vs-context-space/</id>
     <content type="html">
 ---
@@ -1649,439 +2082,6 @@ The future needs both approaches. Which layer will you build?
 </content>
     <summary>--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Man...</summary>
     <category term="Context Engineering"/>
-  </entry>
-
-  <entry>
-    <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
-    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
-    <updated>2025-07-23T06:23:12.000Z</updated>
-    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
-    <content type="html">
----
-id: context-is-the-new-engine
-title: &quot;Beyond Integrations: How to Build the Future of AI with Context Engineering&quot;
-description: Context engineering is the key to building intelligent, scalable AI. The foundation starts with MCP and service-level integrations, allowing agents to access and manage relevant context reliably across interactions.
-publishedAt: 2025-07-09
-category: AI Tech
-author: Context Space Team
-featured: 1
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header01_1752144272539.jpg
----
-
-# Beyond Integrations: How to Build the Future of AI with Context Engineering
-
-&gt; &quot;When in every industrial-strength LLM app, context engineering is the delicate art and science of filling the context window with just the right information for the next step. &quot; — Andrej Karpathy
-
-In the race to build smarter AI systems, the industry has focused heavily on prompt engineering. But as practitioners and organizations push LLMs into more complex workflows like customer support, autonomous agents, and copilots, one thing is becoming clear: **prompts aren&#x27;t enough**.
-
-The real unlock lies in a deeper architectural shift: **context engineering**.
-
-## What is Context Engineering?
-
-Context engineering is the emerging discipline of designing the infrastructure, processes, and protocols that give AI agents access to high-quality, relevant, and persistent context across time, data sources, and interactions.
-
-Whereas prompt engineering focuses on optimizing single inputs to LLMs, context engineering builds the information ecosystem around the model:
-
-| Aspect      | Prompt Engineering           | Context Engineering                               |
-| ----------- | ---------------------------- | ------------------------------------------------- |
-| Focus       | Crafting better instructions | Delivering the right data, at the right time      |
-| Scope       | One-shot prompts             | Persistent, multi-turn, memory-driven interaction |
-| Integration | Minimal                      | Deep integration across services and data streams |
-| Memory      | Stateless                    | Stateful, evolving memory and personalization     |
-| Scalability | Human-crafted                | Systematic and automated at scale                 |
-
-## Why Prompt Engineering Falls Short
-
-LLMs are certainly very powerful, but they constantly suffer from amnesia. Without memory, situational awareness, or external grounding, they:
-
-- Hallucinate facts
-- Lose track of user preferences
-- Repeat themselves
-- Fail in longer interactions
-
-These aren&#x27;t model failures, they’re **context failures**.
-
-As systems grow more complex, context becomes the bottleneck. Reliable AI agents need dynamic access to the *right* information, not just well-crafted prompts.
-
-## Our Belief: Context Engineering Starts with MCP + Integrations
-
-To operationalize context, we need a new foundation. At **Context Space**, we believe this starts with two pillars:
-
-### 1. **MCP (Model Context Protocol)** — The Universal Context Interface
-
-MCP provides a standardized way for AI agents to:
-
-- Read and write to memory
-- Query for relevant context
-- Fetch data from third-party sources
-- Structure and compress inputs for model compatibility
-Think of MCP as the equivalent of **HTTP for context**. In other words, a protocol that separates model logic from memory, perception, and integration.
-
-### 2. **Service Integrations** — The Context Graph in Action
-
-Context lives in tools: GitHub, Slack, Notion, Airtable, Figma, Zoom, Stripe, HubSpot, and beyond. Real-world AI agents can’t function without:
-
-- OAuth-secured access to data
-- Structured operations across services
-- Normalized representations of user activity
-
-That’s why **Context Space** ships with over 14+ service integrations out of the box, with clean APIs, secure authentication, and production-ready pipelines.
-
-## The Four Pillars of Context Engineering
-
-Context Space is built around the four core stages of context lifecycle:
-
-### 1. Write Context
-
-* Persistent memory
-* Knowledge graphs, scratchpads
-* Long-term storage across sessions
-
-### 2. Select Context
-
-* Semantic retrieval (RAG)
-* Relevance scoring
-* Metadata and user history filtering
-
-### 3. Compress Context
-
-* Token optimization
-* Summarization and pruning
-* Dynamic prioritization
-
-### 4. Isolate Context
-
-* Multi-agent separation
-* Tenant-aware memory boundaries
-* Secure sandboxing for safe experimentation
-
-## What We&#x27;ve Built So Far
-
-Building context-aware agents isn&#x27;t just a prompt problem — it&#x27;s a software architecture problem. That’s why Context Space includes:
-
-### ✅ 14+ Integrated Services
-
-* GitHub, Slack, Airtable, Zoom, HubSpot, Notion, Figma, Spotify, Stripe, and more
-* Secure OAuth 2.0 Flows
-* JWT-based auth + HashiCorp Vault for credential storage
-
-![Integrations](https://cdn-bucket.tos-cn-hongkong.volces.com/resources/pic01_1752144080614.png)
-
-### ✅ MCP-Ready Architecture
-
-* REST APIs and future MCP protocol endpoints
-* Agent-compatible abstractions for context I/O
-
-### ✅ Production Infrastructure
-
-* Docker + Kubernetes deployment
-* PostgreSQL, Redis, Vault
-* Monitoring with Prometheus, Grafana, Jaeger
-
-## Built for AI developers
-
-If you’ve ever:
-- Tried to build multi-turn memory from scratch
-- Hand-coded Slack or Notion context pipelines
-- Managed model prompts with YAML files
-- Struggled with hallucinations or brittle agents
-
-Then you already know the pain.
-
-Context Space abstracts this complexity into a modular, extensible system. You focus on agent behavior and we handle context orchestration.
-
-## What&#x27;s Next: Our Roadmap
-
-### Phase 1: Core Context Engine (Next 6 months)
-
-* ✅ 14+ Integrations
-* 🔄 Native MCP support
-* 🔄 Persistent context memory
-* 🔄 Intelligent data aggregation
-
-### Phase 2: Intelligent Context Management (6–12 months)
-
-* 🔄 Semantic retrieval
-* 🔄 Context scoring &amp; compression
-* 🔄 Real-time context updates
-
-### Phase 3: Agent Context Intelligence (12+ months)
-
-* 🔄 Predictive context loading
-* 🔄 Relationship-aware synthesis
-* 🔄 Context analytics &amp; visualization
-
-## Why Start With Context Space Today?
-
-* **Immediate Value**: Production-ready, plug-and-play integrations
-* **Security First**: JWT auth + Vault + scoped access
-* **Observability**: Metrics, logs, and tracing out of the box
-* **Developer-Friendly**: Clean API with docs and examples
-
-You don’t need to reinvent context infrastructure yourself. We’ve done the hard part for you.
-Join the movement to build better memory and better AI.
-
-👉 [GitHub Repo](https://github.com/context-space/context-space)
-
-&gt; *Context Space is licensed under AGPL v3 with planned transition to Apache 2.0. Contact us for commercial licensing options.*
-</content>
-    <summary>--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F...</summary>
-    <category term="AI Tech"/>
-  </entry>
-
-  <entry>
-    <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
-    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
-    <updated>2025-07-23T06:23:12.000Z</updated>
-    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
-    <content type="html">
----
-id: building-tools
-title: &quot;Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building&quot;
-description: &quot;Context engineering is the new frontier, but the developer tools are still catching up. Drawing from Manus&#x27;s hard-won lessons and Context Space&#x27;s tool-first approach, we explore what the next generation of context engineering tools should look like.&quot;
-publishedAt: 2025-07-19
-category: Developer Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210342126_1752843822727.png
----
-
-# Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building
-
-When the Manus team described their context engineering journey as &quot;Stochastic Gradient Descent&quot;—a process of &quot;architecture searching, prompt fiddling, and empirical guesswork&quot;—they weren&#x27;t just being self-deprecating. They were highlighting a fundamental problem: **the tools for context engineering don&#x27;t exist yet.**
-
-Their [recent blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) offers a rare glimpse into production context engineering, but between the lines, it reveals something equally important: the enormous friction developers face when building context-aware AI systems. Every insight they shared—from KV-cache optimization to attention manipulation—represents hours of manual debugging, trial and error, and custom tooling.
-
-This got us thinking: what if context engineering had proper developer tools? What would they look like, and how would they change the way we build AI agents?
-
-## The Current State: Flying Blind
-
-Today&#x27;s context engineering workflow resembles web development from the 1990s—lots of manual work, limited visibility, and debugging through print statements. Consider what Manus had to discover the hard way:
-
-### Performance Debugging Without Metrics
-Manus identified KV-cache hit rate as their most critical metric, but most developers have no visibility into cache performance. They&#x27;re optimizing blind, discovering 10x cost differences only after running production workloads.
-
-### Tool Management Through Trial and Error
-The &quot;tool explosion&quot; problem that Manus describes—where adding more tools makes agents less effective—is something every team discovers independently. There&#x27;s no systematic way to analyze tool usage patterns or optimize action spaces.
-
-### Context Architecture Through Intuition
-Manus&#x27;s insight about using file systems as external memory, or their attention manipulation through todo.md files, emerged from extensive experimentation. These patterns could be discoverable through proper tooling.
-
-### Error Analysis Via Log Diving
-Their principle of &quot;keeping the wrong stuff in&quot; for error recovery—while counterintuitive—becomes obvious when you have tools to analyze failure patterns and recovery success rates.
-
-## What Manus&#x27;s Experience Teaches Us About Tool Requirements
-
-Reading their lessons carefully, we can extract specific requirements for context engineering tools:
-
-### 1. Performance Visibility Tools
-**The Problem**: Developers can&#x27;t see KV-cache performance, token costs, or context efficiency.
-
-**What&#x27;s Needed**:
-- Real-time cache hit rate monitoring
-- Token cost breakdown by context segment
-- Context reuse pattern analysis
-- Performance impact visualization of context changes
-
-### 2. Tool Management Interfaces
-**The Problem**: No systematic way to manage large tool ecosystems or understand tool selection patterns.
-
-**What&#x27;s Needed**:
-- Tool usage analytics and optimization suggestions
-- Visual action space design and testing
-- Dynamic tool masking configuration interfaces
-- Tool conflict detection and resolution
-
-### 3. Context Architecture Designers
-**The Problem**: Context structure design happens through trial and error.
-
-**What&#x27;s Needed**:
-- Visual context flow designers
-- Compression strategy testing environments
-- Memory system simulation and optimization
-- Context pattern libraries and templates
-
-### 4. Debugging and Observability Platforms
-**The Problem**: Agent behavior is opaque and difficult to debug.
-
-**What&#x27;s Needed**:
-- Step-by-step agent execution visualization
-- Attention heatmaps and focus tracking
-- Error pattern analysis and recovery optimization
-- A/B testing frameworks for context variations
-
-## Enter Context Space: A Tool-First Response
-
-At Context Space, we&#x27;ve been building with these exact challenges in mind. Our tool-first philosophy isn&#x27;t just about making integrations easier—it&#x27;s about creating the developer experience that context engineering desperately needs.
-
-### Standardized, Observable Tools
-
-Where Manus had to manually implement tool masking and state management, Context Space provides **standardized tool interfaces** that include:
-
-- Built-in usage analytics and performance monitoring
-- Automatic tool conflict detection
-- Standardized error handling and recovery patterns
-- Tool recommendation based on context and task patterns
-
-### Dynamic Context Composition
-
-Manus&#x27;s file-system-as-memory approach inspired our **dynamic context building capabilities**:
-
-- Visual context flow designers that let you see how information flows
-- Automatic compression with recoverable strategies
-- Memory system templates for different use cases
-- Context efficiency optimization suggestions
-
-### Developer Experience First
-
-While Manus had to build their insights through &quot;four complete framework rebuilds,&quot; Context Space aims to make these patterns discoverable:
-
-- **IDE Integration**: Debug context flows directly in your development environment
-- **Real-time Monitoring**: See KV-cache performance, tool usage, and context efficiency live
-- **Pattern Libraries**: Reusable context engineering patterns based on proven approaches
-- **A/B Testing**: Compare context strategies with real metrics
-
-### The Tool Discovery Problem
-
-One of Context Space&#x27;s core innovations addresses something Manus hinted at: as tool ecosystems grow, discovery becomes critical. Our **tool discovery and recommendation engine** uses:
-
-- Context-aware tool suggestions based on current task patterns
-- Usage analytics to surface the most effective tool combinations
-- Automatic tool conflict resolution
-- Progressive disclosure to manage complexity
-
-## What This Looks Like in Practice
-
-Imagine rebuilding Manus&#x27;s agent with proper tooling:
-
-### Performance Optimization Made Visible
-Instead of discovering cache performance issues in production, developers see real-time KV-cache metrics with suggestions for improvement. Context changes show immediate performance impact.
-
-### Tool Management Made Systematic
-Rather than manually implementing tool masking, developers use visual interfaces to design action spaces, with automatic conflict detection and usage analytics guiding optimization.
-
-### Context Architecture Made Discoverable
-Instead of reinventing memory patterns, developers choose from proven templates (file-system memory, attention manipulation, error preservation) with clear documentation and usage examples.
-
-### Debugging Made Transparent
-Rather than guessing why an agent made a particular decision, developers see step-by-step execution flows, attention patterns, and decision trees with clear causality chains.
-
-## The Infrastructure Layer We&#x27;re Missing
-
-Manus&#x27;s experience reveals that context engineering needs what web development got in the 2000s: **a mature infrastructure layer** that handles the common patterns so developers can focus on their unique challenges.
-
-Context Space is building this layer:
-
-- **Unified Tool Interface**: One API for all external tools and services
-- **Context Management Engine**: Handles optimization, compression, and memory management
-- **Observability Platform**: Real-time insights into agent behavior and performance
-- **Developer Toolchain**: IDE integrations, debugging interfaces, and testing frameworks
-
-## The Future of Context Engineering Tools
-
-Looking ahead, we see context engineering tools evolving in several directions:
-
-### Visual Context Design
-Moving from text-based configuration to visual flow designers where developers can see and manipulate context structures directly.
-
-### Intelligent Optimization
-AI-powered suggestions for context optimization, tool selection, and performance improvements based on usage patterns.
-
-### Collaborative Development
-Tools that enable teams to share context patterns, collaborate on agent designs, and build on each other&#x27;s discoveries.
-
-### Production Monitoring
-Comprehensive observability for production AI agents, with automatic anomaly detection and optimization suggestions.
-
-## Building the Context Engineering Platform
-
-The lessons from Manus are clear: context engineering is too important to leave to trial and error. The field needs professional-grade tools that make best practices discoverable and optimization systematic.
-
-This is exactly what we&#x27;re building at Context Space. Our tool-first infrastructure isn&#x27;t just about making integrations easier—it&#x27;s about creating the development experience that teams like Manus needed but had to build themselves.
-
-Every principle they discovered through &quot;Stochastic Gradient Descent&quot; becomes a feature in our platform:
-- KV-cache optimization → real-time performance monitoring
-- Tool explosion management → intelligent tool discovery and management
-- Memory architecture → dynamic context building capabilities
-- Error recovery → systematic debugging and observability
-
-## The Developer Experience We Deserve
-
-Context engineering is becoming the foundation of all serious AI development. But it shouldn&#x27;t require multiple framework rebuilds and years of trial and error to get right.
-
-The future belongs to teams that can iterate quickly on context strategies, optimize performance systematically, and debug agent behavior transparently. This requires tools that make context engineering principles discoverable, optimization automatic, and debugging straightforward.
-
-We&#x27;re building that future at Context Space. Every challenge that Manus solved through manual experimentation, we&#x27;re turning into a tool that makes the next team faster.
-
-**The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll build these tools yourself or use a platform designed for this exact challenge.**
-
----
-
-**Ready to experience context engineering with proper tooling?**
-
-👉 **[Try Context Space](https://context.space/integrations)** and see what context engineering looks like with the right tools
-
-👉 **[Explore our GitHub](https://github.com/context-space/context-space)** to understand our tool-first approach
-
-The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending. The systematic, tool-supported era is beginning.
-</content>
-    <summary>--- id: building-tools title: Building Developer Tools for Context Engineering: ...</summary>
-    <category term="Developer Tools"/>
-  </entry>
-
-  <entry>
-    <title>The problem with AI agents isn’t the model, it’s missing context (and we built the fix)</title>
-    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/"/>
-    <updated>2025-07-23T06:23:12.000Z</updated>
-    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/</id>
-    <content type="html">
----
-id: ai-agent-fix
-title: The problem with AI agents isn’t the model, it’s missing context (and we built the fix)
-description: AI agents&#x27; primary limitation isn&#x27;t the model, but the missing context. To solve this, Context Space was created as an open-source infrastructure that replaces configuration chaos with secure, seamless OAuth flows and provides agents with persistent, queryable memory.
-publishedAt: 2025-07-18
-category: AI Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210324746_1752843805377.png
----
-
-# The problem with AI agents isn’t the model, it’s missing context (and we built the fix)
-
-When the concept of MCP (Model Context Protocol) first emerged, I felt a jolt of genuine excitement. This was it. This was the key that would let us unlock the true potential of LLMs, allowing them to interact with tools and the real world. I jumped in headfirst, my mind buzzing with ideas for truly intelligent agents.
-
-Then reality hit.
-
-My initial excitement quickly turned into a grinding frustration. The cycle became depressingly familiar:
-
-- Spend hours figuring out the right API calls for a tool.
-- Manually edit a sprawling, unforgiving config.yaml file.
-- Worry constantly about accidentally committing secret keys.
-- Finally get it to work, only to have the agent forget a crucial piece of information from the previous turn.
-
-I spent more time debugging YAML syntax and juggling API keys than I did thinking about the actual AI logic. The promise of intelligent agents was buried under a mountain of tedious, brittle, and insecure configuration.
-
-One evening, deep in this frustration, I asked myself: What’s the real problem here? It’s not the LLM. It’s not even the idea of MCP.
-
-**Turns out, the problem is context.**
-
-We’re building brains with amnesia and giving them tools with instructions written on sticky notes.
-
-I started talking to my dev friends and realized I wasn’t alone. We were all sharing the same war stories, the same disillusionment. During one of these chats, an idea sparked. What if we stopped complaining? What if we, a group of developers who felt this pain deeply, just built the thing we all wished existed?
-
-**That’s exactly what we did.**
-
-A few of us, driven by this shared vision, went into a self-imposed lockdown. For one intense month, we did nothing but code. We architected, debated, and built. We poured everything we had into it. 30,000 lines of code later, Context Space was born.
-
-It’s the infrastructure we dreamed of: a system that replaces config hell with secure OAuth flows and gives agents a persistent, queryable memory.
-A few weeks ago, as we were preparing to surface, a tweet from Andrej Karpathy appeared on our feeds: “context engineering &gt; prompt engineering.” It was a moment of incredible validation. It gave a name to the very thing we had been obsessing over.
-
-But we know our initial version, this first fruit of our labor, is far from the complete vision of true Context Engineering. The road is long. That is precisely why we are open-sourcing Context Space today.
-
-We are calling on everyone who has felt this frustration. Everyone who believes in a future of truly capable AI agents. Come join us. Let’s build the foundational infrastructure for the next era of AI.
-
-**🌟Star Context Space** on GitHub and join the movement: https://github.com/context-space/context-space
-</content>
-    <summary>--- id: ai-agent-fix title: The problem with AI agents isn’t the model, it’s mis...</summary>
-    <category term="AI Tools"/>
   </entry>
 
   <entry>

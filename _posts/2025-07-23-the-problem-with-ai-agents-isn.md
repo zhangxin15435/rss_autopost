@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The problem with AI agents isn’t the model, it’s missing context (and we built the fix)"
-date: 2025-07-23 06:23:20 +0000
+date: 2025-07-23 06:42:26 +0000
 author: ""
 tags: ["AI Tools"]
 categories: ["blog"]
