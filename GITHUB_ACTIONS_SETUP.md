@@ -1,158 +1,152 @@
-# 🚀 GitHub Actions 自动发布配置指南
+# 🚀 GitHub Actions 单文章发布设置指南
 
-本指南将帮助您设置完整的GitHub Actions工作流，实现从CSV数据到Medium发布的全自动化流程。
+## 📋 概览
 
-## 📋 功能特性
+此GitHub Actions工作流实现了**单文章增量发布**到Medium的自动化，每次只发布一篇未发布的文章，避免重复发布和API限制问题。
 
-✅ **自动生成博客**: 从CSV数据生成Jekyll博客文章  
-✅ **RSS Feed生成**: 自动生成RSS/Atom feed  
-✅ **GitHub Pages部署**: 自动部署到GitHub Pages  
-✅ **Playwright自动发布**: 使用浏览器自动化发布到Medium  
-✅ **API发布备用**: 支持Medium官方API发布  
-✅ **智能重试**: 发布失败时自动重试  
+## 🔧 必需的GitHub Secrets配置
 
-## 🔧 GitHub Secrets 配置
+在您的GitHub仓库中设置以下Secrets（`Settings` → `Secrets and variables` → `Actions`）：
 
-### 必需的Secrets (Playwright方式 - 推荐)
+### 🎭 Playwright方式（推荐）
 
-进入您的GitHub仓库 → Settings → Secrets and variables → Actions，添加以下Secrets：
-
-#### 1. Medium账户信息
-```
-MEDIUM_EMAIL          # 您的Medium邮箱
-MEDIUM_PASSWORD       # 您的Medium密码  
+```bash
+MEDIUM_EMAIL=your-medium-email@example.com
+MEDIUM_PASSWORD=your-medium-password
 ```
 
-#### 2. 发布方式配置 (可选)
-```
-MEDIUM_PUBLISH_METHOD # 'playwright' 或 'api'，默认为 'playwright'
-```
+### 📡 API方式（备用）
 
-### 可选的Secrets (API方式备用)
-
-如果您选择使用Medium API方式，需要额外配置：
-
-```
-MEDIUM_INTEGRATION_TOKEN  # Medium官方Integration Token
-MEDIUM_SESSION_TOKEN      # Medium Session Token (需定期更新)
-MEDIUM_USER_ID            # 您的Medium用户ID
+```bash
+MEDIUM_INTEGRATION_TOKEN=your-integration-token
+MEDIUM_SESSION_TOKEN=your-session-token  
+MEDIUM_USER_ID=your-user-id
 ```
 
-## 🎯 触发方式
+## 🚀 触发方式
 
 ### 1. 自动触发
-- **CSV文件更新**: 当 `内容库_发布数据@zc_发布情况.csv` 文件有变化时
-- **代码更新**: 当 `src/` 目录下的代码有变化时  
-- **定时运行**: 每天凌晨2点自动检查并发布
+
+- **CSV文件更新**: 当您更新`内容库_发布数据@zc_发布情况.csv`时自动运行
+- **代码更新**: 当`src/`或`_posts/`目录有变化时触发
+- **定时运行**: 每6小时自动检查一次待发布文章
 
 ### 2. 手动触发
-进入 Actions → 选择 "📡 RSS到Medium自动发布" → Run workflow
 
-#### 运行模式选项：
-- **full**: 完整流程 (生成博客 + Playwright发布到Medium + 部署)
-- **blog**: 仅生成博客和RSS Feed
-- **medium**: 仅使用Playwright发布到Medium  
-- **status**: 仅检查系统状态
+在GitHub仓库的`Actions`标签页点击`Run workflow`，选择运行模式：
 
-#### 发布方式选项：
-- **playwright**: Playwright自动化 (推荐，稳定性高)
-- **api**: Medium API (需要有效的API Token)
+- **single** 📝 单文章发布（推荐）
+- **full** 🔄 完整流程（生成博客 + 发布 + 部署）
+- **blog** 📚 仅生成博客和RSS
+- **status** 📊 仅检查系统状态
 
-## 🔐 获取Medium认证信息
+## 📊 工作流程详解
 
-### Playwright方式 (推荐)
-只需要您的Medium登录邮箱和密码：
-1. 在GitHub Secrets中设置 `MEDIUM_EMAIL` 和 `MEDIUM_PASSWORD`
-2. 系统会自动处理登录和发布流程
+### 1. 环境准备
+```yaml
+✅ 安装Node.js 18 + pnpm
+✅ 安装Playwright浏览器
+✅ 设置虚拟显示器（无头模式）
+```
 
-### API方式 (备用)
-1. **Integration Token**: 
-   - 访问 https://medium.com/me/settings/security
-   - 生成 Integration Token
-   - 设置到 `MEDIUM_INTEGRATION_TOKEN`
+### 2. 单文章发布流程
+```yaml
+🔍 检查CSV中的待发布文章
+📝 生成博客文章和RSS Feed  
+🚀 启动Playwright自动化
+🌐 访问Medium导入页面
+📤 导入单篇文章URL
+👆 自动点击"See your story"（如需要）
+🎯 自动点击发布按钮
+📋 更新CSV状态为"已发布"
+```
 
-2. **User ID**:
-   - 使用项目中的 `pnpm run get-token` 获取
-   - 设置到 `MEDIUM_USER_ID`
+### 3. 部署到GitHub Pages
+```yaml
+🏗️ 构建Jekyll站点
+🌐 部署到GitHub Pages
+📡 更新RSS Feed
+```
 
-## 📊 工作流状态监控
+## 🔄 CSV文件格式要求
 
-### 查看运行状态
-1. 进入仓库的 **Actions** 标签页
-2. 选择最新的工作流运行
-3. 查看各个步骤的执行状态和日志
+确保您的CSV文件包含以下字段：
 
-### 常见状态说明
-- ✅ **成功**: 所有步骤正常完成
-- ⚠️ **警告**: Medium发布失败但其他步骤成功 (设置为可忽略错误)
-- ❌ **失败**: 关键步骤失败，需要检查日志
+| 字段名 | 说明 | 示例值 |
+|--------|------|--------|
+| 主题 | 文章标题 | "Building Developer Tools..." |
+| 发布 | 发布状态 | "进入发布流程" |
+| 渠道&账号 | 发布渠道 | "medium,hashnode,DEV community" |
+| 发布完成 | 完成状态 | "否" → "已发布" |
+| 提出人 | 作者 | "张三" |
+| 标签 | 文章标签 | "技术,AI,工具" |
 
-### 发布报告
-每次运行完成后，会自动生成包含以下信息的报告：
-- 📝 生成的文章数量
-- 📡 RSS文件状态  
-- 🌐 站点部署状态
-- 🔗 最终网站和RSS链接
+## 📈 发布策略
 
-## 🚨 故障排除
+### ✅ 智能跳过机制
+- 自动跳过`发布完成`为"已发布"的文章
+- 只处理`发布`为"进入发布流程"的文章
+- 只发布`渠道&账号`包含"medium"的文章
 
-### Medium发布失败
-1. **检查认证信息**: 确认邮箱密码正确
-2. **检查RSS URL**: 确认GitHub Pages正常工作
-3. **查看详细日志**: Actions中的"发布到Medium"步骤
-4. **重试机制**: 系统会自动重试3次
+### 🎯 单文章模式优势
+- **避免重复发布**: 每次只发布一篇文章
+- **降低API风险**: 减少Medium的频率限制
+- **精确状态追踪**: 实时更新CSV发布状态
+- **错误隔离**: 单篇失败不影响其他文章
 
-### GitHub Pages 404错误
-1. **检查仓库设置**: Settings → Pages → Source设置为"GitHub Actions"
-2. **检查Jekyll配置**: 确认 `_config.yml` 配置正确
-3. **检查Gemfile**: 确认Jekyll依赖完整
+## 🔍 监控和调试
 
-### 权限问题
-确保仓库设置中：
-- Settings → Actions → General → Workflow permissions → "Read and write permissions"
-- Settings → Pages → Source → "GitHub Actions"
+### 查看发布报告
+每次运行后在`Actions`页面查看详细报告：
+- 📤 Medium发布状态
+- 📊 站点构建状态  
+- 🔗 网站和RSS链接
+- ✅ 发布详情（如成功）
 
-## 🔄 自动发布流程详解
+### 常见问题排查
 
-1. **📥 代码检出**: 获取最新代码
-2. **📦 依赖安装**: 安装Node.js依赖和Playwright浏览器
-3. **📊 状态检查**: 验证系统配置
-4. **📝 博客生成**: 从CSV生成Markdown文章和RSS feed
-5. **🚀 Jekyll构建**: 构建静态网站
-6. **🖥️ 环境准备**: 为Playwright设置虚拟显示器
-7. **📤 Medium发布**: 使用Playwright自动发布RSS到Medium
-8. **🔄 代码提交**: 提交生成的文件
-9. **🌐 Pages部署**: 部署到GitHub Pages
-10. **📢 结果通知**: 发送完成通知
+#### 1. 发布失败
+- 检查Medium登录凭据
+- 确认网络连接
+- 查看Playwright错误日志
 
-## 📈 优化建议
+#### 2. 无待发布文章
+- 检查CSV文件格式
+- 确认文章标记为"进入发布流程"
+- 验证渠道包含"medium"
 
-### 提高成功率
-1. **定期更新密码**: Medium密码变更时及时更新Secrets
-2. **监控发布状态**: 定期检查Actions运行结果
-3. **备用方案**: 配置API方式作为Playwright的备用
+#### 3. GitHub Pages部署失败
+- 检查Jekyll语法
+- 确认`_config.yml`配置
+- 查看构建日志
 
-### 性能优化
-1. **选择性触发**: 只在真正需要时运行完整流程
-2. **缓存依赖**: pnpm缓存加速依赖安装
-3. **并行执行**: 多个任务并行提高效率
+## 🎛️ 高级配置
 
-## 📱 移动端监控
+### 自定义超时时间
+```yaml
+env:
+  MEDIUM_TIMEOUT: '90000'  # 90秒
+```
 
-您可以通过GitHub手机App监控Actions运行状态：
-1. 下载GitHub App
-2. 登录您的账户
-3. 导航到仓库 → Actions
-4. 接收推送通知了解运行结果
+### 重试次数配置
+```yaml
+env:
+  MEDIUM_RETRIES: '3'      # 重试3次
+```
+
+### 测试模式
+```yaml
+env:
+  ALLOW_REPUBLISH: 'true'  # 允许重新发布（测试用）
+```
+
+## 🔗 相关链接
+
+- 🌐 **网站**: https://{{github.repository_owner}}.github.io/{{repository_name}}
+- 📡 **RSS**: https://{{github.repository_owner}}.github.io/{{repository_name}}/feed.xml
+- 📖 **使用文档**: [QUICKSTART.md](./QUICKSTART.md)
+- 🎭 **Playwright文档**: [PLAYWRIGHT_MEDIUM_SETUP.md](./PLAYWRIGHT_MEDIUM_SETUP.md)
 
 ---
 
-## 🆘 获取帮助
-
-如果遇到问题：
-1. 查看Actions运行日志中的详细错误信息
-2. 检查本文档的故障排除部分
-3. 确认所有Secrets配置正确
-4. 验证Medium账户状态正常
-
-记住：首次设置可能需要调试，但一旦配置正确，整个流程将完全自动化！🎉 
+🎉 **享受自动化的Medium发布体验！** 每当您在CSV中标记新文章为"进入发布流程"，系统就会自动为您发布到Medium并更新状态。 

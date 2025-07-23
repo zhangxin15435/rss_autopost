@@ -26,8 +26,8 @@ class RSSToMediumSystem {
 
         if (publishMethod === 'api') {
             // 使用Medium API发布方式
-            this.mediumPublisher = new MediumApiPublisher(this.config.medium);
-            console.log('✅ 使用Medium API发布方式');
+        this.mediumPublisher = new MediumApiPublisher(this.config.medium);
+        console.log('✅ 使用Medium API发布方式');
         } else {
             // 使用Playwright自动化发布方式 (默认)
             this.mediumPublisher = new MediumPlaywrightPublisher(this.config.medium);
@@ -497,7 +497,7 @@ async function main() {
 
 示例:
   npm start single    # 发布单篇文章 (推荐)
-  npm start blog      # 只生成博客  
+  npm start blog      # 只生成博客
   npm start status    # 检查状态
   npm start full      # 完整发布流程
 `);

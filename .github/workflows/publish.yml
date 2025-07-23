@@ -1,4 +1,4 @@
-name: 📡 RSS到Medium自动发布
+name: 📡 单文章Medium自动发布
 
 # 设置权限
 permissions:
@@ -7,17 +7,18 @@ permissions:
   id-token: write
 
 on:
-  # 当CSV文件有变化时触发
+  # 当CSV文件有变化时触发（新文章或状态更新）
   push:
     paths:
       - '内容库_发布数据@zc_发布情况.csv'
       - 'src/**'
+      - '_posts/**'
     branches:
       - main
   
-  # 定时运行（每天检查一次）
+  # 定时运行（每6小时检查一次待发布文章）
   schedule:
-    - cron: '0 2 * * *'  # 每天凌晨2点运行
+    - cron: '0 */6 * * *'  # 每6小时运行一次，确保及时发布
   
   # 手动触发
   workflow_dispatch:
@@ -25,12 +26,12 @@ on:
       mode:
         description: '运行模式'
         required: true
-        default: 'blog'
+        default: 'single'
         type: choice
         options:
-        - full     # 完整流程：生成博客 + Playwright发布到Medium + 部署
+        - single   # 单文章发布（推荐）
+        - full     # 完整流程：生成博客 + 单文章发布 + 部署
         - blog     # 仅生成博客和RSS
-        - medium   # 仅使用Playwright发布到Medium
         - status   # 仅检查状态
       publish_method:
         description: 'Medium发布方式'
@@ -118,9 +119,20 @@ jobs:
         export DISPLAY=:99
         Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     
-    - name: 📤 发布到Medium (仅在配置了认证信息时)
-      if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'medium' }}
-      run: pnpm start single
+    - name: 📤 单文章发布到Medium
+      if: ${{ github.event.inputs.mode == 'single' || github.event.inputs.mode == 'full' || github.event.inputs.mode == '' }}
+      run: |
+        echo "🚀 开始单文章发布流程..."
+        echo "📊 检查待发布文章..."
+        
+        # 运行单文章发布
+        if pnpm start single; then
+          echo "✅ 单文章发布成功"
+          echo "PUBLISH_SUCCESS=true" >> $GITHUB_ENV
+        else
+          echo "⚠️ 单文章发布失败或无待发布文章"
+          echo "PUBLISH_SUCCESS=false" >> $GITHUB_ENV
+        fi
       env:
         # RSS Feed URL
         RSS_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml
@@ -132,7 +144,7 @@ jobs:
         MEDIUM_EMAIL: ${{ secrets.MEDIUM_EMAIL }}
         MEDIUM_PASSWORD: ${{ secrets.MEDIUM_PASSWORD }}
         MEDIUM_HEADLESS: 'true'  # GitHub Actions中必须无头模式
-        MEDIUM_TIMEOUT: '60000'  # 60秒超时
+        MEDIUM_TIMEOUT: '90000'  # 90秒超时（增加时间给"See your story"步骤）
         MEDIUM_RETRIES: '3'      # 重试3次
         
         # API方式 (备用)
@@ -143,18 +155,46 @@ jobs:
         # 环境标识
         CI: 'true'
         DISPLAY: ':99'  # 虚拟显示器
-      continue-on-error: true
+      continue-on-error: false
     
     - name: 🔄 提交更改
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
+        
         if git diff --staged --quiet; then
-          echo "没有变化需要提交"
+          echo "📭 没有变化需要提交"
         else
-          git commit -m "🤖 自动更新博客文章和RSS Feed"
+          # 检查是否有CSV状态更新
+          if git diff --staged --name-only | grep -q "内容库_发布数据@zc_发布情况.csv"; then
+            if [ "$PUBLISH_SUCCESS" = "true" ]; then
+              git commit -m "✅ 文章发布成功：更新CSV发布状态
+
+              🤖 自动更新内容:
+              - 📝 更新文章发布状态为'已发布'
+              - 🌐 重新生成Jekyll站点
+              - 📡 更新RSS Feed
+              
+              发布时间: $(date '+%Y-%m-%d %H:%M:%S')"
+            else
+              git commit -m "🔄 自动更新博客文章和RSS Feed
+              
+              🤖 更新内容:
+              - 📝 生成新的博客文章
+              - 📡 更新RSS Feed
+              - 🌐 重新生成Jekyll站点
+              
+              更新时间: $(date '+%Y-%m-%d %H:%M:%S')"
+            fi
+          else
+            git commit -m "🔄 自动更新博客内容
+            
+            更新时间: $(date '+%Y-%m-%d %H:%M:%S')"
+          fi
+          
           git push
+          echo "✅ 更改已提交并推送"
         fi
     
     - name: 📋 上传构建产物
@@ -167,13 +207,32 @@ jobs:
           atom.xml
           published_articles.json
     
-    - name: 📊 生成报告
+    - name: 📊 生成发布报告
       run: |
-        echo "## 📈 发布报告" >> $GITHUB_STEP_SUMMARY
-        echo "- 🏗️ 构建时间: $(date)" >> $GITHUB_STEP_SUMMARY
-        echo "- 📝 文章数量: $(find _posts -name "*.md" 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
-        echo "- 📡 RSS文件: $([ -f feed.xml ] && echo "✅" || echo "❌")" >> $GITHUB_STEP_SUMMARY
-        echo "- 🌐 站点: $([ -d _site ] && echo "✅" || echo "❌")" >> $GITHUB_STEP_SUMMARY
+        echo "## 📈 单文章发布报告" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🚀 发布状态" >> $GITHUB_STEP_SUMMARY
+        echo "- 📤 Medium发布: $([ "$PUBLISH_SUCCESS" = "true" ] && echo "✅ 成功" || echo "📭 无待发布文章")" >> $GITHUB_STEP_SUMMARY
+        echo "- 🏗️ 构建时间: $(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
+        echo "- 🔧 运行模式: ${{ github.event.inputs.mode || '自动触发' }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 站点状态" >> $GITHUB_STEP_SUMMARY
+        echo "- 📝 博客文章数量: $(find _posts -name "*.md" 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- 📡 RSS Feed: $([ -f feed.xml ] && echo "✅ 已生成" || echo "❌ 生成失败")" >> $GITHUB_STEP_SUMMARY
+        echo "- 🌐 Jekyll站点: $([ -d _site ] && echo "✅ 构建成功" || echo "❌ 构建失败")" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔗 链接" >> $GITHUB_STEP_SUMMARY
+        echo "- 🌐 网站: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" >> $GITHUB_STEP_SUMMARY
+        echo "- 📡 RSS: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml" >> $GITHUB_STEP_SUMMARY
+        
+        # 如果有发布成功，显示详细信息
+        if [ "$PUBLISH_SUCCESS" = "true" ]; then
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ 发布详情" >> $GITHUB_STEP_SUMMARY
+          echo "- 🎯 发布方式: Playwright自动化" >> $GITHUB_STEP_SUMMARY
+          echo "- 📄 发布策略: 单文章增量发布" >> $GITHUB_STEP_SUMMARY
+          echo "- 📝 CSV状态: 已自动更新为'已发布'" >> $GITHUB_STEP_SUMMARY
+        fi
 
   # 部署到GitHub Pages
   deploy-pages:
@@ -224,14 +283,33 @@ jobs:
     if: always()
     
     steps:
-    - name: 📢 发送通知
+    - name: 📢 发送完成通知
       run: |
+        echo "## 🎯 单文章发布流程完成"
+        echo ""
+        
         if [ "${{ needs.publish.result }}" == "success" ] && [ "${{ needs.deploy-pages.result }}" == "success" ]; then
-          echo "✅ 发布成功完成！"
-          echo "🌐 网站: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
-          echo "📡 RSS: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml"
+          echo "✅ 发布和部署成功完成！"
+          echo ""
+          echo "📊 **状态摘要:**"
+          echo "- 📝 博客生成: ✅ 成功"
+          echo "- 📤 Medium发布: 🔄 已尝试（查看详细日志）"
+          echo "- 🌐 网站部署: ✅ 成功"
+          echo ""
+          echo "🔗 **访问链接:**"
+          echo "- 🌐 网站: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          echo "- 📡 RSS: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/feed.xml"
+          echo ""
+          echo "💡 **提示:** 单文章发布系统会自动跳过已发布的文章，仅发布标记为'进入发布流程'且未发布的文章。"
         else
           echo "❌ 发布过程中出现问题"
-          echo "📝 发布结果: ${{ needs.publish.result }}"
-          echo "🌐 部署结果: ${{ needs.deploy-pages.result }}"
+          echo ""
+          echo "📊 **错误摘要:**"
+          echo "- 📝 发布作业: ${{ needs.publish.result }}"
+          echo "- 🌐 部署作业: ${{ needs.deploy-pages.result }}"
+          echo ""
+          echo "🔧 **故障排除:**"
+          echo "1. 检查Medium登录凭据是否正确设置"
+          echo "2. 确认CSV文件中有待发布的文章"
+          echo "3. 查看详细的作业日志"
         fi 

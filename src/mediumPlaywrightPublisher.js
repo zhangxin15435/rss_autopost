@@ -405,6 +405,9 @@ class MediumPlaywrightPublisher {
         console.log(`📄 文章URL: ${articleUrl}`);
         console.log(`📝 文章标题: ${articleInfo.title || '未知标题'}`);
 
+        // 保存文章信息供后续使用
+        this.currentArticleInfo = articleInfo;
+
         // 检查是否已发布
         if (this.publishedArticles.has(articleUrl)) {
             console.log('⏭️ 文章已发布，跳过');
@@ -427,6 +430,22 @@ class MediumPlaywrightPublisher {
                 this.publishedArticles.add(articleUrl);
                 await this.savePublishedArticles();
                 console.log(`✅ 文章发布成功: ${articleInfo.title || articleUrl}`);
+            }
+
+            // 如果需要更新CSV状态，在这里处理
+            if (this.shouldUpdateCSV && this.currentArticleInfo && this.currentArticleInfo.title) {
+                try {
+                    console.log('📝 更新CSV发布状态...');
+                    const csvUpdater = require('./csvToBlog');
+                    const csvManager = new csvUpdater({
+                        inputFile: this.config.csvFile || '内容库_发布数据@zc_发布情况.csv'
+                    });
+                    await csvManager.updateArticleStatus(this.currentArticleInfo.title, '已发布');
+                    console.log('✅ CSV状态更新成功');
+                    this.shouldUpdateCSV = false; // 重置标志
+                } catch (csvError) {
+                    console.error('❌ CSV状态更新失败:', csvError.message);
+                }
             }
 
             return result;
@@ -607,7 +626,7 @@ class MediumPlaywrightPublisher {
                     await this.page.keyboard.press('Control+A');
                     await this.page.waitForTimeout(500);
 
-                    // 逐字符慢速输入确保完整性  
+                    // 逐字符慢速输入确保完整性
                     await this.page.keyboard.type(this.config.rssUrl, { delay: 100 });
 
                     // 验证输入是否成功
@@ -674,6 +693,20 @@ class MediumPlaywrightPublisher {
                     console.log(`📚 导入了 ${result.articlesCount} 篇文章`);
                 }
 
+                // 如果在编辑页面，自动发布文章
+                if (result.isEditPage) {
+                    console.log('🚀 开始自动发布文章...');
+                    const publishResult = await this.autoPublishArticle();
+                    if (publishResult.success) {
+                        console.log('✅ 文章发布成功');
+
+                        // 标记需要更新CSV状态
+                        this.shouldUpdateCSV = true;
+                    } else {
+                        console.log('❌ 文章发布失败:', publishResult.error);
+                    }
+                }
+
                 // 记录导入成功
                 this.publishedArticles.add(this.config.rssUrl);
                 this.publishedArticles.add(`import_${new Date().toISOString()}`);
@@ -728,6 +761,10 @@ class MediumPlaywrightPublisher {
                 ':has-text("Import completed")',
                 ':has-text("导入成功")',
                 ':has-text("导入完成")',
+                ':has-text("Imported the story")',
+                ':has-text("imported the story")',
+                ':has-text("Change your story")',
+                ':has-text("Click Publish to share")',
                 '.success',
                 '.import-success',
                 '[data-testid*="success"]'
@@ -741,9 +778,33 @@ class MediumPlaywrightPublisher {
                     // 尝试提取文章数量
                     const text = await element.textContent();
                     const countMatch = text.match(/(\d+)/);
-                    const articlesCount = countMatch ? parseInt(countMatch[1]) : 0;
+                    const articlesCount = countMatch ? parseInt(countMatch[1]) : 1;
 
-                    return { success: true, articlesCount };
+                    // 检查是否需要点击"See your story"按钮
+                    await this.clickSeeYourStoryButton();
+
+                    return { success: true, articlesCount, isEditPage: true };
+                }
+            }
+
+            // 检查页面内容是否包含导入成功的文本
+            const pageContent = await this.page.content();
+            const successTexts = [
+                'Imported the story',
+                'imported the story',
+                'Change your story as needed',
+                'Click Publish to share',
+                'See your story'
+            ];
+
+            for (const text of successTexts) {
+                if (pageContent.includes(text)) {
+                    console.log(`✅ 页面包含成功文本: "${text}"`);
+
+                    // 检查是否需要点击"See your story"按钮
+                    await this.clickSeeYourStoryButton();
+
+                    return { success: true, articlesCount: 1, isEditPage: true };
                 }
             }
 
@@ -769,6 +830,12 @@ class MediumPlaywrightPublisher {
                 }
             }
 
+            // 检查是否跳转到了编辑页面
+            if (currentUrl.includes('/edit')) {
+                console.log('✅ 页面跳转到编辑页面，导入成功');
+                return { success: true, articlesCount: 1, isEditPage: true };
+            }
+
             // 检查是否跳转到了文章列表或仪表板
             if (currentUrl.includes('/me/') || currentUrl.includes('/stories/') ||
                 currentUrl.includes('/dashboard')) {
@@ -782,6 +849,239 @@ class MediumPlaywrightPublisher {
 
         } catch (error) {
             console.error('⚠️ 检查导入结果时出错:', error.message);
+            return { success: false, error: error.message };
+        }
+    }
+
+    /**
+     * 点击"See your story"按钮进入编辑页面
+     */
+    async clickSeeYourStoryButton() {
+        try {
+            // 检查当前URL，如果已经在编辑页面就跳过
+            const currentUrl = this.page.url();
+            if (currentUrl.includes('/edit')) {
+                console.log('✅ 已在编辑页面，无需点击"See your story"');
+                return true;
+            }
+
+            console.log('🔍 尝试点击"See your story"按钮...');
+
+            // 尝试多种"See your story"按钮选择器
+            const seeStorySelectors = [
+                'xpath=/html/body/div[5]/div/button', // 用户提供的XPath
+                'button:has-text("See your story")',
+                'button:has-text("查看你的故事")',
+                '[data-testid="see-story-button"]',
+                'button[aria-label*="story"]',
+                '.see-story-button',
+                'a:has-text("See your story")',
+                'a:has-text("查看你的故事")',
+                'button:visible'  // 通用可见按钮选择器
+            ];
+
+            let seeStoryClicked = false;
+
+            // 尝试每个选择器
+            for (const selector of seeStorySelectors) {
+                try {
+                    const button = await this.page.$(selector);
+                    if (button) {
+                        // 检查按钮是否可见且可点击
+                        const isVisible = await button.isVisible();
+                        if (isVisible) {
+                            console.log(`✅ 找到"See your story"按钮: ${selector}`);
+
+                            // 滚动到按钮位置
+                            await button.scrollIntoViewIfNeeded();
+                            await this.page.waitForTimeout(1000);
+
+                            // 点击按钮
+                            await button.click();
+                            console.log('👆 点击"See your story"按钮...');
+                            seeStoryClicked = true;
+                            break;
+                        }
+                    }
+                } catch (error) {
+                    // 继续尝试下一个选择器
+                    console.log(`⚠️ 选择器 ${selector} 失败: ${error.message}`);
+                }
+            }
+
+            if (seeStoryClicked) {
+                // 等待页面跳转到编辑页面
+                console.log('⏳ 等待页面跳转到编辑页面...');
+
+                // 等待URL变化，最多等待15秒
+                for (let i = 0; i < 15; i++) {
+                    await this.page.waitForTimeout(1000);
+                    const newUrl = this.page.url();
+                    if (newUrl.includes('/edit')) {
+                        console.log('✅ 成功跳转到编辑页面');
+                        return true;
+                    }
+                }
+
+                console.log('⚠️ 等待编辑页面跳转超时');
+                return false;
+            } else {
+                console.log('❌ 未找到"See your story"按钮');
+                return false;
+            }
+
+        } catch (error) {
+            console.error('❌ 点击"See your story"按钮失败:', error.message);
+            return false;
+        }
+    }
+
+    /**
+     * 自动发布文章
+     */
+    async autoPublishArticle() {
+        try {
+            console.log('📝 在编辑页面，开始自动发布...');
+
+            // 等待页面完全加载
+            await this.page.waitForTimeout(3000);
+
+            // 尝试多种发布按钮选择器
+            const publishButtonSelectors = [
+                // 用户提供的XPath转换为CSS选择器（如果可能）
+                '[data-testid="publish-button"]',
+                'button:has-text("Publish")',
+                'button:has-text("发布")',
+                '[aria-label*="publish"]',
+                '[aria-label*="发布"]',
+                '.publish-button',
+                'button[type="submit"]',
+                // 通用发布按钮选择器
+                'button:visible'
+            ];
+
+            let publishButton = null;
+
+            // 尝试直接使用用户提供的XPath
+            try {
+                const userProvidedXPath = '//*[@id="_obv.shell._surface_1753237596298"]/div/div[2]/div[2]/div[2]/div[1]';
+                publishButton = await this.page.$(`xpath=${userProvidedXPath}`);
+                if (publishButton && await publishButton.isVisible()) {
+                    console.log('✅ 找到发布按钮 (用户提供的XPath)');
+                }
+            } catch (e) {
+                console.log('⚠️ 用户提供的XPath无效，尝试其他选择器...');
+            }
+
+            // 如果用户XPath无效，尝试其他选择器
+            if (!publishButton) {
+                for (const selector of publishButtonSelectors) {
+                    try {
+                        const elements = await this.page.$$(selector);
+                        for (const element of elements) {
+                            if (await element.isVisible()) {
+                                const text = await element.textContent();
+                                if (text && (text.toLowerCase().includes('publish') || text.includes('发布'))) {
+                                    publishButton = element;
+                                    console.log(`✅ 找到发布按钮: ${selector}`);
+                                    break;
+                                }
+                            }
+                        }
+                        if (publishButton) break;
+                    } catch (e) {
+                        // 继续尝试下一个选择器
+                    }
+                }
+            }
+
+            if (!publishButton) {
+                console.log('❌ 未找到发布按钮');
+                return { success: false, error: '未找到发布按钮' };
+            }
+
+            // 点击发布按钮
+            console.log('👆 点击发布按钮...');
+            await publishButton.click();
+
+            // 等待发布选项页面出现
+            await this.page.waitForTimeout(3000);
+
+            // 查找并点击"Publish Now"按钮
+            console.log('🔍 查找"Publish Now"按钮...');
+
+            const publishNowSelectors = [
+                // 用户提供的XPath
+                'xpath=/html/body/div[5]/div/div/div/div[2]/div[6]/div[1]/div/button/span',
+                // 通用选择器
+                'button:has-text("Publish now")',
+                'button:has-text("立即发布")',
+                'button:has-text("发布")',
+                '[data-testid="publish-now"]',
+                '[aria-label*="publish now"]',
+                'button[type="submit"]:visible'
+            ];
+
+            let publishNowButton = null;
+
+            for (const selector of publishNowSelectors) {
+                try {
+                    if (selector.startsWith('xpath=')) {
+                        publishNowButton = await this.page.$(selector);
+                    } else {
+                        publishNowButton = await this.page.$(selector);
+                    }
+
+                    if (publishNowButton && await publishNowButton.isVisible()) {
+                        console.log(`✅ 找到"Publish Now"按钮: ${selector}`);
+                        break;
+                    }
+                } catch (e) {
+                    // 继续尝试下一个选择器
+                }
+            }
+
+            if (!publishNowButton) {
+                // 如果找不到特定按钮，尝试找任何可见的提交按钮
+                const submitButtons = await this.page.$$('button:visible');
+                for (const button of submitButtons) {
+                    const text = await button.textContent();
+                    if (text && (text.includes('Publish') || text.includes('发布') || text.includes('Submit'))) {
+                        publishNowButton = button;
+                        console.log(`✅ 找到可能的发布按钮: "${text}"`);
+                        break;
+                    }
+                }
+            }
+
+            if (!publishNowButton) {
+                console.log('❌ 未找到"Publish Now"按钮');
+                return { success: false, error: '未找到"Publish Now"按钮' };
+            }
+
+            // 点击"Publish Now"按钮
+            console.log('👆 点击"Publish Now"按钮...');
+            await publishNowButton.click();
+
+            // 等待发布完成
+            console.log('⏳ 等待发布完成...');
+            await this.page.waitForTimeout(5000);
+
+            // 检查发布结果
+            const currentUrl = this.page.url();
+            console.log(`🌐 发布后页面: ${currentUrl}`);
+
+            // 检查是否成功发布
+            if (currentUrl.includes('/p/') && !currentUrl.includes('/edit')) {
+                console.log('✅ 文章发布成功！');
+                return { success: true, publishedUrl: currentUrl };
+            } else {
+                console.log('❓ 发布状态不确定');
+                return { success: true, message: '发布可能成功，请手动确认' };
+            }
+
+        } catch (error) {
+            console.error('❌ 自动发布失败:', error.message);
             return { success: false, error: error.message };
         }
     }
