@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Two Approaches to Context Engineering: Manus vs Context Space"
-date: 2025-07-23 13:44:01 +0800
+date: 2025-07-23 06:23:20 +0000
 author: ""
 tags: ["Context Engineering"]
 categories: ["blog"]
