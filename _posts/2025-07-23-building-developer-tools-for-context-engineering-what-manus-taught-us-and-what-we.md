@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building"
-date: 2025-07-23 10:07:18 +0800
+date: 2025-07-23 10:16:29 +0800
 author: "马侨仪"
 tags: ["技术", "AI"]
 categories: ["blog"]
