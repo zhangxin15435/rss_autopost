@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Context Engineering for AI Agents: Key Lessons from Manus"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["Context Engineering"]
 categories: ["blog"]
-description: "--- id: manus-lessons title: Context Engineering for AI Agents: Key Lessons from Manus description: Manus recently published an in-depth article on th..."
-excerpt: "--- id: manus-lessons title: Context Engineering for AI Agents: Key Lessons from..."
+description: "Context Engineering for AI Agents: Key Lessons from Manus"
+excerpt: "Context Engineering for AI Agents: Key Lessons from Manus"
 published: true
----
-
----
-id: manus-lessons
-title: "Context Engineering for AI Agents: Key Lessons from Manus"
-description: "Manus recently published an in-depth article on their official website titled “Context Engineering for AI Agents: Lessons from Building Manus”. In it, they reflect on the technical and architectural challenges of building long-running AI agents that can reason, remember, and act in the real world."
-publishedAt: 2025-07-19
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719133743291_1752903463719.png
 ---
 
 # Context Engineering for AI Agents: Key Lessons from Manus
@@ -145,8 +135,6 @@ The transition from experimental AI demos to production-grade agents requires th
 For teams building their own AI agents, these lessons offer a starting point for avoiding common pitfalls. More importantly, they demonstrate that context engineering success comes from careful measurement, systematic experimentation, and willingness to rebuild when better approaches emerge.
 
 The future of AI agents will be built by teams that understand these production realities. Context engineering may still be experimental, but it's no longer optional.
-
----
 
 **Further Reading:**
 - [Original Manus blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) with detailed technical implementation

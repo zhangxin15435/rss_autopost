@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["Context Engineering"]
 categories: ["blog"]
-description: "--- id: why-tool-first title: Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure description: Current AI agents operate l..."
-excerpt: "--- id: why-tool-first title: Beyond the Black Box: Why We Built Context Space a..."
+description: "Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure"
+excerpt: "Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure"
 published: true
----
-
----
-id: why-tool-first
-title: "Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure"
-description: "Current AI agents operate like a black box. We believe the future is 'Tool-First'—transforming complex capabilities like memory and orchestration into standard, observable tools to build truly robust and controllable AI."
-publishedAt: 2025-07-18
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210355813_1752843836502.png
 ---
 
 # Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure

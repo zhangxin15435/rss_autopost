@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["Developer Tools"]
 categories: ["blog"]
-description: "--- id: building-tools title: Building Developer Tools for Context Engineering: What Manus Taught Us and What Were Building description: Context engin..."
-excerpt: "--- id: building-tools title: Building Developer Tools for Context Engineering: ..."
+description: "Building Developer Tools for Context Engineering: What Manus Taught Us and What Were Building"
+excerpt: "Building Developer Tools for Context Engineering: What Manus Taught Us and What ..."
 published: true
----
-
----
-id: building-tools
-title: "Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building"
-description: "Context engineering is the new frontier, but the developer tools are still catching up. Drawing from Manus's hard-won lessons and Context Space's tool-first approach, we explore what the next generation of context engineering tools should look like."
-publishedAt: 2025-07-19
-category: Developer Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210342126_1752843822727.png
 ---
 
 # Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building
@@ -188,8 +178,6 @@ The future belongs to teams that can iterate quickly on context strategies, opti
 We're building that future at Context Space. Every challenge that Manus solved through manual experimentation, we're turning into a tool that makes the next team faster.
 
 **The question isn't whether context engineering will become critical—it's whether you'll build these tools yourself or use a platform designed for this exact challenge.**
-
----
 
 **Ready to experience context engineering with proper tooling?**
 

@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Not Just Another Wrapper：The Engineering Behind Context Space"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["Engineering"]
 categories: ["blog"]
-description: "--- id: engineering-deep-dive title: Not Just Another Wrapper：The Engineering Behind Context Space description: Building production-grade AI is more t..."
-excerpt: "--- id: engineering-deep-dive title: Not Just Another Wrapper：The Engineering Be..."
+description: "Not Just Another Wrapper: The Engineering Deep Dive into Context Space"
+excerpt: "Not Just Another Wrapper: The Engineering Deep Dive into Context Space"
 published: true
----
-
----
-id: engineering-deep-dive
-title: Not Just Another Wrapper：The Engineering Behind Context Space
-description: Building production-grade AI is more than wrapping an API. We dive into the core technical advantages of Context Space, from a Vault-secured backend and unified API layer to our 'Tool-First' architecture.
-publishedAt: 2025-07-18
-category: Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210422873_1752843862884.png
 ---
 
 # Not Just Another Wrapper: The Engineering Deep Dive into Context Space

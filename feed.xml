@@ -9,7 +9,7 @@
             <link>https://zhangxin15435.github.io/rss_autopost</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 24 Jul 2025 04:13:33 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Jul 2025 04:24:33 GMT</lastBuildDate>
         <atom:link href="https://zhangxin15435.github.io/rss_autopost/feed.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Blog Author]]></author>
         <copyright><![CDATA[2025 Blog. All rights reserved.]]></copyright>
@@ -22,138 +22,138 @@
         <category><![CDATA[Development]]></category>
         <item>
             <title><![CDATA[Beyond Integrations: How to Build the Future of AI with Context Engineering]]></title>
-            <description><![CDATA[--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F...]]></description>
+            <description><![CDATA[Beyond Integrations: How to Build the Future of AI with Context Engineering]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</guid>
             <category><![CDATA[AI Tech]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure]]></title>
-            <description><![CDATA[--- id: why-tool-first title: Beyond the Black Box: Why We Built Context Space a...]]></description>
+            <description><![CDATA[Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/</guid>
             <category><![CDATA[Context Engineering]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Building Developer Tools for Context Engineering: What Manus Taught Us and What We're Building]]></title>
-            <description><![CDATA[--- id: building-tools title: Building Developer Tools for Context Engineering: ...]]></description>
+            <description><![CDATA[Building Developer Tools for Context Engineering: What Manus Taught Us and What ...]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</guid>
             <category><![CDATA[Developer Tools]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Context Engineering for AI Agents: Key Lessons from Manus]]></title>
-            <description><![CDATA[--- id: manus-lessons title: Context Engineering for AI Agents: Key Lessons from...]]></description>
+            <description><![CDATA[Context Engineering for AI Agents: Key Lessons from Manus]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/</guid>
             <category><![CDATA[Context Engineering]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Context Engineering: The Missing Foundation Every AI Developer Needs]]></title>
-            <description><![CDATA[--- id: missing-foundation title: Context Engineering: The Missing Foundation Ev...]]></description>
+            <description><![CDATA[Context Engineering: The Missing Foundation Every AI Developer Needs]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/</guid>
             <category><![CDATA[AI Trend]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Forget prompt engineering. Context is the new compute]]></title>
-            <description><![CDATA[--- id: prompt-context title: Forget prompt engineering. Context is the new comp...]]></description>
+            <description><![CDATA[Forget prompt engineering. Context is the new compute.]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/</guid>
             <category><![CDATA[AI Trend]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How Context Engineering Is Quietly Replacing Prompt Hacking]]></title>
-            <description><![CDATA[--- id: replace title: How Context Engineering Is Quietly Replacing Prompt Hacki...]]></description>
+            <description><![CDATA[How Context Engineering Is Quietly Replacing Prompt Hacking]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/</guid>
             <category><![CDATA[AI Trend]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Not Just Another Wrapper：The Engineering Behind Context Space]]></title>
-            <description><![CDATA[--- id: engineering-deep-dive title: Not Just Another Wrapper：The Engineering Be...]]></description>
+            <description><![CDATA[Not Just Another Wrapper: The Engineering Deep Dive into Context Space]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/</guid>
             <category><![CDATA[Engineering]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[RAG Isn’t Enough. Context Engineering is how real AI gets built]]></title>
-            <description><![CDATA[--- id: rag title: RAG Isn’t Enough. Context Engineering is how real AI gets bui...]]></description>
+            <description><![CDATA[RAG Isn’t Enough. Context Engineering is how real AI gets built]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/</guid>
             <category><![CDATA[AI Trend]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Context Window Revolution Has Arrived: AI can finally remember everything]]></title>
-            <description><![CDATA[--- id: context-window title: The Context Window Revolution Has Arrived: AI can ...]]></description>
+            <description><![CDATA[The Context Window Revolution Has Arrived: AI can finally remember everything.]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</guid>
             <category><![CDATA[AI Trend]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution]]></title>
-            <description><![CDATA[--- id: hidden-breakthrough title: The Hidden Breakthrough Transforming AI Econo...]]></description>
+            <description><![CDATA[The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</guid>
             <category><![CDATA[AI Tech]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The New Stack for AI Builders：Memory + Emotion + Context]]></title>
-            <description><![CDATA[--- id: new-stack title: The New Stack for AI Builders：Memory + Emotion + Contex...]]></description>
+            <description><![CDATA[The New Stack for AI Builders：Memory + Emotion + Context]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/</guid>
             <category><![CDATA[AI Tools]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning]]></title>
-            <description><![CDATA[--- id: 3-approaches title: The Top 3 Approaches Powering the Future of AI Memor...]]></description>
+            <description><![CDATA[The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context In...]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/</guid>
             <category><![CDATA[AI Tools]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Top 10 Context Engineering Tools Powering Next-Gen AI]]></title>
-            <description><![CDATA[--- id: 10-tools title: Top 10 Context Engineering Tools Powering Next-Gen AI de...]]></description>
+            <description><![CDATA[Top 10 Context Engineering Tools Powering Next-Gen AI]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/</guid>
             <category><![CDATA[AI Tools]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Two Approaches to Context Engineering: Manus vs Context Space]]></title>
-            <description><![CDATA[--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Man...]]></description>
+            <description><![CDATA[Two Approaches to Context Engineering: Manus vs Context Space]]></description>
             <link>https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/</link>
             <guid isPermaLink="false">https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/</guid>
             <category><![CDATA[Context Engineering]]></category>
             <dc:creator><![CDATA[Blog Author]]></dc:creator>
-            <pubDate>Thu, 24 Jul 2025 04:13:32 GMT</pubDate>
+            <pubDate>Thu, 24 Jul 2025 04:24:33 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Beyond Integrations: How to Build the Future of AI with Context Engineering]]></title>

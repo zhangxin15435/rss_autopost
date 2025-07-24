@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Two Approaches to Context Engineering: Manus vs Context Space"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["Context Engineering"]
 categories: ["blog"]
-description: "--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Manus vs Context Space description: An in-depth comparison of how Manus a..."
-excerpt: "--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Man..."
+description: "Two Approaches to Context Engineering: Manus vs Context Space"
+excerpt: "Two Approaches to Context Engineering: Manus vs Context Space"
 published: true
----
-
----
-id: manus-vs-context-space
-title: "Two Approaches to Context Engineering: Manus vs Context Space"
-description: "An in-depth comparison of how Manus and Context Space tackle context engineering from different angles - runtime optimization vs infrastructure building - and why both approaches are essential for the future of AI agents."
-publishedAt: 2025-07-19
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719132947510_1752902987791.png
 ---
 
 # Two Approaches to Context Engineering: Manus vs Context Space
@@ -120,8 +110,6 @@ As we've learned from studying Manus's approach, there's tremendous value in cro
 The future of AI agents will be built by teams that understand both the infrastructure challenges and the runtime optimizations. Whether you're building the next Manus or integrating with Context Space, we're all part of the same mission: making AI agents reliable, efficient, and genuinely useful.
 
 The context engineering revolution is just beginning. Let's build it together.
-
----
 
 **Ready to explore context engineering for yourself?**
 

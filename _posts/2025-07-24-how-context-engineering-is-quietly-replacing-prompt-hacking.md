@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "How Context Engineering Is Quietly Replacing Prompt Hacking"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["AI Trend"]
 categories: ["blog"]
-description: "--- id: replace title: How Context Engineering Is Quietly Replacing Prompt Hacking description: Prompt engineering is fading. The real breakthroughs i..."
-excerpt: "--- id: replace title: How Context Engineering Is Quietly Replacing Prompt Hacki..."
+description: "How Context Engineering Is Quietly Replacing Prompt Hacking"
+excerpt: "How Context Engineering Is Quietly Replacing Prompt Hacking"
 published: true
----
-
----
-id: replace
-title: How Context Engineering Is Quietly Replacing Prompt Hacking
-description: "Prompt engineering is fading. The real breakthroughs in AI now come from context engineering—the discipline of designing intelligent, adaptive environments where LLMs can access, organize, and reason over the right information. "
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header12_1752144225658.jpg
 ---
 
 # How Context Engineering Is Quietly Replacing Prompt Hacking
@@ -146,8 +136,6 @@ A new stack of context evaluation engines is emerging to match the rise in deman
 - Treat context AI as core infra, not a feature.
 - Build interdisciplinary teams: AI, UX, knowledge systems.
 - Invest now—before your competitors do.
-
----
 
 As MIT's Alex Pentland said:
 > “The future of intelligent systems lies not in faster processing, but in deeper understanding of context.”

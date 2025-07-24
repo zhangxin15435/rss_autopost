@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "Forget prompt engineering. Context is the new compute"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["AI Trend"]
 categories: ["blog"]
-description: "--- id: prompt-context title: Forget prompt engineering. Context is the new compute description: While the AI world obsesses over bigger models and be..."
-excerpt: "--- id: prompt-context title: Forget prompt engineering. Context is the new comp..."
+description: "Forget prompt engineering. Context is the new compute."
+excerpt: "Forget prompt engineering. Context is the new compute."
 published: true
----
-
----
-id: prompt-context
-title: Forget prompt engineering. Context is the new compute
-description: "While the AI world obsesses over bigger models and better prompts, the next wave of AI success won’t be won by prompt whisperers, but by teams who treat context as infrastructure. "
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header05_1752144260467.jpg
 ---
 
 # Forget prompt engineering. Context is the new compute.

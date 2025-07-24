@@ -1,23 +1,13 @@
 ---
 layout: post
 title: "The New Stack for AI Builders：Memory + Emotion + Context"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["AI Tools"]
 categories: ["blog"]
-description: "--- id: new-stack title: The New Stack for AI Builders：Memory + Emotion + Context description: As local models become cheaper and privacy tech matures..."
-excerpt: "--- id: new-stack title: The New Stack for AI Builders：Memory + Emotion + Contex..."
+description: "The New Stack for AI Builders：Memory + Emotion + Context"
+excerpt: "The New Stack for AI Builders：Memory + Emotion + Context"
 published: true
----
-
----
-id: new-stack
-title: The New Stack for AI Builders：Memory + Emotion + Context
-description: "As local models become cheaper and privacy tech matures, user expectations are shifting toward AI that feels more human. "
-publishedAt: 2025-07-09
-category: AI Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header04_1752144309658.jpg
 ---
 
 # The New Stack for AI Builders：Memory + Emotion + Context

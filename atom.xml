@@ -3,7 +3,7 @@
   <title>技术博客</title>
   <link href="https://zhangxin15435.github.io/rss_autopost"/>
   <link href="https://zhangxin15435.github.io/rss_autopost/atom.xml" rel="self"/>
-  <updated>2025-07-24T04:13:24.000Z</updated>
+  <updated>2025-07-24T04:24:33.000Z</updated>
   <id>https://zhangxin15435.github.io/rss_autopost/</id>
   <author>
     <name>Blog Author</name>
@@ -13,20 +13,9 @@
   <entry>
     <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
     <content type="html">
----
-id: context-is-the-new-engine
-title: &quot;Beyond Integrations: How to Build the Future of AI with Context Engineering&quot;
-description: Context engineering is the key to building intelligent, scalable AI. The foundation starts with MCP and service-level integrations, allowing agents to access and manage relevant context reliably across interactions.
-publishedAt: 2025-07-09
-category: AI Tech
-author: Context Space Team
-featured: 1
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header01_1752144272539.jpg
----
-
 # Beyond Integrations: How to Build the Future of AI with Context Engineering
 
 &gt; &quot;When in every industrial-strength LLM app, context engineering is the delicate art and science of filling the context window with just the right information for the next step. &quot; — Andrej Karpathy
@@ -184,26 +173,16 @@ Join the movement to build better memory and better AI.
 
 &gt; *Context Space is licensed under AGPL v3 with planned transition to Apache 2.0. Contact us for commercial licensing options.*
 </content>
-    <summary>--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F...</summary>
+    <summary>Beyond Integrations: How to Build the Future of AI with Context Engineering</summary>
     <category term="AI Tech"/>
   </entry>
 
   <entry>
     <title>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/</id>
     <content type="html">
----
-id: why-tool-first
-title: &quot;Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure&quot;
-description: &quot;Current AI agents operate like a black box. We believe the future is &#x27;Tool-First&#x27;—transforming complex capabilities like memory and orchestration into standard, observable tools to build truly robust and controllable AI.&quot;
-publishedAt: 2025-07-18
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210355813_1752843836502.png
----
-
 # Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure
 
 If you&#x27;ve built an AI agent recently, you&#x27;ve likely felt a strange mix of awe and frustration. On one hand, its capabilities are astounding. On the other, trying to debug why it chose one action over another feels like staring into a black box. The agent&#x27;s reasoning is opaque, its behavior unpredictable, and scaling its abilities often leads to an exponential increase in chaos.
@@ -263,26 +242,16 @@ We&#x27;re just getting started. If you believe in a future where AI development
 
 **🌟Star Context Space on GitHub** and help us build the foundation for the next generation of AI: https://github.com/context-space/context-space
 </content>
-    <summary>--- id: why-tool-first title: Beyond the Black Box: Why We Built Context Space a...</summary>
+    <summary>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</summary>
     <category term="Context Engineering"/>
   </entry>
 
   <entry>
     <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
     <content type="html">
----
-id: building-tools
-title: &quot;Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building&quot;
-description: &quot;Context engineering is the new frontier, but the developer tools are still catching up. Drawing from Manus&#x27;s hard-won lessons and Context Space&#x27;s tool-first approach, we explore what the next generation of context engineering tools should look like.&quot;
-publishedAt: 2025-07-19
-category: Developer Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210342126_1752843822727.png
----
-
 # Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building
 
 When the Manus team described their context engineering journey as &quot;Stochastic Gradient Descent&quot;—a process of &quot;architecture searching, prompt fiddling, and empirical guesswork&quot;—they weren&#x27;t just being self-deprecating. They were highlighting a fundamental problem: **the tools for context engineering don&#x27;t exist yet.**
@@ -452,8 +421,6 @@ We&#x27;re building that future at Context Space. Every challenge that Manus sol
 
 **The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll build these tools yourself or use a platform designed for this exact challenge.**
 
----
-
 **Ready to experience context engineering with proper tooling?**
 
 👉 **[Try Context Space](https://context.space/integrations)** and see what context engineering looks like with the right tools
@@ -462,26 +429,16 @@ We&#x27;re building that future at Context Space. Every challenge that Manus sol
 
 The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending. The systematic, tool-supported era is beginning.
 </content>
-    <summary>--- id: building-tools title: Building Developer Tools for Context Engineering: ...</summary>
+    <summary>Building Developer Tools for Context Engineering: What Manus Taught Us and What ...</summary>
     <category term="Developer Tools"/>
   </entry>
 
   <entry>
     <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
     <content type="html">
----
-id: manus-lessons
-title: &quot;Context Engineering for AI Agents: Key Lessons from Manus&quot;
-description: &quot;Manus recently published an in-depth article on their official website titled “Context Engineering for AI Agents: Lessons from Building Manus”. In it, they reflect on the technical and architectural challenges of building long-running AI agents that can reason, remember, and act in the real world.&quot;
-publishedAt: 2025-07-19
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719133743291_1752903463719.png
----
-
 # Context Engineering for AI Agents: Key Lessons from Manus
 
 Context engineering is emerging as one of the most critical disciplines in AI development, yet it remains largely experimental. Unlike traditional software engineering, where best practices have been established over decades, context engineering is still in its &quot;Wild West&quot; phase—full of trial, error, and hard-won insights.
@@ -608,33 +565,21 @@ For teams building their own AI agents, these lessons offer a starting point for
 
 The future of AI agents will be built by teams that understand these production realities. Context engineering may still be experimental, but it&#x27;s no longer optional.
 
----
-
 **Further Reading:**
 - [Original Manus blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) with detailed technical implementation
 
 *The field is young, the challenges are real, and the opportunities are enormous. The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll learn these lessons through experimentation or through others&#x27; experience.*
 </content>
-    <summary>--- id: manus-lessons title: Context Engineering for AI Agents: Key Lessons from...</summary>
+    <summary>Context Engineering for AI Agents: Key Lessons from Manus</summary>
     <category term="Context Engineering"/>
   </entry>
 
   <entry>
     <title>Context Engineering: The Missing Foundation Every AI Developer Needs</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/</id>
     <content type="html">
----
-id: missing-foundation
-title: &quot;Context Engineering: The Missing Foundation Every AI Developer Needs&quot;
-description: &quot;Most AI developers are still stuck in prompt engineering, trying to fix outputs by tweaking inputs. But true reliability comes from context engineering—the discipline of designing how AI systems gather, retain, and use information across time. &quot;
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header10_1752144214836.jpg
----
-
 # Context Engineering: The Missing Foundation Every AI Developer Needs
 
 Most &quot;AI developers&quot; don&#x27;t understand what they&#x27;re building. They treat LLMs like mystical oracles—input the right incantation (prompt), and out comes the answer. When it fails, they blame the model, tweak the temperature, or try a different prompt.
@@ -877,26 +822,16 @@ Context Space provides robust third-party service integrations today, with advan
 
 &gt; 👉 [Explore Context Space on GitHub](https://github.com/context-space/context-space)
 </content>
-    <summary>--- id: missing-foundation title: Context Engineering: The Missing Foundation Ev...</summary>
+    <summary>Context Engineering: The Missing Foundation Every AI Developer Needs</summary>
     <category term="AI Trend"/>
   </entry>
 
   <entry>
     <title>Forget prompt engineering. Context is the new compute</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/</id>
     <content type="html">
----
-id: prompt-context
-title: Forget prompt engineering. Context is the new compute
-description: &quot;While the AI world obsesses over bigger models and better prompts, the next wave of AI success won’t be won by prompt whisperers, but by teams who treat context as infrastructure. &quot;
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header05_1752144260467.jpg
----
-
 # Forget prompt engineering. Context is the new compute.
 
 While everyone’s chasing bigger models and cleverer prompts, a silent infrastructure crisis is quietly crippling real-world AI adoption.
@@ -1033,26 +968,16 @@ Is your company thinking about context engineering yet?
 **Drop your experience in the comments or message me directly.**
 I’d love to hear how you&#x27;re tackling this.
 </content>
-    <summary>--- id: prompt-context title: Forget prompt engineering. Context is the new comp...</summary>
+    <summary>Forget prompt engineering. Context is the new compute.</summary>
     <category term="AI Trend"/>
   </entry>
 
   <entry>
     <title>How Context Engineering Is Quietly Replacing Prompt Hacking</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/</id>
     <content type="html">
----
-id: replace
-title: How Context Engineering Is Quietly Replacing Prompt Hacking
-description: &quot;Prompt engineering is fading. The real breakthroughs in AI now come from context engineering—the discipline of designing intelligent, adaptive environments where LLMs can access, organize, and reason over the right information. &quot;
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header12_1752144225658.jpg
----
-
 # How Context Engineering Is Quietly Replacing Prompt Hacking
 
 For years, AI development has centered on one crucial skill: writing the perfect prompt. Now, a silent revolution is unfolding across Silicon Valley—and it’s not about asking better questions. It’s about **designing smarter environments**.
@@ -1180,34 +1105,22 @@ A new stack of context evaluation engines is emerging to match the rise in deman
 - Build interdisciplinary teams: AI, UX, knowledge systems.
 - Invest now—before your competitors do.
 
----
-
 As MIT&#x27;s Alex Pentland said:
 &gt; “The future of intelligent systems lies not in faster processing, but in deeper understanding of context.”
 
 In this AI arms race, the winners won’t be the ones who engineer the best prompts.
 They’ll be the ones who engineer the most intelligent environments.
 </content>
-    <summary>--- id: replace title: How Context Engineering Is Quietly Replacing Prompt Hacki...</summary>
+    <summary>How Context Engineering Is Quietly Replacing Prompt Hacking</summary>
     <category term="AI Trend"/>
   </entry>
 
   <entry>
     <title>Not Just Another Wrapper：The Engineering Behind Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/</id>
     <content type="html">
----
-id: engineering-deep-dive
-title: Not Just Another Wrapper：The Engineering Behind Context Space
-description: Building production-grade AI is more than wrapping an API. We dive into the core technical advantages of Context Space, from a Vault-secured backend and unified API layer to our &#x27;Tool-First&#x27; architecture.
-publishedAt: 2025-07-18
-category: Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210422873_1752843862884.png
----
-
 # Not Just Another Wrapper: The Engineering Deep Dive into Context Space
 
 In the gold rush of AI, it’s easy to build a thin wrapper around an API, create a flashy demo, and call it a day. But building robust, scalable, and secure AI infrastructure—the kind you can bet your business on—is a different game entirely. It requires deliberate architectural choices and a deep understanding of production systems.
@@ -1250,26 +1163,16 @@ This is our commitment to the developer community: to provide a foundation you c
 **Dive into our architecture on GitHub and see for yourself.**
 👉 **[Explore the code on GitHub](https://github.com/context-space/context-space)**
 </content>
-    <summary>--- id: engineering-deep-dive title: Not Just Another Wrapper：The Engineering Be...</summary>
+    <summary>Not Just Another Wrapper: The Engineering Deep Dive into Context Space</summary>
     <category term="Engineering"/>
   </entry>
 
   <entry>
     <title>RAG Isn’t Enough. Context Engineering is how real AI gets built</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/</id>
     <content type="html">
----
-id: rag
-title: RAG Isn’t Enough. Context Engineering is how real AI gets built
-description: RAG pipelines and prompt tweaks aren’t enough to power truly intelligent systems. The next generation of AI demands context engineering—the ability to deliver the right information, with memory and semantic awareness, at the right time.
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header07_1752144283428.jpg
----
-
 # RAG Isn’t Enough. Context Engineering is how real AI gets built
 
 While most of the world still fine-tunes prompts and tweaks RAG pipelines, the bleeding edge is focused on building **context-aware systems** with memory, adaptability, and purpose.
@@ -1333,26 +1236,16 @@ Context is no longer optional. It’s **infrastructure**.
 
 The winners won’t be those who prompt better—they’ll be those who engineer **context at scale**.
 </content>
-    <summary>--- id: rag title: RAG Isn’t Enough. Context Engineering is how real AI gets bui...</summary>
+    <summary>RAG Isn’t Enough. Context Engineering is how real AI gets built</summary>
     <category term="AI Trend"/>
   </entry>
 
   <entry>
     <title>The Context Window Revolution Has Arrived: AI can finally remember everything</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</id>
     <content type="html">
----
-id: context-window
-title: &quot;The Context Window Revolution Has Arrived: AI can finally remember everything&quot;
-description: &quot;AI has entered a new era: the context window revolution. Once limited to short-term memory, today’s top models like GPT-4 and Gemini 1.5 now handle millions of tokens, enabling them to process entire books, medical records, or legal cases in a single session.&quot;
-publishedAt: 2025-07-09
-category: AI Trend
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header11_1752144296628.jpg
----
-
 # The Context Window Revolution Has Arrived: AI can finally remember everything.
 
 For years, AI chatbots were brilliant goldfish—impressive for a moment, forgetful the next. Long conversations? Lost. Context? Gone. That wasn’t a bug. It was a limit called the *context window*.
@@ -1409,26 +1302,16 @@ That’s why we built **Context Space** — an open-source framework that empowe
 The age of forgetting is over.
 The age of perfect memory has begun.
 </content>
-    <summary>--- id: context-window title: The Context Window Revolution Has Arrived: AI can ...</summary>
+    <summary>The Context Window Revolution Has Arrived: AI can finally remember everything.</summary>
     <category term="AI Trend"/>
   </entry>
 
   <entry>
     <title>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</id>
     <content type="html">
----
-id: hidden-breakthrough
-title: &quot;The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution&quot;
-description: As enterprise costs soar, the context caching revolution is redefining LLM economics. Breakthroughs like semantic caching, product quantization, and intermediate activation storage are slashing inference costs.
-publishedAt: 2025-07-09
-category: AI Tech
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header09_1752144248882.jpg
----
-
 # The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution
 
 In 2025, AI deployment isn’t being bottlenecked by model size or compute—it’s being throttled by memory. Specifically, by the massive overhead of redundant context processing that LLMs struggle to handle efficiently. Welcome to the context caching revolution.
@@ -1507,8 +1390,6 @@ It’s designed for:
 
 It’s open. And it’s built for the next generation of AI-native applications.
 
----
-
 ## The Context Engineering Mandate
 
 The time for proof-of-concept is over.
@@ -1519,30 +1400,18 @@ If you’re serious about LLMs in production, don’t just fine-tune. Don’t ju
 
 And start with [Context Space](https://github.com/context-space/context-space).
 
----
-
 *Note: This article synthesizes research from HKU, PKU, MIT, NVIDIA, Microsoft, and the vLLM project to provide a strategic overview of next-gen LLM deployment infrastructure.*
 </content>
-    <summary>--- id: hidden-breakthrough title: The Hidden Breakthrough Transforming AI Econo...</summary>
+    <summary>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</summary>
     <category term="AI Tech"/>
   </entry>
 
   <entry>
     <title>The New Stack for AI Builders：Memory + Emotion + Context</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/</id>
     <content type="html">
----
-id: new-stack
-title: The New Stack for AI Builders：Memory + Emotion + Context
-description: &quot;As local models become cheaper and privacy tech matures, user expectations are shifting toward AI that feels more human. &quot;
-publishedAt: 2025-07-09
-category: AI Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header04_1752144309658.jpg
----
-
 # The New Stack for AI Builders：Memory + Emotion + Context
 
 *Yesterday, I asked GPT-4 to help me write a work email to a colleague.*
@@ -1668,26 +1537,16 @@ We’ve seen this before. The companies that nailed personalization in Web 2.0 d
 
 The same will be true for context in the AI era.
 </content>
-    <summary>--- id: new-stack title: The New Stack for AI Builders：Memory + Emotion + Contex...</summary>
+    <summary>The New Stack for AI Builders：Memory + Emotion + Context</summary>
     <category term="AI Tools"/>
   </entry>
 
   <entry>
     <title>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/</id>
     <content type="html">
----
-id: 3-approaches
-title: &quot;The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning&quot;
-description: &quot;AI’s future hinges on memory. Three approaches are leading the charge: native memory systems (like Memory³) that give models long-term recall, context injection (RAG) for dynamic knowledge retrieval, and fine-tuning for domain-specific precision.&quot;
-publishedAt: 2025-07-09
-category: AI Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header08_1752144322494.jpg
----
-
 # The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning
 
 In 2025, the most powerful AI systems will be defined by how well they remember.
@@ -1774,26 +1633,16 @@ Leading researchers from Stanford to OpenAI agree: the next generation of AI wil
 
 Projects like **[Context Space](https://github.com/context-space/context-space)** make that future real.
 </content>
-    <summary>--- id: 3-approaches title: The Top 3 Approaches Powering the Future of AI Memor...</summary>
+    <summary>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context In...</summary>
     <category term="AI Tools"/>
   </entry>
 
   <entry>
     <title>Top 10 Context Engineering Tools Powering Next-Gen AI</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/</id>
     <content type="html">
----
-id: 10-tools
-title: Top 10 Context Engineering Tools Powering Next-Gen AI
-description: As AI shifts from prompt-based tricks to context-aware intelligence, ten open-source tools are leading the charge. From MCP and QwenLong-CPRS for scalable memory and compression, to LangChain, Chroma, and Redis for managing, retrieving, and caching context.
-publishedAt: 2025-07-09
-category: AI Tools
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header06_1752144332236.jpg
----
-
 # Top 10 Context Engineering Tools Powering Next-Gen AI
 
 &gt; &quot;I really like the term &#x27;context engineering&#x27; over &#x27;prompt engineering.&#x27; It describes the core skill better: the art of providing all the context for the task to...&quot; — Andrej Karpathy
@@ -1885,34 +1734,22 @@ Context Space is our open-source framework that complements the above tools:
 - 14+ Built-in Integrations: Popular DBs, caches, APIs—plug and play.
 - Future-Ready: Designed from day one for context-first engineering.
 
----
-
 Context engineering isn’t hype—it’s already delivering real improvements in reliability, fidelity, and performance. Companies that invest in context tools today will be the leaders in intelligent AI tomorrow.
 
 Start with Context Space, connect a couple of tools, measure impact, and you’ll see how context-first architectures outperform even the most powerful models.
 
 *Note: Performance claims are drawn from published benchmarks or pilot case studies where available; where data remains based on in-house testing, this is clearly noted.*
 </content>
-    <summary>--- id: 10-tools title: Top 10 Context Engineering Tools Powering Next-Gen AI de...</summary>
+    <summary>Top 10 Context Engineering Tools Powering Next-Gen AI</summary>
     <category term="AI Tools"/>
   </entry>
 
   <entry>
     <title>Two Approaches to Context Engineering: Manus vs Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/"/>
-    <updated>2025-07-24T04:13:24.000Z</updated>
+    <updated>2025-07-24T04:24:33.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/</id>
     <content type="html">
----
-id: manus-vs-context-space
-title: &quot;Two Approaches to Context Engineering: Manus vs Context Space&quot;
-description: &quot;An in-depth comparison of how Manus and Context Space tackle context engineering from different angles - runtime optimization vs infrastructure building - and why both approaches are essential for the future of AI agents.&quot;
-publishedAt: 2025-07-19
-category: Context Engineering
-author: Context Space Team
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719132947510_1752902987791.png
----
-
 # Two Approaches to Context Engineering: Manus vs Context Space
 
 The emergence of context engineering as a critical discipline in AI development has sparked innovation across the industry. Recently, the team at [Manus AI shared their hard-earned lessons](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
@@ -2014,8 +1851,6 @@ The future of AI agents will be built by teams that understand both the infrastr
 
 The context engineering revolution is just beginning. Let&#x27;s build it together.
 
----
-
 **Ready to explore context engineering for yourself?**
 
 👉 **[Check out Context Space on GitHub](https://github.com/context-space/context-space)** and see how we&#x27;re building the infrastructure layer
@@ -2024,7 +1859,7 @@ The context engineering revolution is just beginning. Let&#x27;s build it togeth
 
 The future needs both approaches. Which layer will you build?
 </content>
-    <summary>--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Man...</summary>
+    <summary>Two Approaches to Context Engineering: Manus vs Context Space</summary>
     <category term="Context Engineering"/>
   </entry>
 

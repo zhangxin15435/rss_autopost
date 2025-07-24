@@ -1,24 +1,13 @@
 ---
 layout: post
 title: "Beyond Integrations: How to Build the Future of AI with Context Engineering"
-date: 2025-07-24 04:13:32 +0000
+date: 2025-07-24 12:24:33 +0800
 author: ""
 tags: ["AI Tech"]
 categories: ["blog"]
-description: "--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the Future of AI with Context Engineering description: Context engineering ..."
-excerpt: "--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F..."
+description: "Beyond Integrations: How to Build the Future of AI with Context Engineering"
+excerpt: "Beyond Integrations: How to Build the Future of AI with Context Engineering"
 published: true
----
-
----
-id: context-is-the-new-engine
-title: "Beyond Integrations: How to Build the Future of AI with Context Engineering"
-description: Context engineering is the key to building intelligent, scalable AI. The foundation starts with MCP and service-level integrations, allowing agents to access and manage relevant context reliably across interactions.
-publishedAt: 2025-07-09
-category: AI Tech
-author: Context Space Team
-featured: 1
-image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header01_1752144272539.jpg
 ---
 
 # Beyond Integrations: How to Build the Future of AI with Context Engineering

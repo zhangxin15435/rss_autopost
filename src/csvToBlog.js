@@ -371,9 +371,20 @@ published: true`;
      * 处理文章内容
      */
     processContent(content) {
-        // 基本的markdown格式化
         let processed = content;
 
+        // 🔧 修复：移除原始内容中的YAML front matter
+        // 检测以 --- 开头的front matter并移除
+        const frontMatterRegex = /^---\s*\n[\s\S]*?\n---\s*\n/;
+        if (frontMatterRegex.test(processed)) {
+            processed = processed.replace(frontMatterRegex, '');
+            console.log('🧹 移除了原始内容中的YAML front matter');
+        }
+
+        // 移除多余的分隔线和空行
+        processed = processed.replace(/^-{3,}\s*\n/gm, '');
+        
+        // 基本的markdown格式化
         // 处理段落
         processed = processed.replace(/\n\n+/g, '\n\n');
 
@@ -391,16 +402,52 @@ published: true`;
      * 生成文章描述
      */
     generateDescription(content) {
-        const cleaned = content.replace(/[""'']/g, '').replace(/\n/g, ' ');
-        return cleaned.length > 150 ? cleaned.substring(0, 150) + '...' : cleaned;
+        // 使用处理后的内容（已移除YAML front matter）
+        const processedContent = this.processContent(content);
+        
+        // 提取第一段作为描述，跳过标题
+        const paragraphs = processedContent.split('\n\n');
+        let description = '';
+        
+        for (const paragraph of paragraphs) {
+            const cleaned = paragraph.trim()
+                .replace(/^#{1,6}\s+/, '') // 移除markdown标题
+                .replace(/[""'']/g, '')
+                .replace(/\n/g, ' ');
+            
+            if (cleaned.length > 10 && !cleaned.match(/^[>\-\*\+]/)) { // 排除引用和列表
+                description = cleaned;
+                break;
+            }
+        }
+        
+        return description.length > 150 ? description.substring(0, 150) + '...' : description;
     }
 
     /**
      * 生成文章摘要
      */
     generateExcerpt(content) {
-        const cleaned = content.replace(/[""'']/g, '').replace(/\n/g, ' ');
-        return cleaned.length > 80 ? cleaned.substring(0, 80) + '...' : cleaned;
+        // 使用处理后的内容（已移除YAML front matter）
+        const processedContent = this.processContent(content);
+        
+        // 提取第一段有效内容作为摘要
+        const paragraphs = processedContent.split('\n\n');
+        let excerpt = '';
+        
+        for (const paragraph of paragraphs) {
+            const cleaned = paragraph.trim()
+                .replace(/^#{1,6}\s+/, '') // 移除markdown标题
+                .replace(/[""'']/g, '')
+                .replace(/\n/g, ' ');
+            
+            if (cleaned.length > 10 && !cleaned.match(/^[>\-\*\+]/)) { // 排除引用和列表
+                excerpt = cleaned;
+                break;
+            }
+        }
+        
+        return excerpt.length > 80 ? excerpt.substring(0, 80) + '...' : excerpt;
     }
 
     /**
