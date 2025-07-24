@@ -436,8 +436,8 @@ class MediumPlaywrightPublisher {
             if (this.shouldUpdateCSV && this.currentArticleInfo && this.currentArticleInfo.title) {
                 try {
                     console.log('📝 更新CSV发布状态...');
-                    const csvUpdater = require('./csvToBlog');
-                    const csvManager = new csvUpdater({
+                    const { default: CsvToBlog } = await import('./csvToBlog.js');
+                    const csvManager = new CsvToBlog({
                         inputFile: this.config.csvFile || path.join('articles', 'articles.csv'),
                         articlesDir: this.config.articlesDir || 'articles'
                     });

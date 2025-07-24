@@ -125,13 +125,42 @@ jobs:
         echo "🚀 开始单文章发布流程..."
         echo "📊 检查待发布文章..."
         
+        # 显示环境信息用于调试
+        echo "🔍 环境变量调试:"
+        echo "  MEDIUM_EMAIL: ${MEDIUM_EMAIL:0:5}****"
+        echo "  MEDIUM_PASSWORD: ${MEDIUM_PASSWORD:+[已设置]}${MEDIUM_PASSWORD:-[未设置]}"
+        echo "  RSS_URL: $RSS_URL"
+        echo "  NODE_ENV: $NODE_ENV"
+        echo "  CI: $CI"
+        
+        # 检查必要文件
+        echo "📂 文件检查:"
+        ls -la articles/ || echo "❌ articles目录不存在"
+        ls -la "articles/内容库_发布数据@zc_发布情况 (2).csv" || echo "❌ CSV文件不存在"
+        
+        # 运行环境验证
+        echo "🔍 运行环境验证..."
+        pnpm run validate-env || echo "⚠️ 环境验证失败，但继续尝试发布"
+        
         # 运行单文章发布
+        echo "📝 开始单文章发布..."
         if pnpm start single; then
           echo "✅ 单文章发布成功"
           echo "PUBLISH_SUCCESS=true" >> $GITHUB_ENV
         else
-          echo "⚠️ 单文章发布失败或无待发布文章"
+          exit_code=$?
+          echo "❌ 单文章发布失败，退出码: $exit_code"
           echo "PUBLISH_SUCCESS=false" >> $GITHUB_ENV
+          
+          # 显示更多调试信息
+          echo "🔍 调试信息:"
+          echo "  Node版本: $(node --version)"
+          echo "  npm版本: $(npm --version)"
+          echo "  pnpm版本: $(pnpm --version)"
+          echo "  当前目录: $(pwd)"
+          echo "  环境变量数量: $(env | wc -l)"
+          
+          exit $exit_code
         fi
       env:
         # RSS Feed URL

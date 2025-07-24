@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beyond Integrations: How to Build the Future of AI with Context Engineering"
-date: 2025-07-24 12:24:33 +0800
+date: 2025-07-24 12:48:21 +0800
 author: ""
 tags: ["AI Tech"]
 categories: ["blog"]
