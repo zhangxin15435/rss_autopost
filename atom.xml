@@ -3,7 +3,7 @@
   <title>技术博客</title>
   <link href="https://zhangxin15435.github.io/rss_autopost"/>
   <link href="https://zhangxin15435.github.io/rss_autopost/atom.xml" rel="self"/>
-  <updated>2025-07-23T06:42:18.000Z</updated>
+  <updated>2025-07-24T04:13:24.000Z</updated>
   <id>https://zhangxin15435.github.io/rss_autopost/</id>
   <author>
     <name>Blog Author</name>
@@ -12,8 +12,2026 @@
 
   <entry>
     <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
+    <content type="html">
+---
+id: context-is-the-new-engine
+title: &quot;Beyond Integrations: How to Build the Future of AI with Context Engineering&quot;
+description: Context engineering is the key to building intelligent, scalable AI. The foundation starts with MCP and service-level integrations, allowing agents to access and manage relevant context reliably across interactions.
+publishedAt: 2025-07-09
+category: AI Tech
+author: Context Space Team
+featured: 1
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header01_1752144272539.jpg
+---
+
+# Beyond Integrations: How to Build the Future of AI with Context Engineering
+
+&gt; &quot;When in every industrial-strength LLM app, context engineering is the delicate art and science of filling the context window with just the right information for the next step. &quot; — Andrej Karpathy
+
+In the race to build smarter AI systems, the industry has focused heavily on prompt engineering. But as practitioners and organizations push LLMs into more complex workflows like customer support, autonomous agents, and copilots, one thing is becoming clear: **prompts aren&#x27;t enough**.
+
+The real unlock lies in a deeper architectural shift: **context engineering**.
+
+## What is Context Engineering?
+
+Context engineering is the emerging discipline of designing the infrastructure, processes, and protocols that give AI agents access to high-quality, relevant, and persistent context across time, data sources, and interactions.
+
+Whereas prompt engineering focuses on optimizing single inputs to LLMs, context engineering builds the information ecosystem around the model:
+
+| Aspect      | Prompt Engineering           | Context Engineering                               |
+| ----------- | ---------------------------- | ------------------------------------------------- |
+| Focus       | Crafting better instructions | Delivering the right data, at the right time      |
+| Scope       | One-shot prompts             | Persistent, multi-turn, memory-driven interaction |
+| Integration | Minimal                      | Deep integration across services and data streams |
+| Memory      | Stateless                    | Stateful, evolving memory and personalization     |
+| Scalability | Human-crafted                | Systematic and automated at scale                 |
+
+## Why Prompt Engineering Falls Short
+
+LLMs are certainly very powerful, but they constantly suffer from amnesia. Without memory, situational awareness, or external grounding, they:
+
+- Hallucinate facts
+- Lose track of user preferences
+- Repeat themselves
+- Fail in longer interactions
+
+These aren&#x27;t model failures, they’re **context failures**.
+
+As systems grow more complex, context becomes the bottleneck. Reliable AI agents need dynamic access to the *right* information, not just well-crafted prompts.
+
+## Our Belief: Context Engineering Starts with MCP + Integrations
+
+To operationalize context, we need a new foundation. At **Context Space**, we believe this starts with two pillars:
+
+### 1. **MCP (Model Context Protocol)** — The Universal Context Interface
+
+MCP provides a standardized way for AI agents to:
+
+- Read and write to memory
+- Query for relevant context
+- Fetch data from third-party sources
+- Structure and compress inputs for model compatibility
+Think of MCP as the equivalent of **HTTP for context**. In other words, a protocol that separates model logic from memory, perception, and integration.
+
+### 2. **Service Integrations** — The Context Graph in Action
+
+Context lives in tools: GitHub, Slack, Notion, Airtable, Figma, Zoom, Stripe, HubSpot, and beyond. Real-world AI agents can’t function without:
+
+- OAuth-secured access to data
+- Structured operations across services
+- Normalized representations of user activity
+
+That’s why **Context Space** ships with over 14+ service integrations out of the box, with clean APIs, secure authentication, and production-ready pipelines.
+
+## The Four Pillars of Context Engineering
+
+Context Space is built around the four core stages of context lifecycle:
+
+### 1. Write Context
+
+* Persistent memory
+* Knowledge graphs, scratchpads
+* Long-term storage across sessions
+
+### 2. Select Context
+
+* Semantic retrieval (RAG)
+* Relevance scoring
+* Metadata and user history filtering
+
+### 3. Compress Context
+
+* Token optimization
+* Summarization and pruning
+* Dynamic prioritization
+
+### 4. Isolate Context
+
+* Multi-agent separation
+* Tenant-aware memory boundaries
+* Secure sandboxing for safe experimentation
+
+## What We&#x27;ve Built So Far
+
+Building context-aware agents isn&#x27;t just a prompt problem — it&#x27;s a software architecture problem. That’s why Context Space includes:
+
+### ✅ 14+ Integrated Services
+
+* GitHub, Slack, Airtable, Zoom, HubSpot, Notion, Figma, Spotify, Stripe, and more
+* Secure OAuth 2.0 Flows
+* JWT-based auth + HashiCorp Vault for credential storage
+
+![Integrations](https://cdn-bucket.tos-cn-hongkong.volces.com/resources/pic01_1752144080614.png)
+
+### ✅ MCP-Ready Architecture
+
+* REST APIs and future MCP protocol endpoints
+* Agent-compatible abstractions for context I/O
+
+### ✅ Production Infrastructure
+
+* Docker + Kubernetes deployment
+* PostgreSQL, Redis, Vault
+* Monitoring with Prometheus, Grafana, Jaeger
+
+## Built for AI developers
+
+If you’ve ever:
+- Tried to build multi-turn memory from scratch
+- Hand-coded Slack or Notion context pipelines
+- Managed model prompts with YAML files
+- Struggled with hallucinations or brittle agents
+
+Then you already know the pain.
+
+Context Space abstracts this complexity into a modular, extensible system. You focus on agent behavior and we handle context orchestration.
+
+## What&#x27;s Next: Our Roadmap
+
+### Phase 1: Core Context Engine (Next 6 months)
+
+* ✅ 14+ Integrations
+* 🔄 Native MCP support
+* 🔄 Persistent context memory
+* 🔄 Intelligent data aggregation
+
+### Phase 2: Intelligent Context Management (6–12 months)
+
+* 🔄 Semantic retrieval
+* 🔄 Context scoring &amp; compression
+* 🔄 Real-time context updates
+
+### Phase 3: Agent Context Intelligence (12+ months)
+
+* 🔄 Predictive context loading
+* 🔄 Relationship-aware synthesis
+* 🔄 Context analytics &amp; visualization
+
+## Why Start With Context Space Today?
+
+* **Immediate Value**: Production-ready, plug-and-play integrations
+* **Security First**: JWT auth + Vault + scoped access
+* **Observability**: Metrics, logs, and tracing out of the box
+* **Developer-Friendly**: Clean API with docs and examples
+
+You don’t need to reinvent context infrastructure yourself. We’ve done the hard part for you.
+Join the movement to build better memory and better AI.
+
+👉 [GitHub Repo](https://github.com/context-space/context-space)
+
+&gt; *Context Space is licensed under AGPL v3 with planned transition to Apache 2.0. Contact us for commercial licensing options.*
+</content>
+    <summary>--- id: context-is-the-new-engine title: Beyond Integrations: How to Build the F...</summary>
+    <category term="AI Tech"/>
+  </entry>
+
+  <entry>
+    <title>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/</id>
+    <content type="html">
+---
+id: why-tool-first
+title: &quot;Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure&quot;
+description: &quot;Current AI agents operate like a black box. We believe the future is &#x27;Tool-First&#x27;—transforming complex capabilities like memory and orchestration into standard, observable tools to build truly robust and controllable AI.&quot;
+publishedAt: 2025-07-18
+category: Context Engineering
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210355813_1752843836502.png
+---
+
+# Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure
+
+If you&#x27;ve built an AI agent recently, you&#x27;ve likely felt a strange mix of awe and frustration. On one hand, its capabilities are astounding. On the other, trying to debug why it chose one action over another feels like staring into a black box. The agent&#x27;s reasoning is opaque, its behavior unpredictable, and scaling its abilities often leads to an exponential increase in chaos.
+
+At Context Space, we believe this isn&#x27;t a fundamental flaw of AI, but a symptom of the current development paradigm. We&#x27;re trying to build predictable systems on top of a non-deterministic black box.
+
+Our answer? A shift in perspective. We&#x27;re building **Tool-First**.
+
+## What is a &quot;Tool-First&quot; Infrastructure?
+
+A Tool-First approach flips the script. Instead of treating the LLM as the central orchestrator that *might* decide to use a tool, we treat well-defined, observable **tools as the foundation of all intelligent behavior.**
+
+In this world, complex capabilities like **task orchestration** and even **memory retrieval** are not abstract concepts left to the whims of the model. They are encapsulated as standard, callable tools.
+
+This is our vision for Context Space:
+&gt; A Tool-first context engineering infrastructure for AI Agents. It encapsulates task orchestration and memory as standardized, callable tools, supporting dynamic context building, composition, and debugging.
+
+The LLM&#x27;s role becomes simpler and more powerful: it&#x27;s the brilliant, creative engine for selecting and sequencing the right tools for the job, operating within a clear and predictable framework.
+
+## From Black Box to Controllable Building Blocks
+
+Imagine you want your agent to remember a user&#x27;s preference from a past conversation.
+
+**The &quot;Black Box&quot; way:** Stuff the entire conversation history into the prompt and hope the model &quot;remembers&quot; the key detail. This is slow, expensive, and unreliable.
+
+**The &quot;Tool-First&quot; way:** The agent calls a dedicated `memory_retrieval_tool(&quot;user preferences&quot;)`. The tool&#x27;s execution is predictable, its output is structured, and its cost is fixed. The context provided to the model is now explicit, clean, and relevant.
+
+By turning everything into a tool, we provide a **clear, controllable, and explainable path** for how the agent arrives at a decision. Debugging is no longer a guessing game; it&#x27;s a matter of inspecting the sequence of tool calls and their inputs/outputs.
+
+## The Developer Experience: One-Click Invocation
+
+This philosophy must be paired with an exceptional developer experience. The true power of a tool-first approach is realized when developers can seamlessly compose and debug these tool-based workflows in their favorite environments.
+
+That&#x27;s why our roadmap is laser-focused on integrations with platforms like **Cursor and Claude Code**.
+
+Imagine this workflow:
+1.  You&#x27;re in your IDE, writing the logic for your agent.
+2.  You need the agent to access a user&#x27;s GitHub issues.
+3.  Instead of writing complex API calls, you simply write `context_space.github.list_issues()`.
+4.  With **one click**, you can invoke this tool directly from the IDE, see its exact output, and debug its behavior before ever running the full agent.
+
+This tight feedback loop is essential for building the complex, multi-step intelligent behaviors that modern applications require.
+
+## The Future: A Universe of Discoverable Tools
+
+A tool-first architecture is the foundation for solving one of the biggest scaling challenges for AI: **discovery and recommendation.**
+
+When an agent has access to thousands of potential tools, how does it pick the right one? In a black-box model, this is nearly impossible. But in a tool-first world, since every tool has a standard interface and clear documentation, we can build powerful discovery layers.
+
+Context Space is designed to be this layer. It will provide:
+- **Intelligent Tool Discovery:** Helping the agent find the most relevant tool from a vast library based on the task at hand.
+- **Dynamic Context Building:** Composing tool outputs on the fly to create the perfect context for the LLM.
+
+This is the bedrock for building truly complex and robust AI systems. It&#x27;s how we move from simple chatbots to sophisticated agents that can perform meaningful, multi-step work in the real world.
+
+We&#x27;re just getting started. If you believe in a future where AI development is controllable, observable, and scalable, we invite you to join us.
+
+**🌟Star Context Space on GitHub** and help us build the foundation for the next generation of AI: https://github.com/context-space/context-space
+</content>
+    <summary>--- id: why-tool-first title: Beyond the Black Box: Why We Built Context Space a...</summary>
+    <category term="Context Engineering"/>
+  </entry>
+
+  <entry>
+    <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
+    <content type="html">
+---
+id: building-tools
+title: &quot;Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building&quot;
+description: &quot;Context engineering is the new frontier, but the developer tools are still catching up. Drawing from Manus&#x27;s hard-won lessons and Context Space&#x27;s tool-first approach, we explore what the next generation of context engineering tools should look like.&quot;
+publishedAt: 2025-07-19
+category: Developer Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210342126_1752843822727.png
+---
+
+# Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building
+
+When the Manus team described their context engineering journey as &quot;Stochastic Gradient Descent&quot;—a process of &quot;architecture searching, prompt fiddling, and empirical guesswork&quot;—they weren&#x27;t just being self-deprecating. They were highlighting a fundamental problem: **the tools for context engineering don&#x27;t exist yet.**
+
+Their [recent blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) offers a rare glimpse into production context engineering, but between the lines, it reveals something equally important: the enormous friction developers face when building context-aware AI systems. Every insight they shared—from KV-cache optimization to attention manipulation—represents hours of manual debugging, trial and error, and custom tooling.
+
+This got us thinking: what if context engineering had proper developer tools? What would they look like, and how would they change the way we build AI agents?
+
+## The Current State: Flying Blind
+
+Today&#x27;s context engineering workflow resembles web development from the 1990s—lots of manual work, limited visibility, and debugging through print statements. Consider what Manus had to discover the hard way:
+
+### Performance Debugging Without Metrics
+Manus identified KV-cache hit rate as their most critical metric, but most developers have no visibility into cache performance. They&#x27;re optimizing blind, discovering 10x cost differences only after running production workloads.
+
+### Tool Management Through Trial and Error
+The &quot;tool explosion&quot; problem that Manus describes—where adding more tools makes agents less effective—is something every team discovers independently. There&#x27;s no systematic way to analyze tool usage patterns or optimize action spaces.
+
+### Context Architecture Through Intuition
+Manus&#x27;s insight about using file systems as external memory, or their attention manipulation through todo.md files, emerged from extensive experimentation. These patterns could be discoverable through proper tooling.
+
+### Error Analysis Via Log Diving
+Their principle of &quot;keeping the wrong stuff in&quot; for error recovery—while counterintuitive—becomes obvious when you have tools to analyze failure patterns and recovery success rates.
+
+## What Manus&#x27;s Experience Teaches Us About Tool Requirements
+
+Reading their lessons carefully, we can extract specific requirements for context engineering tools:
+
+### 1. Performance Visibility Tools
+**The Problem**: Developers can&#x27;t see KV-cache performance, token costs, or context efficiency.
+
+**What&#x27;s Needed**:
+- Real-time cache hit rate monitoring
+- Token cost breakdown by context segment
+- Context reuse pattern analysis
+- Performance impact visualization of context changes
+
+### 2. Tool Management Interfaces
+**The Problem**: No systematic way to manage large tool ecosystems or understand tool selection patterns.
+
+**What&#x27;s Needed**:
+- Tool usage analytics and optimization suggestions
+- Visual action space design and testing
+- Dynamic tool masking configuration interfaces
+- Tool conflict detection and resolution
+
+### 3. Context Architecture Designers
+**The Problem**: Context structure design happens through trial and error.
+
+**What&#x27;s Needed**:
+- Visual context flow designers
+- Compression strategy testing environments
+- Memory system simulation and optimization
+- Context pattern libraries and templates
+
+### 4. Debugging and Observability Platforms
+**The Problem**: Agent behavior is opaque and difficult to debug.
+
+**What&#x27;s Needed**:
+- Step-by-step agent execution visualization
+- Attention heatmaps and focus tracking
+- Error pattern analysis and recovery optimization
+- A/B testing frameworks for context variations
+
+## Enter Context Space: A Tool-First Response
+
+At Context Space, we&#x27;ve been building with these exact challenges in mind. Our tool-first philosophy isn&#x27;t just about making integrations easier—it&#x27;s about creating the developer experience that context engineering desperately needs.
+
+### Standardized, Observable Tools
+
+Where Manus had to manually implement tool masking and state management, Context Space provides **standardized tool interfaces** that include:
+
+- Built-in usage analytics and performance monitoring
+- Automatic tool conflict detection
+- Standardized error handling and recovery patterns
+- Tool recommendation based on context and task patterns
+
+### Dynamic Context Composition
+
+Manus&#x27;s file-system-as-memory approach inspired our **dynamic context building capabilities**:
+
+- Visual context flow designers that let you see how information flows
+- Automatic compression with recoverable strategies
+- Memory system templates for different use cases
+- Context efficiency optimization suggestions
+
+### Developer Experience First
+
+While Manus had to build their insights through &quot;four complete framework rebuilds,&quot; Context Space aims to make these patterns discoverable:
+
+- **IDE Integration**: Debug context flows directly in your development environment
+- **Real-time Monitoring**: See KV-cache performance, tool usage, and context efficiency live
+- **Pattern Libraries**: Reusable context engineering patterns based on proven approaches
+- **A/B Testing**: Compare context strategies with real metrics
+
+### The Tool Discovery Problem
+
+One of Context Space&#x27;s core innovations addresses something Manus hinted at: as tool ecosystems grow, discovery becomes critical. Our **tool discovery and recommendation engine** uses:
+
+- Context-aware tool suggestions based on current task patterns
+- Usage analytics to surface the most effective tool combinations
+- Automatic tool conflict resolution
+- Progressive disclosure to manage complexity
+
+## What This Looks Like in Practice
+
+Imagine rebuilding Manus&#x27;s agent with proper tooling:
+
+### Performance Optimization Made Visible
+Instead of discovering cache performance issues in production, developers see real-time KV-cache metrics with suggestions for improvement. Context changes show immediate performance impact.
+
+### Tool Management Made Systematic
+Rather than manually implementing tool masking, developers use visual interfaces to design action spaces, with automatic conflict detection and usage analytics guiding optimization.
+
+### Context Architecture Made Discoverable
+Instead of reinventing memory patterns, developers choose from proven templates (file-system memory, attention manipulation, error preservation) with clear documentation and usage examples.
+
+### Debugging Made Transparent
+Rather than guessing why an agent made a particular decision, developers see step-by-step execution flows, attention patterns, and decision trees with clear causality chains.
+
+## The Infrastructure Layer We&#x27;re Missing
+
+Manus&#x27;s experience reveals that context engineering needs what web development got in the 2000s: **a mature infrastructure layer** that handles the common patterns so developers can focus on their unique challenges.
+
+Context Space is building this layer:
+
+- **Unified Tool Interface**: One API for all external tools and services
+- **Context Management Engine**: Handles optimization, compression, and memory management
+- **Observability Platform**: Real-time insights into agent behavior and performance
+- **Developer Toolchain**: IDE integrations, debugging interfaces, and testing frameworks
+
+## The Future of Context Engineering Tools
+
+Looking ahead, we see context engineering tools evolving in several directions:
+
+### Visual Context Design
+Moving from text-based configuration to visual flow designers where developers can see and manipulate context structures directly.
+
+### Intelligent Optimization
+AI-powered suggestions for context optimization, tool selection, and performance improvements based on usage patterns.
+
+### Collaborative Development
+Tools that enable teams to share context patterns, collaborate on agent designs, and build on each other&#x27;s discoveries.
+
+### Production Monitoring
+Comprehensive observability for production AI agents, with automatic anomaly detection and optimization suggestions.
+
+## Building the Context Engineering Platform
+
+The lessons from Manus are clear: context engineering is too important to leave to trial and error. The field needs professional-grade tools that make best practices discoverable and optimization systematic.
+
+This is exactly what we&#x27;re building at Context Space. Our tool-first infrastructure isn&#x27;t just about making integrations easier—it&#x27;s about creating the development experience that teams like Manus needed but had to build themselves.
+
+Every principle they discovered through &quot;Stochastic Gradient Descent&quot; becomes a feature in our platform:
+- KV-cache optimization → real-time performance monitoring
+- Tool explosion management → intelligent tool discovery and management
+- Memory architecture → dynamic context building capabilities
+- Error recovery → systematic debugging and observability
+
+## The Developer Experience We Deserve
+
+Context engineering is becoming the foundation of all serious AI development. But it shouldn&#x27;t require multiple framework rebuilds and years of trial and error to get right.
+
+The future belongs to teams that can iterate quickly on context strategies, optimize performance systematically, and debug agent behavior transparently. This requires tools that make context engineering principles discoverable, optimization automatic, and debugging straightforward.
+
+We&#x27;re building that future at Context Space. Every challenge that Manus solved through manual experimentation, we&#x27;re turning into a tool that makes the next team faster.
+
+**The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll build these tools yourself or use a platform designed for this exact challenge.**
+
+---
+
+**Ready to experience context engineering with proper tooling?**
+
+👉 **[Try Context Space](https://context.space/integrations)** and see what context engineering looks like with the right tools
+
+👉 **[Explore our GitHub](https://github.com/context-space/context-space)** to understand our tool-first approach
+
+The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending. The systematic, tool-supported era is beginning.
+</content>
+    <summary>--- id: building-tools title: Building Developer Tools for Context Engineering: ...</summary>
+    <category term="Developer Tools"/>
+  </entry>
+
+  <entry>
+    <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
+    <content type="html">
+---
+id: manus-lessons
+title: &quot;Context Engineering for AI Agents: Key Lessons from Manus&quot;
+description: &quot;Manus recently published an in-depth article on their official website titled “Context Engineering for AI Agents: Lessons from Building Manus”. In it, they reflect on the technical and architectural challenges of building long-running AI agents that can reason, remember, and act in the real world.&quot;
+publishedAt: 2025-07-19
+category: Context Engineering
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719133743291_1752903463719.png
+---
+
+# Context Engineering for AI Agents: Key Lessons from Manus
+
+Context engineering is emerging as one of the most critical disciplines in AI development, yet it remains largely experimental. Unlike traditional software engineering, where best practices have been established over decades, context engineering is still in its &quot;Wild West&quot; phase—full of trial, error, and hard-won insights.
+
+On July 18, 2025, Yichao “Peak” Ji, Co‑Founder and Chief Scientist of Manus AI, shared their [production experiences](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) from building real-world AI agents, offering a rare glimpse into the practical realities of context engineering at scale. Their insights, earned through &quot;four complete framework rebuilds,&quot; provide valuable lessons for anyone serious about building production AI systems.
+
+## The Performance Reality: KV-Cache as the North Star
+
+Perhaps the most striking insight from Manus is their emphasis on **KV-cache hit rate as the single most important metric** for production AI agents. This isn&#x27;t just a technical optimization—it&#x27;s a fundamental architectural constraint that shapes everything.
+
+### Why KV-Cache Matters More Than You Think
+
+In production AI agents, the context grows with every step while outputs remain relatively short. Manus reports an average input-to-output token ratio of around **100:1**—dramatically different from typical chatbot scenarios. This makes prefix caching not just useful, but essential for economic viability.
+
+The numbers are stark: with Claude Sonnet, cached tokens cost $0.30/MTok while uncached tokens cost $3.00/MTok—a **10x difference**. For a system processing millions of interactions, this isn&#x27;t just about performance; it&#x27;s about survival.
+
+### Three KV-Cache Principles
+
+Manus&#x27;s approach reveals three core principles:
+
+1. **Stable Prefixes**: Even a single token difference can invalidate the entire cache downstream. Avoid dynamic elements like timestamps in system prompts.
+
+2. **Append-Only Context**: Never modify previous actions or observations. Ensure deterministic serialization—even JSON key ordering matters.
+
+3. **Explicit Cache Breakpoints**: When manual cache management is required, carefully place breakpoints to account for cache expiration patterns.
+
+This represents a shift in thinking: context engineering isn&#x27;t just about what information to include, but how to structure it for maximum reusability.
+
+## Tool Management: The &quot;Explosion&quot; Problem
+
+As AI agents become more capable, they naturally accumulate more tools. Manus highlights what they call the &quot;tool explosion&quot; problem—where an agent&#x27;s expanding toolkit actually makes it less effective, not more.
+
+### The Paradox of Choice
+
+The core insight is counterintuitive: **more tools can make your agent dumber**. As the action space grows, models are more likely to select suboptimal actions or take inefficient paths. This is particularly problematic in systems that allow user-configurable tools.
+
+### Masking vs. Removal
+
+Manus&#x27;s solution is elegant: instead of dynamically removing tools (which breaks KV-cache), they **mask tool availability** using logits manipulation. This approach:
+
+- Preserves cache coherence by keeping tool definitions stable
+- Prevents confusion from referring to undefined tools
+- Allows fine-grained control over action spaces based on context
+
+Their use of consistent tool prefixes (`browser_*`, `shell_*`) enables efficient group-based masking without complex state management.
+
+## Memory Architecture: Beyond Context Windows
+
+Even with 128K+ context windows, Manus discovered that traditional context management isn&#x27;t sufficient for complex, multi-step tasks. Their solution treats **the file system as the ultimate context**—unlimited, persistent, and directly manipulable by the agent.
+
+### Recoverable Compression
+
+Rather than irreversible context truncation, Manus implements &quot;recoverable compression&quot; strategies:
+- Web page content can be dropped if the URL is preserved
+- Document contents can be omitted if file paths remain accessible
+- All compression maintains the ability to restore information when needed
+
+This approach recognizes a fundamental truth: you can&#x27;t predict which piece of information will become critical ten steps later.
+
+## Attention Management: The Art of Recitation
+
+One of Manus&#x27;s most interesting discoveries involves **attention manipulation through recitation**. Their agents create and continuously update `todo.md` files—not just for organization, but as a deliberate mechanism to guide model attention.
+
+### Fighting &quot;Lost in the Middle&quot;
+
+With an average of 50 tool calls per task, maintaining focus becomes critical. By reciting objectives at the end of the context, Manus pushes the global plan into the model&#x27;s recent attention span, reducing goal drift and misalignment.
+
+This technique demonstrates how natural language can be used to bias model behavior without architectural changes—a form of &quot;soft attention control.&quot;
+
+## Error Handling: Embracing Failure
+
+Perhaps counterintuitively, Manus advocates for **keeping error information in context** rather than cleaning it up. Failed actions and stack traces provide crucial learning signals that help models avoid repeating mistakes.
+
+### Error Recovery as Intelligence Indicator
+
+Manus argues that error recovery is &quot;one of the clearest indicators of true agentic behavior,&quot; yet it&#x27;s underrepresented in academic benchmarks that focus on success under ideal conditions. This highlights a gap between research and production realities.
+
+## Pattern Breaking: The Few-Shot Trap
+
+A surprising insight involves the dangers of **excessive few-shot prompting** in agent contexts. While few-shot examples improve individual LLM outputs, they can create harmful patterns in multi-step agent scenarios.
+
+### The Rhythm Problem
+
+Language models are excellent pattern matchers. If the context contains many similar action-observation pairs, the model may fall into a &quot;rhythm,&quot; repeating actions because that&#x27;s what it sees, even when suboptimal.
+
+Manus&#x27;s solution involves **structured variation**—introducing controlled randomness in serialization templates, phrasing, and formatting to break potentially harmful patterns.
+
+## The Meta-Lesson: Context Engineering as Experimental Science
+
+Beyond specific techniques, Manus&#x27;s experience reveals that context engineering is fundamentally **an experimental science**. Their team rebuilt their framework four times, each iteration revealing new insights about how to shape context effectively.
+
+They term their approach &quot;Stochastic Gradient Descent&quot;—a combination of architecture searching, prompt refinement, and empirical testing. This isn&#x27;t elegant, but it reflects the current reality of the field.
+
+### Implications for the Industry
+
+Several broader lessons emerge:
+
+1. **Performance First**: Production context engineering must prioritize cache efficiency and cost optimization from day one.
+
+2. **Stability Over Flexibility**: Consistent, predictable structures often outperform dynamic, &quot;intelligent&quot; systems.
+
+3. **Embrace Messiness**: Real-world agent behavior includes errors, repetition, and suboptimal paths—design for this reality.
+
+4. **Memory Externalization**: Traditional context windows, no matter how large, need supplementation with external memory systems.
+
+5. **Attention is Architecture**: How you structure information is as important as what information you include.
+
+## Looking Forward: The Maturation of Context Engineering
+
+Manus&#x27;s experiences point toward context engineering evolving from an art into a science. Their systematic approach to identifying and solving production challenges provides a roadmap for others building serious AI systems.
+
+Key areas for continued development include:
+
+- **Standardized Metrics**: Beyond task success rates to include cache efficiency, attention management, and error recovery
+- **Tool Architecture**: Better patterns for managing large, dynamic tool ecosystems
+- **Memory Systems**: More sophisticated approaches to external memory and context compression
+- **Performance Optimization**: Techniques that balance capability with computational efficiency
+
+## The Path Forward
+
+The transition from experimental AI demos to production-grade agents requires this kind of systematic thinking about context engineering. Manus&#x27;s willingness to share their hard-won insights accelerates the entire field&#x27;s learning curve.
+
+For teams building their own AI agents, these lessons offer a starting point for avoiding common pitfalls. More importantly, they demonstrate that context engineering success comes from careful measurement, systematic experimentation, and willingness to rebuild when better approaches emerge.
+
+The future of AI agents will be built by teams that understand these production realities. Context engineering may still be experimental, but it&#x27;s no longer optional.
+
+---
+
+**Further Reading:**
+- [Original Manus blog post](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) with detailed technical implementation
+
+*The field is young, the challenges are real, and the opportunities are enormous. The question isn&#x27;t whether context engineering will become critical—it&#x27;s whether you&#x27;ll learn these lessons through experimentation or through others&#x27; experience.*
+</content>
+    <summary>--- id: manus-lessons title: Context Engineering for AI Agents: Key Lessons from...</summary>
+    <category term="Context Engineering"/>
+  </entry>
+
+  <entry>
+    <title>Context Engineering: The Missing Foundation Every AI Developer Needs</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/</id>
+    <content type="html">
+---
+id: missing-foundation
+title: &quot;Context Engineering: The Missing Foundation Every AI Developer Needs&quot;
+description: &quot;Most AI developers are still stuck in prompt engineering, trying to fix outputs by tweaking inputs. But true reliability comes from context engineering—the discipline of designing how AI systems gather, retain, and use information across time. &quot;
+publishedAt: 2025-07-09
+category: AI Trend
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header10_1752144214836.jpg
+---
+
+# Context Engineering: The Missing Foundation Every AI Developer Needs
+
+Most &quot;AI developers&quot; don&#x27;t understand what they&#x27;re building. They treat LLMs like mystical oracles—input the right incantation (prompt), and out comes the answer. When it fails, they blame the model, tweak the temperature, or try a different prompt.
+
+They think context engineering is about cramming more information into the prompt. It&#x27;s not.
+
+**Context engineering is the systematic design of how AI systems understand, maintain, and utilize information across interactions.**
+
+Think of it this way:
+- **Prompt engineering** = Writing better questions
+- **Context engineering** = Building better memory systems
+
+## The Three Pillars of Context Engineering
+
+### 1. Context Acquisition — How AI Gathers Information
+
+Most developers think context is just &quot;the stuff you put in the prompt.&quot; Wrong. Context comes from multiple sources:
+
+**Static Context:**
+- System prompts and instructions
+- Knowledge base documents
+- User profiles and preferences
+
+**Dynamic Context:**
+- Conversation history
+- Real-time data feeds
+- User behavior patterns
+
+**Implicit Context:**
+- Timing and sequence
+- Emotional undertones
+- Unstated assumptions
+
+**Real example:** A customer service AI that only uses the current message (static context) versus one that remembers the customer&#x27;s previous issues, understands their frustration level, and knows their subscription tier (dynamic + implicit context).
+
+### 2. Context Maintenance — How AI Remembers
+
+This is where most systems break down. They either:
+- Forget everything (no memory)
+- Remember everything (context explosion)
+- Remember randomly (inconsistent behavior)
+
+**The science:** Human memory has layers. So should AI systems.
+
+**Working Memory:** Immediate context (like the current conversation)
+**Short-term Memory:** Recent interactions and patterns
+**Long-term Memory:** Persistent knowledge about the user/domain
+
+*Case study: I helped a fintech company build a context maintenance system that reduced customer service escalations by 78% simply by remembering customer preferences across sessions.*
+
+### 3. Context Utilization — How AI Uses Information
+
+Having context is useless if the AI can&#x27;t effectively use it. This involves:
+
+**Relevance Ranking:** Which information matters most right now?
+**Conflict Resolution:** What happens when context contradicts itself?
+**Context Fusion:** How do you combine different types of context?
+
+## The Context Engineering Mental Model
+
+Stop thinking of AI as a function: `AI(prompt) → output`
+
+Start thinking of it as a system: `AI(prompt, context, memory, state) → output + updated_state`
+
+### The Context Stack
+
+```
+┌─────────────────────────────────────┐
+│           Application Layer          │  ← Your actual AI application
+├─────────────────────────────────────┤
+│        Context Orchestration         │  ← Context routing and management
+├─────────────────────────────────────┤
+│         Memory Management            │  ← Short/long-term memory systems
+├─────────────────────────────────────┤
+│        Context Acquisition           │  ← Data ingestion and processing
+├─────────────────────────────────────┤
+│           Storage Layer              │  ← Vector DBs, traditional DBs
+└─────────────────────────────────────┘
+```
+
+Each layer has specific responsibilities. Most developers try to do everything at the application layer. This is why your AI applications are unpredictable.
+
+## The Five Context Engineering Principles
+
+### 1. **Context Hierarchy** — Not All Information Is Equal
+
+**The principle:** Organize context by relevance and recency.
+
+**Implementation:**
+- **Immediate context** (current conversation): Highest priority
+- **Session context** (this interaction): Medium priority
+- **User context** (historical patterns): Lower priority
+- **Domain context** (general knowledge): Lowest priority
+
+**Example:**
+```python
+context_hierarchy = {
+    &quot;immediate&quot;: current_message,
+    &quot;session&quot;: conversation_history[-10:],
+    &quot;user&quot;: user_preferences,
+    &quot;domain&quot;: relevant_knowledge_base
+}
+```
+
+### 2. **Context Compression** — Quality Over Quantity
+
+**The principle:** Summarize and distill context rather than accumulating it.
+
+**Why it matters:** Long context doesn&#x27;t mean better context. It often means confused context.
+
+**Implementation strategies:**
+- **Sliding window:** Keep only the most recent N interactions
+- **Semantic compression:** Summarize similar interactions
+- **Hierarchical compression:** Different compression levels for different time scales
+
+*Real impact: A healthcare AI I worked on reduced context length by 85% while improving diagnostic accuracy by 12% through intelligent compression.*
+
+### 3. **Context Consistency** — Maintain Coherent State
+
+**The principle:** Context should be internally consistent and evolve predictably.
+
+**Common failures:**
+- Contradictory information in different context sources
+- Context that changes unpredictably between interactions
+- Stale context that doesn&#x27;t reflect current reality
+
+**Solution framework:**
+- **Conflict detection:** Identify when context sources disagree
+- **Truth resolution:** Determine which source is authoritative
+- **State validation:** Ensure context changes are logical
+
+### 4. **Context Personalization** — One Size Fits None
+
+**The principle:** Context should be adapted to individual users and use cases.
+
+**Implementation levels:**
+- **User-specific:** Preferences, history, patterns
+- **Role-specific:** Different context for different user types
+- **Task-specific:** Different context for different goals
+
+**Example:** A project management AI should show different context to:
+- **Developers:** Code commits, bug reports, technical discussions
+- **Managers:** Timeline updates, resource allocation, blockers
+- **Stakeholders:** High-level progress, deliverables, risks
+
+### 5. **Context Evolution** — Systems That Learn
+
+**The principle:** Context systems should improve over time based on usage patterns.
+
+**Key capabilities:**
+- **Pattern recognition:** Identify what context is most useful
+- **Adaptation:** Adjust context strategies based on outcomes
+- **Optimization:** Continuously improve context relevance
+
+## Context Engineering Anti-Patterns (And How to Avoid Them)
+
+### 1. **The Context Dumping Anti-Pattern**
+**What it is:** Throwing everything into the prompt and hoping the AI figures it out.
+**Why it fails:** Information overload leads to degraded performance.
+**Solution:** Implement context ranking and filtering.
+
+### 2. **The Goldfish Memory Anti-Pattern**
+**What it is:** Treating each interaction as completely independent.
+**Why it fails:** Users expect continuity and context awareness.
+**Solution:** Implement proper memory management systems.
+
+### 3. **The Context Explosion Anti-Pattern**
+**What it is:** Accumulating context indefinitely until you hit limits.
+**Why it fails:** Systems become slow and unreliable.
+**Solution:** Implement context lifecycle management.
+
+### 4. **The One-Size-Fits-All Anti-Pattern**
+**What it is:** Using the same context strategy for all users and scenarios.
+**Why it fails:** Different users have different needs and patterns.
+**Solution:** Implement context personalization frameworks.
+
+## Building Your Context Engineering Foundation
+
+### Phase 1: Assessment (Week 1)
+**Audit your current context usage:**
+- Map all context sources in your system
+- Identify context bottlenecks and failures
+- Measure context relevance and utilization
+
+### Phase 2: Architecture (Week 2)
+**Design your context system:**
+- Define context hierarchy and priorities
+- Choose appropriate storage and retrieval mechanisms
+- Plan context lifecycle management
+
+### Phase 3: Implementation (Weeks 3-4)
+**Build core context capabilities:**
+- Implement context acquisition pipelines
+- Build memory management systems
+- Create context personalization logic
+
+### Phase 4: Optimization (Ongoing)
+**Continuously improve:**
+- Monitor context effectiveness
+- Optimize for relevance and performance
+- Adapt to changing user patterns
+
+## The Context Engineering Mindset Shift
+
+**Old thinking:** &quot;How can I write better prompts?&quot;
+**New thinking:** &quot;How can I build better context systems?&quot;
+
+**Old approach:** Trial and error with prompts
+**New approach:** Systematic design of context architecture
+
+**Old goal:** Make this prompt work
+**New goal:** Build context systems that enable consistent, predictable AI behavior
+
+## The Future is Context-Aware
+
+**Prediction:** By 2025, context engineering will be as fundamental to AI development as database design is to web development.
+
+**Why this matters:** The companies that master context engineering now will have an insurmountable advantage when AI becomes truly mainstream.
+
+**The opportunity:** Most developers are still stuck in the prompt engineering mindset. You have a 12-18 month window to build context engineering expertise before it becomes table stakes.
+
+## Your Context Engineering Journey Starts Now
+
+**Don&#x27;t wait for the perfect moment.** Start by auditing your current context usage. Most developers discover they&#x27;re only using 20-30% of available context effectively.
+
+**Three actions you can take this week:**
+1. **Audit:** Map all context sources in your current AI system
+2. **Experiment:** Implement one context hierarchy in a small project
+3. **Learn:** Follow the latest context engineering research and case studies
+
+**The reality:** Context engineering isn&#x27;t just about building better AI applications. It&#x27;s about building AI applications that actually work predictably and reliably.
+
+## Join the Context Engineering Revolution
+
+**Your experience matters.** Whether you&#x27;re a seasoned AI developer or just starting out, your context engineering challenges and victories help the entire community.
+
+That’s why we’re building an open-source framework — and we’re inviting the GitHub community to shape it with us.
+
+Context Space provides robust third-party service integrations today, with advanced context engineering features on our roadmap. See Current Capabilities vs Roadmap for details.
+
+&gt; 👉 [Explore Context Space on GitHub](https://github.com/context-space/context-space)
+</content>
+    <summary>--- id: missing-foundation title: Context Engineering: The Missing Foundation Ev...</summary>
+    <category term="AI Trend"/>
+  </entry>
+
+  <entry>
+    <title>Forget prompt engineering. Context is the new compute</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/</id>
+    <content type="html">
+---
+id: prompt-context
+title: Forget prompt engineering. Context is the new compute
+description: &quot;While the AI world obsesses over bigger models and better prompts, the next wave of AI success won’t be won by prompt whisperers, but by teams who treat context as infrastructure. &quot;
+publishedAt: 2025-07-09
+category: AI Trend
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header05_1752144260467.jpg
+---
+
+# Forget prompt engineering. Context is the new compute.
+
+While everyone’s chasing bigger models and cleverer prompts, a silent infrastructure crisis is quietly crippling real-world AI adoption.
+
+## The $500 Billion Blind Spot
+
+The AI arms race is in full swing. OpenAI, Google, and Meta are throwing billions at model scale—Stargate alone promises a **$500B investment** in compute infrastructure.
+
+But beneath the surface, a deeper problem is derailing even the most promising AI projects.
+
+It’s not model size.
+It’s not prompt wording.
+It’s not data quantity.
+
+The real bottleneck? **Context engineering**—the art and science of giving LLMs the *right* information, in the *right* format, at the *right* time.
+
+And almost no one is doing it well.
+
+## The Great Misunderstanding
+
+### “Just write better prompts” is killing your AI ROI
+
+In early 2025, *Analytics India Magazine* made a bold claim:
+&gt; “**Context engineering is 10x better than prompt engineering—and 100x better than vibe coding.**”
+
+Shopify CEO Tobi Lütke agrees:
+&gt; “It’s about giving LLMs the *full context* to plausibly solve a task.”
+
+Even Andrej Karpathy chimed in with a simple “+1.”
+
+But here’s the brutal truth:
+
+While product teams spend weeks polishing prompts, they often ignore the messy, fragile, high-leverage system that wraps around them: **the context pipeline**.
+
+## What’s Actually Going Wrong
+
+### 95% of real-world LLM failures come from context—not model flaws
+
+A 2025 study found that nearly **all production LLM failures** come down to context-related issues:
+- Missing information or dependencies
+- Poorly structured documents
+- Overwhelming or irrelevant context dumps
+
+LLMs today can handle **up to 1 million tokens**—but most enterprise pipelines feed them input a human would struggle to parse.
+
+&gt; “When LLMs fail, it’s rarely the model’s fault—it’s the system around it that sets them up to fail.”
+— Harrison Chase, LangChain
+
+## Why AI Pilots Succeed and Production Fails
+
+### The ugly truth behind enterprise AI deployments
+
+According to Cognition AI’s 2025 report, **78% of enterprises** see huge performance drop-offs when moving LLMs from prototype to production.
+
+It’s not because:
+- The prompts are bad
+- The models aren’t smart enough
+- You don’t have enough GPUs
+
+It’s because **nobody is engineering the context pipeline**.
+
+One engineer put it perfectly:
+&gt; “People are still shouting ‘learn prompt engineering!’ But the real leverage is in context engineering—building systems that know what information to feed, when, and how.”
+
+## What Makes Up a Good Context System?
+
+### The 4 Invisible Layers Killing Your AI App
+
+1. **Memory &amp; State Tracking**
+   Most LLM apps forget crucial information across turns. Traditional state machines don’t apply—yet most teams haven’t replaced them with context-aware alternatives.
+
+2. **Retrieval Gone Wrong**
+   RAG is popular, but dumping documents into a prompt isn’t enough. You need structure, hierarchy, and temporal relevance—or you overwhelm the model.
+
+3. **Data Curation Failures**
+   Stanford’s CRFM found that **60% of LLM evals** suffer from context contamination. Few teams validate or sanitize context input effectively.
+
+4. **Security &amp; Integrity**
+   Attackers now target **context pipelines**, not just models. If your context is poisoned or manipulated, the LLM becomes a weaponized response engine.
+
+## The Economics of Neglect
+
+### You’re not paying for inference—you’re paying for garbage in
+
+Inference costs are dropping. But context engineering isn’t a one-time task—it’s a continuous investment.
+
+The math is brutal:
+
+| Without ContextOps | With ContextOps |
+|--------------------|-----------------|
+| 10x more compute waste | 10x more value from same model |
+| Prototype ≠ Production | Smooth scaling to real-world workflows |
+| Higher hallucination rate | Higher accuracy, fewer human reviews |
+
+**DeepSeek**, a rising open-source contender, proved this in 2025:
+They outperformed bigger rivals not with better models—but with **superior context design**.
+
+## The Path Forward
+
+### We don’t need bigger models. We need better infrastructure.
+
+To fix this, we need a new discipline:
+
+&gt; **Context Engineering = Information Architecture for AI**
+
+Here’s what that looks like:
+
+- **ContextOps pipelines**: Monitor, debug, and version context flows like code.
+- **Dynamic Memory Systems**: Maintain state across sessions and tasks.
+- **New Metrics**: Don’t just test the model—test how it handles *changing context*.
+- **Tooling**: IDEs for context debugging, not just prompt tweaking.
+- **Curriculum Shift**: Teach context engineering alongside prompt design and model tuning.
+
+## The AI Shakeout Is Coming
+
+2025 is the inflection point.
+
+Companies that master context engineering will:
+- Spend less on infra
+- Deliver better AI outcomes
+- Build moats with *system design*, not just parameter count
+
+If you’re building LLM apps:
+- Stop polishing prompts and start architecting context.
+- Evaluate your system’s ability to manage memory, relevance, and retrieval.
+- Invest in *ContextOps* before your AI budget gets burned.
+
+Those that don’t?
+They’ll burn millions chasing prompt hacks while shipping broken products.
+
+Are you seeing these failures in your AI projects?
+Is your company thinking about context engineering yet?
+
+**Drop your experience in the comments or message me directly.**
+I’d love to hear how you&#x27;re tackling this.
+</content>
+    <summary>--- id: prompt-context title: Forget prompt engineering. Context is the new comp...</summary>
+    <category term="AI Trend"/>
+  </entry>
+
+  <entry>
+    <title>How Context Engineering Is Quietly Replacing Prompt Hacking</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/</id>
+    <content type="html">
+---
+id: replace
+title: How Context Engineering Is Quietly Replacing Prompt Hacking
+description: &quot;Prompt engineering is fading. The real breakthroughs in AI now come from context engineering—the discipline of designing intelligent, adaptive environments where LLMs can access, organize, and reason over the right information. &quot;
+publishedAt: 2025-07-09
+category: AI Trend
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header12_1752144225658.jpg
+---
+
+# How Context Engineering Is Quietly Replacing Prompt Hacking
+
+For years, AI development has centered on one crucial skill: writing the perfect prompt. Now, a silent revolution is unfolding across Silicon Valley—and it’s not about asking better questions. It’s about **designing smarter environments**.
+
+## Why Prompt Engineering Is Losing Its Shine
+
+At first, prompt engineering felt magical. Craft the right few-shot template, and ChatGPT could write essays, debug code, or mimic Shakespeare. But as businesses rushed to production, cracks began to show.
+
+### The Problem? Real-World Complexity
+
+Prompts that worked in demos crumbled in dynamic environments. As Harrison Chase, CEO of LangChain, pointed out:
+&gt; “Most AI agent failures aren’t model failures—they’re context failures.”
+
+In enterprise deployments:
+- **Prompt engineering** offered marginal gains—20–30% improvements.
+- **Context engineering** delivered transformative results—**10x+ impact**.
+
+Why? Because context, not clever wording, determines whether an AI system actually understands what it&#x27;s doing.
+
+## What Context Engineering Really Means
+
+Context engineering is not about tweaking sentences. It’s about constructing the **entire knowledge environment** surrounding a task.
+
+### Four Pillars of Context Engineering:
+1. **Dynamic Info Retrieval**: Real-time integration from live databases, APIs, and documents.
+2. **Hierarchical Modeling**: Organizing knowledge across long-term memory, working memory, and real-time streams.
+3. **Adaptive Systems**: Adjusting behavior based on user goals, task states, and feedback.
+4. **Multimodal Fusion**: Merging signals from text, images, audio, and even sensor data.
+
+As Andrej Karpathy put it:
+&gt; “Prompt engineering is like writing a sentence. Context engineering is like writing a screenplay.”
+
+## AI Gets Empathetic: The Humanization Breakthrough
+
+Recent studies show context-aware AI isn’t just smarter—it’s more **human**.
+
+- In clinical empathy tests, LLMs scored **80%**, while humans only reached **56%**.
+- In trials, patients **preferred ChatGPT** over human doctors **78.6%** of the time.
+- Emotional awareness is now quantifiable—and trainable.
+
+This leap comes from **emotional context engineering**, where systems detect emotional states, cultural norms, and conversational nuance to generate empathetic, appropriate responses.
+
+## Case Studies: Context Engineering in Action
+
+### Mayo Clinic
+
+Mayo Clinic deployed a context-rich monitoring system integrating patient vitals, medication history, and environmental data.
+
+**Results:**
+- 34% fewer false alarms
+- 28% better early complication detection
+- 42% higher patient satisfaction
+
+### JPMorgan
+
+A context-aware fraud detection system now analyzes user behavior, transaction history, and device context.
+
+**Results:**
+- 85% drop in false positives
+- $200M in fraud losses saved annually
+
+### Amazon
+
+Amazon’s recommendation engine ingests 150+ contextual signals, from time of day to local events.
+
+**Results:**
+- 35% boost in conversion
+- 42% increase in average order value
+
+## The Hidden Infrastructure Behind Context AI
+
+### Frameworks Leading the Charge:
+- **LangChain &amp; LangGraph**: Memory, tools, agent workflows
+- **LlamaIndex**: Retrieval pipelines, context loaders
+- **Haystack**: Scalable, production-ready RAG
+- **AutoGen**: Multi-agent orchestration
+
+### Evaluation Is Now Context-First
+
+Quality is measured not by BLEU scores, but by:
+- **Relevance**
+- **Consistency**
+- **Completeness**
+
+A new stack of context evaluation engines is emerging to match the rise in demand.
+
+## Context Is the New Competitive Advantage
+
+### Massive Market Signals
+
+- 2025 context-aware AI market: **$27B**
+- By 2028: **$47B**
+- In healthcare alone: **156% annual growth**
+
+### Industry-Wide Transformation
+
+| Sector            | Transformation                                    |
+|-------------------|---------------------------------------------------|
+| Healthcare         | Personalized diagnostics, early alerts           |
+| Finance            | Adaptive risk modeling, fraud prevention         |
+| Education          | Real-time feedback, adaptive learning paths      |
+| Manufacturing      | Predictive maintenance, smart supply chains      |
+
+## What’s Next? The Context Revolution Roadmap
+
+1. **2025**: 10M-token context windows + multimodal fusion
+2. **2026**: Federated context learning for enterprise privacy
+3. **2027**: Quantum-enhanced context modeling
+4. **2028**: Autonomous context construction and orchestration
+
+## How to Prepare for the Context Era
+
+### If You&#x27;re a Developer:
+- Learn LangChain, LlamaIndex, and RAG architectures.
+- Master context lifecycle: from ingestion to reasoning.
+- Build for memory, not one-shot prompts.
+
+### If You&#x27;re a Product Leader:
+- Start pilot projects focused on context-rich use cases.
+- Prioritize multi-source integrations and feedback loops.
+- Design for adaptability and scale.
+
+### If You&#x27;re an Executive:
+- Treat context AI as core infra, not a feature.
+- Build interdisciplinary teams: AI, UX, knowledge systems.
+- Invest now—before your competitors do.
+
+---
+
+As MIT&#x27;s Alex Pentland said:
+&gt; “The future of intelligent systems lies not in faster processing, but in deeper understanding of context.”
+
+In this AI arms race, the winners won’t be the ones who engineer the best prompts.
+They’ll be the ones who engineer the most intelligent environments.
+</content>
+    <summary>--- id: replace title: How Context Engineering Is Quietly Replacing Prompt Hacki...</summary>
+    <category term="AI Trend"/>
+  </entry>
+
+  <entry>
+    <title>Not Just Another Wrapper：The Engineering Behind Context Space</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/</id>
+    <content type="html">
+---
+id: engineering-deep-dive
+title: Not Just Another Wrapper：The Engineering Behind Context Space
+description: Building production-grade AI is more than wrapping an API. We dive into the core technical advantages of Context Space, from a Vault-secured backend and unified API layer to our &#x27;Tool-First&#x27; architecture.
+publishedAt: 2025-07-18
+category: Engineering
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250718210422873_1752843862884.png
+---
+
+# Not Just Another Wrapper: The Engineering Deep Dive into Context Space
+
+In the gold rush of AI, it’s easy to build a thin wrapper around an API, create a flashy demo, and call it a day. But building robust, scalable, and secure AI infrastructure—the kind you can bet your business on—is a different game entirely. It requires deliberate architectural choices and a deep understanding of production systems.
+
+At Context Space, we aren&#x27;t just building features; we&#x27;re engineering a foundation. Our vision is to provide a tool-first infrastructure that powers the next generation of complex AI agents. Here’s a look at the core technical advantages that make this vision possible.
+
+### 1. Advantage: Decoupled &amp; Vault-Secured Credential Management
+
+**The Problem:** The most glaring security hole in most AI agent setups is credential management. API keys, OAuth tokens, and other secrets are often dumped into `.env` files, checked into insecure databases, or passed around in plaintext. This is a non-starter for any serious application.
+
+**The Context Space Solution:** We architected our system with enterprise-grade security from day one.
+- **Centralized Vault Backend:** All credentials are encrypted and stored in a dedicated, isolated **HashiCorp Vault** instance. They never touch our primary application database.
+- **Complete Decoupling:** The agent&#x27;s logic layer is completely decoupled from the credential layer. An agent requests to use a tool (e.g., `github.list_repos`); our system fetches the necessary credential from Vault just-in-time, uses it, and then discards it. The agent never sees the secret.
+- **Secure OAuth Flows:** Our &quot;one-click&quot; OAuth connections are a user-friendly abstraction built on top of this secure backend. This isn&#x27;t just about convenience; it&#x27;s about providing a secure, standardized way to grant permissions without ever exposing a token to the end-user or developer.
+
+### 2. Advantage: A True Unified API Abstraction Layer
+
+**The Problem:** Interacting with ten different services means learning ten different API schemas, authentication patterns, and error-handling quirks. This creates a massive maintenance burden and brittle, unreadable code.
+
+**The Context Space Solution:** We built a powerful abstraction layer, not just a simple proxy.
+- **Single, Consistent Interface:** We provide one clean, predictable RESTful API. Whether you’re listing files from Notion or starring a repo on GitHub, the request structure and authentication method (`Bearer &lt;jwt&gt;`) remain the same.
+- **Backend-Driven Transformation:** Our Go backend handles the complexity of translating a standardized Context Space request into the specific format required by the target service. This means developers building on our platform only need to learn *one* API: ours.
+- **High-Performance &amp; Reliability:** By using Go, we ensure the core of our system is highly performant, concurrent, and statically typed, providing the reliability needed for production workloads.
+
+### 3. Advantage: A &quot;Tool-First&quot; Architecture
+
+**The Problem:** Most agent frameworks treat the LLM as an opaque black box. When it fails, debugging is a nightmare of prompt tweaking and guesswork. This approach doesn&#x27;t scale and is fundamentally uncontrollable.
+
+**The Context Space Solution:** Our &quot;Tool-First&quot; philosophy is an explicit architectural pattern.
+- **Everything is a Tool:** We encapsulate all external actions—and even internal capabilities like memory retrieval—as standardized, composable tools. Each tool has a defined schema, is independently testable, and is versioned.
+- **Observable Execution Paths:** This makes the agent&#x27;s reasoning process transparent. Instead of a mysterious internal monologue, you get a clear, auditable log of tool calls (`tool_A_called` -&gt; `tool_B_called`). Debugging becomes deterministic.
+- **Foundation for the Future:** This structured approach is the bedrock of our vision. A universe of standardized tools is a prerequisite for building the powerful tool discovery and recommendation engines that will allow agents to tackle truly complex tasks.
+
+### Built for Production, Today
+
+These architectural choices are what separate a demo from a dependable platform. By combining a Vault-secured credential store, a unified Go-based API layer, and a &quot;Tool-First&quot; design pattern, we&#x27;ve built the essential infrastructure needed to move beyond experimental AI toys and start building the powerful, reliable agents of the future.
+
+This is our commitment to the developer community: to provide a foundation you can trust, so you can focus on building what matters.
+
+**Dive into our architecture on GitHub and see for yourself.**
+👉 **[Explore the code on GitHub](https://github.com/context-space/context-space)**
+</content>
+    <summary>--- id: engineering-deep-dive title: Not Just Another Wrapper：The Engineering Be...</summary>
+    <category term="Engineering"/>
+  </entry>
+
+  <entry>
+    <title>RAG Isn’t Enough. Context Engineering is how real AI gets built</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/</id>
+    <content type="html">
+---
+id: rag
+title: RAG Isn’t Enough. Context Engineering is how real AI gets built
+description: RAG pipelines and prompt tweaks aren’t enough to power truly intelligent systems. The next generation of AI demands context engineering—the ability to deliver the right information, with memory and semantic awareness, at the right time.
+publishedAt: 2025-07-09
+category: AI Trend
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header07_1752144283428.jpg
+---
+
+# RAG Isn’t Enough. Context Engineering is how real AI gets built
+
+While most of the world still fine-tunes prompts and tweaks RAG pipelines, the bleeding edge is focused on building **context-aware systems** with memory, adaptability, and purpose.
+
+Karpathy said it best:
+&gt; “Prompt engineering is writing a sentence. Context engineering is writing the screenplay.”
+
+LangChain’s Harrison Chase echoed:
+&gt; “Most AI agent failures aren’t model failures—they’re context failures.”
+
+## Why RAG Isn’t Enough
+
+- Long context ≠ good context
+- Irrelevant data = hallucinations
+- Flat document retrieval = no memory, no reasoning
+
+IEEE and arXiv research confirms it:
+RAG systems plateau without **context awareness**, **long-term memory**, and **semantic reasoning**.
+
+## Context Space: The Ultimate Context Engineering Infrastructure
+
+We built **Context Space** to solve exactly this.
+
+&gt; A unified framework for context-native AI, starting from **Model Context Protocol (MCP)** and **integrations**.
+
+As AI leaders like Andrej Karpathy recognize, context engineering is &quot;the delicate art and science of filling the context window with just the right information for the next step.&quot; Context Space transforms this principle into production-ready infrastructure.
+
+### What we deliver today:
+
+- 14+ Service Integrations: GitHub, Slack, Airtable, HubSpot, and more
+
+- Secure OAuth Flows: Much better than editing MCP config files manually
+
+- Enterprise Infrastructure: Docker, Kubernetes, monitoring, and observability
+
+- Context Engineering Foundation: Built with the future of AI agent development in mind
+
+### What we&#x27;re building:
+
+- MCP Protocol Support: Native AI agent integration
+
+- Context Memory: Persistent, intelligent context across sessions
+
+- Smart Context Selection: Semantic retrieval and optimization
+
+- Context Analytics: Deep insights into context usage and effectiveness
+
+## Get Started Now
+
+Build context-aware workflows from scratch—using our open, extendable framework.
+
+Context Space provides robust third-party service integrations today, with advanced context engineering features on our roadmap. See Current Capabilities vs Roadmap for details.
+
+&gt; 👉 [Explore Context Space on GitHub](https://github.com/context-space/context-space)
+
+## The Context Engineering Revolution Has Begun
+
+OpenManus, ClearCoreAI, Mayo Clinic, JPMorgan, and Amazon have all proved the same thing:
+
+Context is no longer optional. It’s **infrastructure**.
+
+The winners won’t be those who prompt better—they’ll be those who engineer **context at scale**.
+</content>
+    <summary>--- id: rag title: RAG Isn’t Enough. Context Engineering is how real AI gets bui...</summary>
+    <category term="AI Trend"/>
+  </entry>
+
+  <entry>
+    <title>The Context Window Revolution Has Arrived: AI can finally remember everything</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</id>
+    <content type="html">
+---
+id: context-window
+title: &quot;The Context Window Revolution Has Arrived: AI can finally remember everything&quot;
+description: &quot;AI has entered a new era: the context window revolution. Once limited to short-term memory, today’s top models like GPT-4 and Gemini 1.5 now handle millions of tokens, enabling them to process entire books, medical records, or legal cases in a single session.&quot;
+publishedAt: 2025-07-09
+category: AI Trend
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header11_1752144296628.jpg
+---
+
+# The Context Window Revolution Has Arrived: AI can finally remember everything.
+
+For years, AI chatbots were brilliant goldfish—impressive for a moment, forgetful the next. Long conversations? Lost. Context? Gone. That wasn’t a bug. It was a limit called the *context window*.
+
+But in 2024–2025, something snapped. Models like GPT-4, Gemini 1.5 Pro, and Meta&#x27;s Llama 4 Scout expanded context windows from a few thousand tokens to over **10 million**.
+
+That’s not just progress. That’s a paradigm shift.
+
+## Why It Matters
+
+A million tokens = ~750,000 words. Enough to:
+- Store entire books, codebases, medical histories
+- Understand long conversations, full documents, entire legal cases
+- Enable memory-based reasoning, synthesis, and personalization
+
+And it’s not just about size—it’s about speed, cost, and **what becomes possible**.
+
+## What Made It Possible
+
+Breakthroughs that rewrote the AI playbook:
+- **FlashAttention**: Memory-efficient attention mechanisms
+- **Sparse Attention** (BigBird, Longformer): Smarter, faster context
+- **ALiBi &amp; RoPE**: Position encoding that actually generalizes
+- **State-space models**: Linear-time reasoning without traditional attention
+
+## The Race to Infinite Memory
+
+- **Google Gemini 1.5 Pro**: 1M tokens
+- **OpenAI GPT-4.1**: Efficient scaling, multi-modal reasoning
+- **Meta Llama 4 Scout**: Open-source, 10M tokens, context for days
+
+Everyone’s building bigger brains—but only a few can afford to use them.
+
+## What’s the Catch?
+
+- 1M-token queries can cost $30+
+- More memory ≠ better reasoning (risk of recency bias, hallucinations)
+- Requires massive hardware—out of reach for many
+
+## What’s Next
+
+- **Streaming memory**: Models that never forget
+- **Hybrid RAG + long context**: Infinite context + external search
+- **Context-native hardware**: Chips optimized for memory-based AI
+
+## Tooling for the New Era
+
+If you&#x27;re building for long-context AI, you need infrastructure that can keep up.
+
+That’s why we built **Context Space** — an open-source framework that empowers developers to create truly context-aware AI systems.
+
+&gt; [Explore Context Space](https://github.com/context-space/context-space)
+
+The age of forgetting is over.
+The age of perfect memory has begun.
+</content>
+    <summary>--- id: context-window title: The Context Window Revolution Has Arrived: AI can ...</summary>
+    <category term="AI Trend"/>
+  </entry>
+
+  <entry>
+    <title>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</id>
+    <content type="html">
+---
+id: hidden-breakthrough
+title: &quot;The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution&quot;
+description: As enterprise costs soar, the context caching revolution is redefining LLM economics. Breakthroughs like semantic caching, product quantization, and intermediate activation storage are slashing inference costs.
+publishedAt: 2025-07-09
+category: AI Tech
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header09_1752144248882.jpg
+---
+
+# The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution
+
+In 2025, AI deployment isn’t being bottlenecked by model size or compute—it’s being throttled by memory. Specifically, by the massive overhead of redundant context processing that LLMs struggle to handle efficiently. Welcome to the context caching revolution.
+
+## The Real Cost of Ignoring Context
+
+While OpenAI bills north of $80,000 per quarter are becoming common for enterprises using LLMs at scale, new breakthroughs are proving those numbers aren&#x27;t inevitable.
+
+Recent research shows:
+- 3.5–4.3× compression of key-value (KV) caches
+- 5.7× faster time-to-first-token
+- 70–80% reduction in inference cost
+
+How? Through **intelligent context caching**—a new class of infrastructure built to optimize how context is stored, retrieved, compressed, and reused across interactions.
+
+## The Memory Wall: AI&#x27;s Quiet Crisis
+
+Transformers store a KV cache that grows with sequence length. At scale, this becomes a budget-killer.
+
+&gt; A single 16K token session with Llama-70B can consume **25GB of memory**—just for context.
+
+This isn&#x27;t just a hardware problem. It&#x27;s a systems design problem. One where smarter context reuse strategies can achieve massive efficiency gains without touching your model weights.
+
+## Breakthroughs from the Research Frontier
+
+Between 2024 and 2025, we’ve seen a cascade of innovations:
+
+### 1. **Semantic Caching**
+Projects like *ContextCache* from the University of Hong Kong introduced multi-stage retrieval that combines vector similarity with self-attention refinement. The result?
+
+- +17% F-score in hit detection
+- ~10× latency reduction
+- Better-than-human context matching
+
+### 2. **Product Quantization (PQCache)**
+From Peking University, PQCache adapts database-style compression to AI memory, achieving:
+
+- 3.5–4.3× memory savings
+- Minimal quality loss
+- Plug-and-play integration into retrieval pipelines
+
+### 3. **Intermediate Activation Storage (HCache)**
+MIT’s HCache ditches raw KV storage and instead caches activations between layers, reducing compute overhead 6× and I/O 2×—a game changer for inference at scale.
+
+## Real-World Impact: Enterprise Case Studies
+
+- **NVIDIA’s TensorRT-LLM** saw up to 5× TTFT gains via early cache reuse.
+- **Microsoft’s CacheGen** achieved 3.2–4.3× delay reduction on Azure workloads.
+- **vLLM’s open-source engine** hit 14–24× throughput improvements by optimizing memory layout.
+
+These are no longer research experiments—they’re **production-grade systems** delivering measurable ROI.
+
+## You Need a Context Infrastructure Layer to scale smarter
+
+As models scale, your infra must scale smarter.
+
+Traditional prompt engineering is reaching diminishing returns. What companies now need is **context engineering**—the discipline of building systems that:
+
+- Compress intelligently
+- Retrieve fast
+- Maintain semantic integrity
+
+And that’s why we built **Context Space**.
+
+## Introducing Context Space: The Infrastructure Layer for Context Engineering
+
+Context Space is the **ultimate context engineering infrastructure**, starting from **MCP and integrations**.
+
+It’s designed for:
+
+- **Caching that adapts** to your workload
+- **Retrieval that understands** your use case
+- **Compression that saves** compute without degrading experience
+
+&gt; We’ve already launched our first module: **Context Provider Integrations**, a plug-and-play system for context integrations.
+
+It’s open. And it’s built for the next generation of AI-native applications.
+
+---
+
+## The Context Engineering Mandate
+
+The time for proof-of-concept is over.
+
+In a world where every company becomes an AI company, **those who master context will win**—not by building bigger models, but by building smarter systems around them.
+
+If you’re serious about LLMs in production, don’t just fine-tune. Don’t just prompt. **Engineer the context.**
+
+And start with [Context Space](https://github.com/context-space/context-space).
+
+---
+
+*Note: This article synthesizes research from HKU, PKU, MIT, NVIDIA, Microsoft, and the vLLM project to provide a strategic overview of next-gen LLM deployment infrastructure.*
+</content>
+    <summary>--- id: hidden-breakthrough title: The Hidden Breakthrough Transforming AI Econo...</summary>
+    <category term="AI Tech"/>
+  </entry>
+
+  <entry>
+    <title>The New Stack for AI Builders：Memory + Emotion + Context</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/</id>
+    <content type="html">
+---
+id: new-stack
+title: The New Stack for AI Builders：Memory + Emotion + Context
+description: &quot;As local models become cheaper and privacy tech matures, user expectations are shifting toward AI that feels more human. &quot;
+publishedAt: 2025-07-09
+category: AI Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header04_1752144309658.jpg
+---
+
+# The New Stack for AI Builders：Memory + Emotion + Context
+
+*Yesterday, I asked GPT-4 to help me write a work email to a colleague.*
+
+The response was technically perfect: clean grammar, polished structure, polite tone. But something felt off.
+
+It lacked the subtle understanding of our working relationship—the accumulated history, unspoken dynamics, and tone adjustments I’ve learned over time. It felt sterile.
+
+Here’s the fundamental problem: **Current LLMs operate in isolation**. Each conversation exists in a vacuum. They don’t remember yesterday’s context, adapt to our evolving needs, or grow with us over time.
+
+This isn’t a technical limitation — it’s an architectural decision. And it’s the wrong one.
+
+## The Context-Driven Revolution: Three Core Principles
+
+### 1. Persistent Relationship Memory
+
+Human intelligence builds on context. You don’t reintroduce yourself to a friend every time you meet. Context-aware AI should work the same way.
+
+**Traditional AI**
+
+&gt; User: &quot;I&#x27;m stressed about my presentation tomorrow&quot;
+&gt;
+&gt; AI: &quot;Here are some general tips for managing presentation anxiety...&quot;
+
+**Context-Driven AI**
+
+&gt; User: &quot;I&#x27;m stressed about my presentation tomorrow&quot;
+&gt;
+&gt; AI: &quot;You mentioned this client presentation last week. Given how well you handled the Johnson account and your tendency to over-prepare, let’s focus on building your confidence instead of adding more content.&quot;
+
+This isn’t just personalization. It’s **relational intelligence**.
+
+### 2. Situational Adaptation
+
+Humans instinctively adjust their tone based on context. A conversation with your boss feels different than one with a close friend. Context-aware AI should mirror this adaptability.
+
+**Example Situational Framework:**
+
+* **Professional**: Formal tone, outcome-focused, grounded in data
+* **Personal**: Conversational tone, emotional support, storytelling
+* **Learning**: Curious tone, scaffolded feedback, Socratic prompting
+
+Context-Driven AI shifts style dynamically—not just content.
+
+### 3. Emotional Continuity
+
+Perhaps most critically, Context-Driven AI should understand and track emotional patterns over time. If I’ve been consistently stressed about deadlines, don’t just give tips—proactively help me manage the root cause.
+
+A good assistant doesn’t just listen. It remembers how you feel.
+
+## Building Context-Driven AI: A Technical Blueprint
+
+### Layer 1: Contextual Memory Architecture
+
+Move from stateless interactions to persistent, evolving memory graphs:
+
+* User history and recurring themes
+* Emotional triggers and sentiment patterns
+* Preference tracking and communication styles
+* Trust levels and relational dynamics
+
+### Layer 2: Situational Inference Engine
+
+Understand the context of *this moment*:
+
+* Tone of voice, urgency, emotional signals
+* Time of day, platform, previous session intent
+* Goals: Is this task-oriented, exploratory, or emotional?
+
+### Layer 3: Adaptive Response Generation
+
+Response generation becomes:
+
+* Tone-matched to the relationship context
+* Emotionally calibrated to past and present sentiment
+* Enriched with relevant memory
+* Aligned with user goals over time
+
+This isn&#x27;t just better output. It&#x27;s deeper interaction.
+
+## Real-World Examples: Where Context Changes Everything
+
+### Personal AI Assistant
+
+&gt; Instead of: &quot;Set a reminder for 9 AM&quot;
+&gt;
+&gt; Try: &quot;You&#x27;ve missed your workout three times this week. Want me to reschedule it to 8:45 so you’re less likely to skip it?&quot;
+
+### Professional AI Consultant
+
+&gt; Instead of: &quot;Here’s a generic project timeline&quot;
+&gt;
+&gt; Try: &quot;Given Sarah’s vacation next week and your team’s average delivery speed, I’d suggest moving the MVP milestone by 3 days to avoid burnout.&quot;
+
+### Educational AI Tutor
+
+&gt; Instead of: &quot;Incorrect. The answer is...&quot;
+&gt;
+&gt; Try: &quot;This is similar to last week’s topic you struggled with. Remember how we used the visual diagram to make it click? Let’s try that again.&quot;
+
+## The Privacy Paradox: Earning Trust in Context-Aware Systems
+
+**Here’s the hard truth:** context requires access to user data.
+
+But it doesn’t have to come at the cost of privacy. The key lies in transparency and control:
+
+* **Permission Layers**: Users define what the AI can remember
+* **Time-Bound Memory**: Set expiry dates on sensitive context
+* **Relationship Settings**: Control how personal the AI becomes
+* **Context Logs**: Always see what the AI knows and why it used it
+
+Privacy isn’t the enemy of memory—it’s the foundation.
+
+## 3 Forces Reshaping the Future of AI
+
+Three trends are converging:
+
+1. **Local Model Efficiency**: LLMs are becoming cheap to run on-device
+2. **Privacy Tech Maturity**: Encrypted storage, federated learning, and secure tokens are production-ready
+3. **User Expectations**: People are tired of AIs that forget them every time
+
+We’ve seen this before. The companies that nailed personalization in Web 2.0 dominated a decade of digital business.
+
+The same will be true for context in the AI era.
+</content>
+    <summary>--- id: new-stack title: The New Stack for AI Builders：Memory + Emotion + Contex...</summary>
+    <category term="AI Tools"/>
+  </entry>
+
+  <entry>
+    <title>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/</id>
+    <content type="html">
+---
+id: 3-approaches
+title: &quot;The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning&quot;
+description: &quot;AI’s future hinges on memory. Three approaches are leading the charge: native memory systems (like Memory³) that give models long-term recall, context injection (RAG) for dynamic knowledge retrieval, and fine-tuning for domain-specific precision.&quot;
+publishedAt: 2025-07-09
+category: AI Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header08_1752144322494.jpg
+---
+
+# The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning
+
+In 2025, the most powerful AI systems will be defined by how well they remember.
+
+While ChatGPT and Claude have stunned the world with natural language fluency, a fundamental limitation has held them back: **statelessness**. They forget. Every time.
+
+Now, that’s changing — thanks to the rise of controllable memory systems.
+
+In this article, we break down the 3 leading approaches shaping the future of AI memory: **native memory architectures**, **context injection**, and **fine-tuning**.
+
+## 1. Native Memory Systems: Teaching Models to Store Their Own Past
+
+This is the closest we’ve come to giving LLMs a brain.
+
+Breakthroughs like **Memory³** and **Mem0** have introduced the concept of **explicit memory**—a third tier of knowledge, alongside model parameters (implicit) and in-context tokens (working memory).
+
+They mimic human memory systems through:
+
+- **Memory Hierarchies** (hot/cold tiers)
+- **Sparse Attention** to compress info 1,800x
+- **Dynamic Forgetting** and updating strategies
+
+A 2.4B parameter model using Memory³ can outperform models twice its size—thanks to efficient knowledge management.
+
+**Enterprise Impact:**
+Databricks reported 91% lower latency and 90% reduction in token costs using this architecture.
+
+## 2. Context Injection: The RAG Era Goes Big
+
+The most popular approach today is also the easiest to implement: **context injection**, aka **Retrieval-Augmented Generation (RAG)**.
+
+Instead of storing memory inside the model, RAG systems retrieve external knowledge and inject it into prompts on the fly. With models like GPT-4o and Gemini 1.5 now supporting **million-token windows**, the scale of context injection has exploded.
+
+Popular use cases:
+- Analyzing 8 years of earnings calls
+- Reviewing entire legal archives
+- Synthesizing medical records + literature
+
+**Why enterprises love it:**
+- Easier to control and update
+- Predictable costs
+- No need to retrain the model
+
+## 3. Fine-Tuning: When You Need Depth, Not Breadth
+
+While RAG and native memory dominate general-purpose applications, **fine-tuning** still rules in narrow, regulated domains.
+
+Fine-tuned models are ideal when:
+- You need perfect tone or brand voice
+- You’re operating under strict regulatory regimes
+- Your use case requires deep internal knowledge
+
+Research shows comprehension-focused fine-tuning retains 48% of new knowledge—compared to just 17% for shallow tasks.
+
+The downside? It’s costly and inflexible. But for sectors like finance, law, and healthcare, the trade-off is often worth it.
+
+## Which Memory Strategy Should You Use?
+
+| Goal                     | Best Approach         |
+|--------------------------|------------------------|
+| Fast time-to-market      | Context Injection (RAG) |
+| Domain precision         | Fine-tuning             |
+| Long-term coherence      | Native Memory Systems   |
+
+Most production systems are adopting **hybrid memory architectures**, combining all three—just like JPMorgan, Microsoft, and Mayo Clinic.
+
+&gt; “The organizations that win in AI won’t just have bigger models—they’ll have better memory systems.”
+
+If you’re building AI Agents with large contexts, [**Context Space**](https://github.com/context-space/context-space) is the open-source infrastructure you’ve been waiting for.
+
+It provides:
+
+- **Plug-and-play Integrations** — with GitHub, Zoom, Figma, Hubspot, and more
+- **Secure Credential Management** — OAuth 2.0 authentication with HashiCorp Vault storage
+- **Developer-first Experience** — RESTful APIs, comprehensive docs, and enterprise-grade reliability
+
+Whether you&#x27;re working on a lightweight chatbot or an enterprise-grade assistant, **Context Space** lets you orchestrate context like a pro.
+
+## The Future Is Memory-Native AI
+
+The memory revolution isn’t coming—it’s already here.
+
+Leading researchers from Stanford to OpenAI agree: the next generation of AI will not just &quot;understand prompts&quot;—it will remember who you are, what you care about, and how to help you better over time.
+
+Projects like **[Context Space](https://github.com/context-space/context-space)** make that future real.
+</content>
+    <summary>--- id: 3-approaches title: The Top 3 Approaches Powering the Future of AI Memor...</summary>
+    <category term="AI Tools"/>
+  </entry>
+
+  <entry>
+    <title>Top 10 Context Engineering Tools Powering Next-Gen AI</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/</id>
+    <content type="html">
+---
+id: 10-tools
+title: Top 10 Context Engineering Tools Powering Next-Gen AI
+description: As AI shifts from prompt-based tricks to context-aware intelligence, ten open-source tools are leading the charge. From MCP and QwenLong-CPRS for scalable memory and compression, to LangChain, Chroma, and Redis for managing, retrieving, and caching context.
+publishedAt: 2025-07-09
+category: AI Tools
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/header06_1752144332236.jpg
+---
+
+# Top 10 Context Engineering Tools Powering Next-Gen AI
+
+&gt; &quot;I really like the term &#x27;context engineering&#x27; over &#x27;prompt engineering.&#x27; It describes the core skill better: the art of providing all the context for the task to...&quot; — Andrej Karpathy
+
+0ur team identified 10 tools that consistently elevate AI systems to new levels of performance. Each tool plays a unique Value in how we provide intelligent systems with context—ranging from memory storage protocols to compression, retrieval, and caching strategies.
+
+## 1. Model Context Protocol (MCP)
+
+**Overview**: Open-source protocol by Anthropic for connecting AI models to external data sources—like a USB‑C port for context delivery  ￼.
+**Value**: Enables standard, secure, and interoperable context streaming from systems like GitHub or Slack.
+**Cases**: OpenAI, Google DeepMind, Microsoft Windows Native support for MCP ().
+**Feedback**: Early adopters report fast integrations and improved agent capability; some caution regarding permissions and prompt-injection risks ().
+
+## 2. QwenLong‑CPRS
+
+**Overview**: Dynamic context compression framework from Alibaba, compressing tokens via multi-granularity guidance ().
+**Value**: Shrinks large documents (up to millions of words) into actionable snippets.
+**Cases**: Outperformed GPT‑4o and Claude on massive-context benchmarks by ~19 points ().
+**Feedback**: Strong academic validation; still awaiting broader open-source integrations beyond lab settings.
+
+## 3. LangChain’s ConversationBufferWindowMemory
+
+**Overview**: Slide a fixed-size “window” of recent messages to manage chat history.
+**Value**: Maintains conversation relevance by trimming old context dynamically.
+**Cases**: Widely used in chatbot pipelines to prevent context overflow.
+**Feedback**: Developers report significant stability improvements in multi-turn dialogues.
+
+## 4. Chroma Vector Database
+
+**Overview**: Embeddings-first database optimized for semantic search.
+**Value**: Retrieves related documents even when phrasing doesn’t match exactly.
+**Cases**: Legal tech switching from Elasticsearch saw 156% better results and increased billable hours.
+**Feedback**: Fast setup and strong integration; success metrics backed by client case studies.
+
+## 5. Anthropic’s Constitutional AI
+
+**Overview**: A model auditing itself by checking for context consistency.
+**Value**: Reduces hallucinations by maintaining reasoning constraints.
+**Cases**: Internally used by Anthropic and other labs to enhance reliability.
+**Feedback**: Detailed benchmarks show ~60–70% fewer context errors, though proprietary.
+
+## 6. Pinecone’s Metadata Filtering
+
+**Overview**: Layered vector search with structured filters.
+**Value**: Enables precise context retrieval, e.g., complaints from Q4 2023.
+**Cases**: Support systems use it for improved resolution relevance.
+**Feedback**: Reported 89% relevance gains in client trials.
+
+## 7. LlamaIndex’s Context Augmentation
+
+**Overview**: Expands prompt context via automatic retrieval.
+**Value**: Proactively injects related knowledge during generation.
+**Cases**: Common in research workflows; cited in academic tutorials.
+**Feedback**: Developer praise for automation, though occasional irrelevant adds reported.
+
+## 8. Weaviate’s GraphQL Context Queries
+
+**Overview**: Returns context structured by concept relationships.
+**Value**: Improves reasoning by capturing semantic links.
+**Cases**: Research projects needing relationship-aware retrieval.
+**Feedback**: Valuable in prototypes; performance varies based on graph design.
+
+## 9. OpenAI Function Calling
+
+**Overview**: Enables LLMs to call functions for real-time context.
+**Value**: Provides up-to-date info via API queries.
+**Cases**: Used in production for dynamic integrations (e.g., weather, finance).
+**Feedback**: Reliability depends on API performance; widely adopted.
+
+## 10. Redis for Context Caching
+
+**Overview**: In-memory cache optimized for quick context lookups.
+**Value**: Reduces latency and repeats repetitions.
+**Cases**: Internal systems cache session data in milliseconds.
+**Feedback**: Simple to implement; yields orders-of-magnitude performance gains in response times.
+
+## Implementation Strategy: 30-Day Context Engineering Roadmap
+	1.	Week 1: Audit context flow—identify where context is lost.
+	2.	Week 2: Integrate MCP for persistent memory with minimal setup.
+	3.	Week 3: Add semantic retrieval—Chroma or Pinecone depending on your needs.
+	4.	Week 4: Introduce caching and compression—Redis for speed, QwenLong for scale.
+
+## You can Start With Context Space
+
+Context Space is our open-source framework that complements the above tools:
+- Effortless MCP Integration: OAuth-based setup—no YAML headaches.
+- Enterprise-Grade Security: JWTs, token rotation, secure sandboxing.
+- Production-Ready: Monitoring, extensibility, scalable context pipelines.
+- 14+ Built-in Integrations: Popular DBs, caches, APIs—plug and play.
+- Future-Ready: Designed from day one for context-first engineering.
+
+---
+
+Context engineering isn’t hype—it’s already delivering real improvements in reliability, fidelity, and performance. Companies that invest in context tools today will be the leaders in intelligent AI tomorrow.
+
+Start with Context Space, connect a couple of tools, measure impact, and you’ll see how context-first architectures outperform even the most powerful models.
+
+*Note: Performance claims are drawn from published benchmarks or pilot case studies where available; where data remains based on in-house testing, this is clearly noted.*
+</content>
+    <summary>--- id: 10-tools title: Top 10 Context Engineering Tools Powering Next-Gen AI de...</summary>
+    <category term="AI Tools"/>
+  </entry>
+
+  <entry>
+    <title>Two Approaches to Context Engineering: Manus vs Context Space</title>
+    <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/"/>
+    <updated>2025-07-24T04:13:24.000Z</updated>
+    <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/</id>
+    <content type="html">
+---
+id: manus-vs-context-space
+title: &quot;Two Approaches to Context Engineering: Manus vs Context Space&quot;
+description: &quot;An in-depth comparison of how Manus and Context Space tackle context engineering from different angles - runtime optimization vs infrastructure building - and why both approaches are essential for the future of AI agents.&quot;
+publishedAt: 2025-07-19
+category: Context Engineering
+author: Context Space Team
+image: https://cdn-bucket.tos-cn-hongkong.volces.com/resources/20250719132947510_1752902987791.png
+---
+
+# Two Approaches to Context Engineering: Manus vs Context Space
+
+The emergence of context engineering as a critical discipline in AI development has sparked innovation across the industry. Recently, the team at [Manus AI shared their hard-earned lessons](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) from building production-grade AI agents, offering valuable insights into the practical challenges of context management.
+
+Reading their post felt like looking in a mirror—and yet seeing a completely different reflection. Both Manus and Context Space are deeply invested in solving the context engineering puzzle, but we&#x27;re approaching it from fundamentally different angles. This presents a fascinating case study in how the same core problem can spawn complementary solutions.
+
+## Manus: Runtime Optimization Masters
+
+Manus has taken a **performance-first approach** to context engineering, focusing on how to make the most efficient use of context within existing LLM architectures. Their six core principles reveal a team that has wrestled with the practical realities of production AI systems:
+
+### The Manus Philosophy
+- **KV-Cache Optimization**: Treating cache hit rates as the most critical metric for production agents
+- **Tool Masking**: Using logits manipulation to control tool availability without breaking cache coherence
+- **File System as Context**: Leveraging persistent storage as unlimited, externalized memory
+- **Attention Manipulation**: Using techniques like todo.md recitation to guide model focus
+- **Error Preservation**: Keeping failure traces in context to enable learning
+- **Diversity Injection**: Adding controlled variation to prevent pattern lock-in
+
+This approach is deeply technical, performance-conscious, and laser-focused on extracting maximum value from current LLM capabilities.
+
+## Context Space: Infrastructure-First Foundation
+
+Context Space, by contrast, has taken an **infrastructure-first approach**, focusing on making context engineering accessible, secure, and scalable for the broader developer community. Our core philosophy centers around:
+
+### The Context Space Philosophy
+- **Tool-First Architecture**: Encapsulating all capabilities—including memory and orchestration—as standardized, observable tools
+- **Unified API Layer**: Providing a single, consistent interface that abstracts away service-specific complexities
+- **Enterprise Security**: Implementing Vault-secured credential management and just-in-time token access
+- **Developer Experience**: Building seamless integrations with IDEs and development workflows
+- **Ecosystem Building**: Creating a platform where tools can be discovered, shared, and composed
+
+Where Manus optimizes the runtime, Context Space builds the foundation.
+
+## The Common Ground: Shared Insights
+
+Despite our different approaches, the convergence of insights is striking:
+
+### 1. **Context is King**
+Both teams recognize that the future of AI isn&#x27;t just about better models—it&#x27;s about better context management. As Manus puts it: &quot;How you shape the context ultimately defines how your agent behaves.&quot;
+
+### 2. **Production Reality Bites**
+Neither team is building academic demos. We&#x27;re both grappling with real-world constraints: cost optimization, latency requirements, error handling, and scale challenges that only emerge in production environments.
+
+### 3. **Tool Explosion is Real**
+Both systems face the challenge of managing growing tool ecosystems. Whether it&#x27;s Manus&#x27;s hundreds of &quot;mysterious tools&quot; or Context Space&#x27;s expanding integration catalog, tool management is a shared pain point.
+
+### 4. **Memory Matters**
+Both approaches recognize that context windows, no matter how large, aren&#x27;t enough. Manus uses the file system as externalized memory; Context Space encapsulates memory as a standardized tool.
+
+## The Fundamental Divide: Runtime vs Infrastructure
+
+The key difference lies in **where we intervene in the AI stack**:
+
+| Dimension | Manus | Context Space |
+|-----------|--------|---------------|
+| **Focus** | Runtime optimization | Infrastructure building |
+| **Target** | Agent performance | Developer productivity |
+| **Approach** | Optimize existing systems | Build new foundations |
+| **Scope** | Internal efficiency | Ecosystem enablement |
+| **Metrics** | KV-cache hit rates, latency | Integration time, developer adoption |
+
+### Manus: The Performance Specialists
+Manus dives deep into LLM internals—KV-cache mechanics, attention patterns, logits manipulation. They&#x27;re asking: &quot;How can we make this agent run faster, cheaper, and more reliably?&quot;
+
+### Context Space: The Platform Builders
+Context Space focuses on developer experience and ecosystem growth. We&#x27;re asking: &quot;How can we make it easier for thousands of developers to build sophisticated agents without reinventing the wheel?&quot;
+
+## The Beautiful Complementarity
+
+What&#x27;s fascinating is how these approaches complement rather than compete:
+
+### **Manus optimizes the &quot;how&quot;**
+Their insights about KV-cache optimization, attention manipulation, and error handling are invaluable for any production agent system. These are the kinds of performance patterns that should be baked into every agent runtime.
+
+### **Context Space standardizes the &quot;what&quot;**
+Our focus on tool standardization, unified APIs, and developer infrastructure creates the foundation that makes Manus-style optimizations possible at scale.
+
+## A Shared Vision for the Future
+
+Both approaches point toward the same inevitable future: **sophisticated, context-aware AI agents operating at production scale**. But they represent different layers of the same stack:
+
+- **Infrastructure Layer (Context Space)**: Standardized tools, secure integrations, developer experience
+- **Runtime Layer (Manus)**: Performance optimization, attention management, execution efficiency
+- **Application Layer**: The actual AI agents that users interact with
+
+The agents of tomorrow will need both: the solid foundation that Context Space provides and the runtime optimizations that Manus masters.
+
+## What This Means for the Industry
+
+The parallel evolution of these approaches suggests that context engineering is maturing as a discipline. We&#x27;re moving beyond simple prompt engineering toward a more sophisticated understanding of how to architect AI systems for real-world deployment.
+
+The fact that two teams, working independently, have arrived at such complementary insights validates the importance of this work. Context engineering isn&#x27;t a niche concern—it&#x27;s becoming the foundation of all serious AI development.
+
+## Building the Future Together
+
+As we&#x27;ve learned from studying Manus&#x27;s approach, there&#x27;s tremendous value in cross-pollination between different context engineering philosophies. Some of their runtime optimization patterns could inform how we design Context Space&#x27;s SDK. Similarly, our tool standardization approach might inspire new ways to think about agent architecture.
+
+The future of AI agents will be built by teams that understand both the infrastructure challenges and the runtime optimizations. Whether you&#x27;re building the next Manus or integrating with Context Space, we&#x27;re all part of the same mission: making AI agents reliable, efficient, and genuinely useful.
+
+The context engineering revolution is just beginning. Let&#x27;s build it together.
+
+---
+
+**Ready to explore context engineering for yourself?**
+
+👉 **[Check out Context Space on GitHub](https://github.com/context-space/context-space)** and see how we&#x27;re building the infrastructure layer
+
+👉 **[Read Manus&#x27;s insights](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus)** to understand the runtime optimization layer
+
+The future needs both approaches. Which layer will you build?
+</content>
+    <summary>--- id: manus-vs-context-space title: Two Approaches to Context Engineering: Man...</summary>
+    <category term="Context Engineering"/>
+  </entry>
+
+  <entry>
+    <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
     <content type="html">
 ---
@@ -191,7 +2209,7 @@ Join the movement to build better memory and better AI.
   <entry>
     <title>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-the-black-box-why-we-built-context-space-as-a-tool/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/beyond-the-black-box-why-we-built-context-space-as-a-tool/</id>
     <content type="html">
 ---
@@ -270,7 +2288,7 @@ We&#x27;re just getting started. If you believe in a future where AI development
   <entry>
     <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
     <content type="html">
 ---
@@ -469,7 +2487,7 @@ The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending
   <entry>
     <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
     <content type="html">
 ---
@@ -622,7 +2640,7 @@ The future of AI agents will be built by teams that understand these production 
   <entry>
     <title>Context Engineering: The Missing Foundation Every AI Developer Needs</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-the-missing-foundation-every-ai-developer-needs/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/context-engineering-the-missing-foundation-every-ai-developer-needs/</id>
     <content type="html">
 ---
@@ -884,7 +2902,7 @@ Context Space provides robust third-party service integrations today, with advan
   <entry>
     <title>Forget prompt engineering. Context is the new compute</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/forget-prompt-engineering/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/forget-prompt-engineering/</id>
     <content type="html">
 ---
@@ -1040,7 +3058,7 @@ I’d love to hear how you&#x27;re tackling this.
   <entry>
     <title>How Context Engineering Is Quietly Replacing Prompt Hacking</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/how-context-engineering-is-quietly-replacing-prompt-hacking/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/how-context-engineering-is-quietly-replacing-prompt-hacking/</id>
     <content type="html">
 ---
@@ -1195,7 +3213,7 @@ They’ll be the ones who engineer the most intelligent environments.
   <entry>
     <title>Not Just Another Wrapper：The Engineering Behind Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/not-just-another-wrapper/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/not-just-another-wrapper/</id>
     <content type="html">
 ---
@@ -1257,7 +3275,7 @@ This is our commitment to the developer community: to provide a foundation you c
   <entry>
     <title>RAG Isn’t Enough. Context Engineering is how real AI gets built</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/rag-isn/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/rag-isn/</id>
     <content type="html">
 ---
@@ -1340,7 +3358,7 @@ The winners won’t be those who prompt better—they’ll be those who engineer
   <entry>
     <title>The Context Window Revolution Has Arrived: AI can finally remember everything</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</id>
     <content type="html">
 ---
@@ -1416,7 +3434,7 @@ The age of perfect memory has begun.
   <entry>
     <title>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</id>
     <content type="html">
 ---
@@ -1530,7 +3548,7 @@ And start with [Context Space](https://github.com/context-space/context-space).
   <entry>
     <title>The New Stack for AI Builders：Memory + Emotion + Context</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-new-stack-for-ai-builders/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-new-stack-for-ai-builders/</id>
     <content type="html">
 ---
@@ -1675,7 +3693,7 @@ The same will be true for context in the AI era.
   <entry>
     <title>The problem with AI agents isn’t the model, it’s missing context (and we built the fix)</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-problem-with-ai-agents-isn/</id>
     <content type="html">
 ---
@@ -1731,7 +3749,7 @@ We are calling on everyone who has felt this frustration. Everyone who believes 
   <entry>
     <title>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-top/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/the-top/</id>
     <content type="html">
 ---
@@ -1837,7 +3855,7 @@ Projects like **[Context Space](https://github.com/context-space/context-space)*
   <entry>
     <title>Top 10 Context Engineering Tools Powering Next-Gen AI</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/top/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/top/</id>
     <content type="html">
 ---
@@ -1956,7 +3974,7 @@ Start with Context Space, connect a couple of tools, measure impact, and you’l
   <entry>
     <title>Two Approaches to Context Engineering: Manus vs Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/23/two-approaches-to-context-engineering-manus-vs-context-space/"/>
-    <updated>2025-07-23T06:42:18.000Z</updated>
+    <updated>2025-07-23T06:42:26.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/23/two-approaches-to-context-engineering-manus-vs-context-space/</id>
     <content type="html">
 ---
