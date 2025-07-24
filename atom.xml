@@ -3,7 +3,7 @@
   <title>技术博客</title>
   <link href="https://zhangxin15435.github.io/rss_autopost"/>
   <link href="https://zhangxin15435.github.io/rss_autopost/atom.xml" rel="self"/>
-  <updated>2025-07-24T04:24:33.000Z</updated>
+  <updated>2025-07-24T04:42:31.000Z</updated>
   <id>https://zhangxin15435.github.io/rss_autopost/</id>
   <author>
     <name>Blog Author</name>
@@ -13,7 +13,7 @@
   <entry>
     <title>Beyond Integrations: How to Build the Future of AI with Context Engineering</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-integrations-how-to-build-the-future-of-ai-with-context-engineering/</id>
     <content type="html">
 # Beyond Integrations: How to Build the Future of AI with Context Engineering
@@ -180,7 +180,7 @@ Join the movement to build better memory and better AI.
   <entry>
     <title>Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/beyond-the-black-box-why-we-built-context-space-as-a-tool/</id>
     <content type="html">
 # Beyond the Black Box: Why We Built Context Space as a Tool-First Infrastructure
@@ -249,7 +249,7 @@ We&#x27;re just getting started. If you believe in a future where AI development
   <entry>
     <title>Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/building-developer-tools-for-context-engineering-what-manus-taught-us-and-what-we/</id>
     <content type="html">
 # Building Developer Tools for Context Engineering: What Manus Taught Us and What We&#x27;re Building
@@ -436,7 +436,7 @@ The &quot;Stochastic Gradient Descent&quot; era of context engineering is ending
   <entry>
     <title>Context Engineering for AI Agents: Key Lessons from Manus</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-for-ai-agents-key-lessons-from-manus/</id>
     <content type="html">
 # Context Engineering for AI Agents: Key Lessons from Manus
@@ -577,7 +577,7 @@ The future of AI agents will be built by teams that understand these production 
   <entry>
     <title>Context Engineering: The Missing Foundation Every AI Developer Needs</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/context-engineering-the-missing-foundation-every-ai-developer-needs/</id>
     <content type="html">
 # Context Engineering: The Missing Foundation Every AI Developer Needs
@@ -829,7 +829,7 @@ Context Space provides robust third-party service integrations today, with advan
   <entry>
     <title>Forget prompt engineering. Context is the new compute</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/forget-prompt-engineering/</id>
     <content type="html">
 # Forget prompt engineering. Context is the new compute.
@@ -975,7 +975,7 @@ I’d love to hear how you&#x27;re tackling this.
   <entry>
     <title>How Context Engineering Is Quietly Replacing Prompt Hacking</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/how-context-engineering-is-quietly-replacing-prompt-hacking/</id>
     <content type="html">
 # How Context Engineering Is Quietly Replacing Prompt Hacking
@@ -1118,7 +1118,7 @@ They’ll be the ones who engineer the most intelligent environments.
   <entry>
     <title>Not Just Another Wrapper：The Engineering Behind Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/not-just-another-wrapper/</id>
     <content type="html">
 # Not Just Another Wrapper: The Engineering Deep Dive into Context Space
@@ -1170,7 +1170,7 @@ This is our commitment to the developer community: to provide a foundation you c
   <entry>
     <title>RAG Isn’t Enough. Context Engineering is how real AI gets built</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/rag-isn/</id>
     <content type="html">
 # RAG Isn’t Enough. Context Engineering is how real AI gets built
@@ -1243,7 +1243,7 @@ The winners won’t be those who prompt better—they’ll be those who engineer
   <entry>
     <title>The Context Window Revolution Has Arrived: AI can finally remember everything</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-context-window-revolution-has-arrived-ai-can-finally-remember-everything/</id>
     <content type="html">
 # The Context Window Revolution Has Arrived: AI can finally remember everything.
@@ -1309,7 +1309,7 @@ The age of perfect memory has begun.
   <entry>
     <title>The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-hidden-breakthrough-transforming-ai-economics-context-caching-revolution/</id>
     <content type="html">
 # The Hidden Breakthrough Transforming AI Economics: Context Caching Revolution
@@ -1409,7 +1409,7 @@ And start with [Context Space](https://github.com/context-space/context-space).
   <entry>
     <title>The New Stack for AI Builders：Memory + Emotion + Context</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-new-stack-for-ai-builders/</id>
     <content type="html">
 # The New Stack for AI Builders：Memory + Emotion + Context
@@ -1544,7 +1544,7 @@ The same will be true for context in the AI era.
   <entry>
     <title>The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/the-top/</id>
     <content type="html">
 # The Top 3 Approaches Powering the Future of AI Memory: Native Memory, Context Injection, and Fine-Tuning
@@ -1640,7 +1640,7 @@ Projects like **[Context Space](https://github.com/context-space/context-space)*
   <entry>
     <title>Top 10 Context Engineering Tools Powering Next-Gen AI</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/top/</id>
     <content type="html">
 # Top 10 Context Engineering Tools Powering Next-Gen AI
@@ -1747,7 +1747,7 @@ Start with Context Space, connect a couple of tools, measure impact, and you’l
   <entry>
     <title>Two Approaches to Context Engineering: Manus vs Context Space</title>
     <link href="https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/"/>
-    <updated>2025-07-24T04:24:33.000Z</updated>
+    <updated>2025-07-24T04:42:31.000Z</updated>
     <id>https://zhangxin15435.github.io/rss_autopost/2025/07/24/two-approaches-to-context-engineering-manus-vs-context-space/</id>
     <content type="html">
 # Two Approaches to Context Engineering: Manus vs Context Space
